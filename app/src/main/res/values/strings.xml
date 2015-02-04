@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">Money Control</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="drawer_open">Slider Menu Opened</string>
     <string name="drawer_close">Slider Menu Closed</string>
@@ -11,14 +10,35 @@
     <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">
         <item>Home</item>
-        <item>Find People</item>
+        <item>Accounts</item>
         <item>Photos</item>
         <item>Communities</item>
         <item>Pages</item>
         <item>What\'s Hot</item>
     </string-array>
 
+    <string-array name="banks_array">
+        <item>Banco de Occidente</item>
+        <item>Banpais</item>
+        <item>Bac</item>
+        <item>Banco Fichosa</item>
+        <item>Banco Lafise</item>
+        <item>Banco Atlantida</item>
+        <item>Banco Azteca</item>
+        <item>Davivienda</item>
+    </string-array>
 
+    <string-array name="currency_array">
+        <item>Lps.</item>
+        <item>Usd</item>
+        <item>Eur</item>
+    </string-array>
+
+    <string-array name="type_array">
+        <item>Ahorro</item>
+        <item>Tarjeta de Credito</item>
+        <item>Tarjeta de Debito</item>
+    </string-array>
     <!-- Nav Drawer List Item Icons -->
     <!-- Keep them in order as the titles are in-->
 

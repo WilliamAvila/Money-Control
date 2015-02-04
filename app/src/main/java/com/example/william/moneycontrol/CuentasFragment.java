@@ -14,13 +14,13 @@ import com.example.william.moneycontrol.R;
 /**
  * Created by william on 1/31/15.
  */
-public class PeopleFragment extends Fragment {
+public class CuentasFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_people, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_cuentas, container, false);
 
 
         Button btnNextScreen = (Button) rootView.findViewById((R.id.btnNextScreen));
@@ -33,6 +33,7 @@ public class PeopleFragment extends Fragment {
                 Intent nextScreen = new Intent(getActivity().getApplicationContext(),SecondScreenActivity.class);
 
                 startActivity(nextScreen);
+
             }
         });
 

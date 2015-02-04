@@ -4,12 +4,163 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/txtLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textSize="16dp"
-        android:text="This is the Second Screen"/>
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Nueva Cuenta"
+        android:id="@+id/textViewNewAccount"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Numero:"
+        android:id="@+id/textViewNumber"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textViewNewAccount"
+        android:layout_toLeftOf="@+id/textViewNewAccount"
+        android:layout_toStartOf="@+id/textViewNewAccount" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Banco:"
+        android:id="@+id/textViewBank"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textViewNumber"
+        android:layout_alignLeft="@+id/textViewNumber"
+        android:layout_alignStart="@+id/textViewNumber" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Moneda:"
+        android:id="@+id/textViewCurrency"
+        android:layout_below="@+id/textViewBank"
+        android:layout_alignLeft="@+id/textViewBank"
+        android:layout_alignStart="@+id/textViewBank"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Saldo Inicial:"
+        android:id="@+id/textViewInitialAmmount"
+        android:layout_below="@+id/textViewCurrency"
+        android:layout_alignLeft="@+id/textViewCurrency"
+        android:layout_alignStart="@+id/textViewCurrency"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Tipo"
+        android:id="@+id/textViewType"
+        android:layout_below="@+id/textViewInitialAmmount"
+        android:layout_alignLeft="@+id/textViewInitialAmmount"
+        android:layout_alignStart="@+id/textViewInitialAmmount"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Descripcion:"
+        android:id="@+id/textViewDescription"
+        android:layout_below="@+id/spinnerType"
+        android:layout_alignLeft="@+id/textViewType"
+        android:layout_alignStart="@+id/textViewType"
+        android:layout_marginTop="30dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:textAlignment="center"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_above="@+id/textViewBank"
+        android:layout_toRightOf="@+id/textViewNumber"
+        android:layout_toEndOf="@+id/textViewNumber" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerBanks"
+        android:layout_above="@+id/textViewCurrency"
+        android:layout_alignLeft="@+id/editText"
+        android:layout_alignStart="@+id/editText" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerCurrency"
+        android:layout_above="@+id/textViewInitialAmmount"
+        android:layout_toRightOf="@+id/textViewCurrency"
+        android:layout_toEndOf="@+id/textViewCurrency" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:padding="1dp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:id="@+id/editText2"
+        android:layout_alignBottom="@+id/textViewInitialAmmount"
+        android:layout_toRightOf="@+id/textViewInitialAmmount"
+        android:layout_alignRight="@+id/editText"
+        android:layout_alignEnd="@+id/editText" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerType"
+        android:layout_alignBottom="@+id/textViewType"
+        android:layout_toRightOf="@+id/textViewType"
+        android:layout_toEndOf="@+id/textViewType" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crear"
+        android:id="@+id/button"
+        android:layout_marginTop="100dp"
+        android:layout_below="@+id/editText3"
+        android:layout_alignRight="@+id/editText2"
+        android:layout_alignEnd="@+id/editText2" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancelar"
+        android:id="@+id/button2"
+        android:layout_alignTop="@+id/button"
+        android:layout_alignLeft="@+id/textViewDescription"
+        android:layout_alignStart="@+id/textViewDescription" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/editText3"
+        android:padding="1dp"
+        android:layout_alignTop="@+id/textViewDescription"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignStart="@+id/editText2"
+        android:hint="Opcional"
+        android:gravity="center"/>
 
 
 </RelativeLayout>
