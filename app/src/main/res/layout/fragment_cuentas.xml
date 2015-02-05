@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Numero Cuenta"
+        android:text="Id Cuenta:"
         android:id="@+id/textView3"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
@@ -49,11 +49,12 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editText"
+        android:gravity="center"
         android:padding="1dp"
         android:layout_above="@+id/textViewBanco"
-        android:layout_alignTop="@+id/textView3"
         android:layout_alignLeft="@+id/btnNextScreen"
-        android:layout_alignStart="@+id/btnNextScreen" />
+        android:layout_alignStart="@+id/btnNextScreen"
+        android:layout_alignTop="@+id/textView3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -79,10 +80,9 @@
         android:layout_height="wrap_content"
         android:text="Ver Cuenta"
         android:id="@+id/button"
-        android:layout_below="@+id/textViewBanco"
+        android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/textViewBanco"
-        android:layout_alignStart="@+id/textViewBanco"
-        android:layout_marginTop="49dp" />
+        android:layout_alignStart="@+id/textViewBanco" />
 
 
 </RelativeLayout>

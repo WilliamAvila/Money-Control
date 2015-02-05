@@ -2,6 +2,7 @@ package com.example.william.moneycontrol;
 
 import android.app.Activity;
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.internal.widget.AdapterViewCompat;
@@ -74,7 +75,7 @@ public class SecondScreenActivity extends Activity implements AdapterView.OnItem
 
     public void IngresarDatos(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
-                "MooneyControl", null, 1);
+                "MoneyControl", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
         String num = etNumero.getText().toString();
         String saldo = etSaldoInicial.getText().toString();
@@ -98,6 +99,28 @@ public class SecondScreenActivity extends Activity implements AdapterView.OnItem
 
         finish();
     }
+
+        public void consultaporNumero(View v) {
+
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"MoneyControl", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+
+
+        String cod = etNumero.getText().toString();
+        Cursor fila = bd.rawQuery(
+                "select SaldoInicial,Descripcion from Cuenta where NumeroCuenta=" + cod, null);
+
+
+        if (fila.moveToFirst()) {
+            etSaldoInicial.setText(fila.getString(0));
+            etDescripcion.setText(fila.getString(1));
+        } else
+            Toast.makeText(this, "No existe cuenta",
+                    Toast.LENGTH_SHORT).show();
+        bd.close();
+    }
+
 
 
 
