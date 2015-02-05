@@ -6,10 +6,10 @@
     <string name="drawer_open">Slider Menu Opened</string>
     <string name="drawer_close">Slider Menu Closed</string>
 
-
     <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">
         <item>Home</item>
+<<<<<<< HEAD
         <item>Accounts</item>
         <item>Photos</item>
         <item>Communities</item>
@@ -39,20 +39,30 @@
         <item>Tarjeta de Credito</item>
         <item>Tarjeta de Debito</item>
     </string-array>
+=======
+        <item>Cuentas</item>
+        <item>Categorías</item>
+        <item>Bancos</item>
+        <item>Préstamos</item>
+        <item>Informes</item>
+        <item>Configuraciones</item>
+    </string-array>
+
+>>>>>>> 774f1f41c9693e0bedf98616737e8afd98a04f48
     <!-- Nav Drawer List Item Icons -->
-    <!-- Keep them in order as the titles are in-->
+    <!-- Keep them in order as the titles are in -->
 
     <array name="nav_drawer_icons">
         <item>@drawable/ic_home</item>
         <item>@drawable/ic_people</item>
         <item>@drawable/ic_photos</item>
         <item>@drawable/ic_communities</item>
+        <item>@drawable/ic_communities</item>
         <item>@drawable/ic_pages</item>
         <item>@drawable/ic_whats_hot</item>
-
     </array>
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
-
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

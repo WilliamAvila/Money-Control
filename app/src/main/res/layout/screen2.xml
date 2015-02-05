@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Tipo"
+        android:text="Tipo:"
         android:id="@+id/textViewType"
         android:layout_below="@+id/textViewInitialAmmount"
         android:layout_alignLeft="@+id/textViewInitialAmmount"
