@@ -9,46 +9,37 @@
     <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">
         <item>Home</item>
-<<<<<<< HEAD
-        <item>Accounts</item>
-        <item>Photos</item>
-        <item>Communities</item>
-        <item>Pages</item>
-        <item>What\'s Hot</item>
-    </string-array>
-
-    <string-array name="banks_array">
-        <item>Banco de Occidente</item>
-        <item>Banpais</item>
-        <item>Bac</item>
-        <item>Banco Fichosa</item>
-        <item>Banco Lafise</item>
-        <item>Banco Atlantida</item>
-        <item>Banco Azteca</item>
-        <item>Davivienda</item>
-    </string-array>
-
-    <string-array name="currency_array">
-        <item>Lps.</item>
-        <item>Usd</item>
-        <item>Eur</item>
-    </string-array>
-
-    <string-array name="type_array">
-        <item>Ahorro</item>
-        <item>Tarjeta de Credito</item>
-        <item>Tarjeta de Debito</item>
-    </string-array>
-=======
         <item>Cuentas</item>
         <item>Categorías</item>
         <item>Bancos</item>
         <item>Préstamos</item>
         <item>Informes</item>
         <item>Configuraciones</item>
+
     </string-array>
 
->>>>>>> 774f1f41c9693e0bedf98616737e8afd98a04f48
+    <string-array name="banks_array">
+    <item>Banco de Occidente</item>
+    <item>Banpais</item>
+    <item>Bac</item>
+    <item>Banco Fichosa</item>
+    <item>Banco Lafise</item>
+    <item>Banco Atlantida</item>
+    <item>Banco Azteca</item>
+    <item>Davivienda</item>
+    </string-array>
+
+    <string-array name="currency_array">
+    <item>Lps.</item>
+    <item>Usd</item>
+    <item>Eur</item>
+    </string-array>
+
+    <string-array name="type_array">
+    <item>Ahorro</item>
+    <item>Tarjeta de Credito</item>
+    <item>Tarjeta de Debito</item>
+    </string-array>
     <!-- Nav Drawer List Item Icons -->
     <!-- Keep them in order as the titles are in -->
 

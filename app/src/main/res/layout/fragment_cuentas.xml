@@ -3,29 +3,86 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txtLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textSize="16dp"
-        android:text="Find People View"/>
-
-    <ImageView android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtLabel"
-        android:src="@drawable/ic_people"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"/>
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go to next Screen"
+        android:text="Nueva Cuenta"
         android:id="@+id/btnNextScreen"
-        android:layout_above="@+id/txtLabel"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="62dp" />
+        android:layout_marginBottom="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Cuentas en Lempiras"
+        android:id="@+id/textView"
+        android:layout_marginTop="46dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Cuentas en Dolares"
+        android:id="@+id/textView2"
+        android:layout_marginBottom="58dp"
+        android:layout_above="@+id/btnNextScreen"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Numero Cuenta"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="56dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:padding="1dp"
+        android:layout_above="@+id/textViewBanco"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_alignLeft="@+id/btnNextScreen"
+        android:layout_alignStart="@+id/btnNextScreen" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textViewSaldo"
+        android:layout_below="@+id/editText"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textViewBanco"
+        android:layout_below="@+id/textView3"
+        android:layout_toLeftOf="@+id/editText"
+        android:layout_toStartOf="@+id/editText" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ver Cuenta"
+        android:id="@+id/button"
+        android:layout_below="@+id/textViewBanco"
+        android:layout_alignLeft="@+id/textViewBanco"
+        android:layout_alignStart="@+id/textViewBanco"
+        android:layout_marginTop="49dp" />
 
 
 </RelativeLayout>

@@ -86,7 +86,7 @@
         android:textAlignment="center"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/editTextNumero"
         android:layout_above="@+id/textViewBank"
         android:layout_toRightOf="@+id/textViewNumber"
         android:layout_toEndOf="@+id/textViewNumber" />
@@ -96,8 +96,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/spinnerBanks"
         android:layout_above="@+id/textViewCurrency"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_alignLeft="@+id/editTextNumero"
+        android:layout_alignStart="@+id/editTextNumero" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -115,11 +115,11 @@
         android:padding="1dp"
         android:textAlignment="center"
         android:gravity="center_horizontal"
-        android:id="@+id/editText2"
+        android:id="@+id/editTextSaldoInicial"
         android:layout_alignBottom="@+id/textViewInitialAmmount"
         android:layout_toRightOf="@+id/textViewInitialAmmount"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
+        android:layout_alignRight="@+id/editTextNumero"
+        android:layout_alignEnd="@+id/editTextNumero" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -133,19 +133,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Crear"
-        android:id="@+id/button"
+        android:id="@+id/buttonCreate"
         android:layout_marginTop="100dp"
-        android:layout_below="@+id/editText3"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_alignEnd="@+id/editText2" />
+        android:layout_below="@+id/editTextDescripcion"
+        android:layout_alignRight="@+id/editTextSaldoInicial"
+        android:layout_alignEnd="@+id/editTextSaldoInicial"
+        android:onClick="IngresarDatos" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cancelar"
-        android:id="@+id/button2"
-        android:layout_alignTop="@+id/button"
+        android:id="@+id/buttonCancel"
+        android:layout_alignTop="@+id/buttonCreate"
         android:layout_alignLeft="@+id/textViewDescription"
         android:layout_alignStart="@+id/textViewDescription" />
 
@@ -154,11 +155,11 @@
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
-        android:id="@+id/editText3"
+        android:id="@+id/editTextDescripcion"
         android:padding="1dp"
         android:layout_alignTop="@+id/textViewDescription"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
+        android:layout_alignLeft="@+id/editTextSaldoInicial"
+        android:layout_alignStart="@+id/editTextSaldoInicial"
         android:hint="Opcional"
         android:gravity="center"/>
 
