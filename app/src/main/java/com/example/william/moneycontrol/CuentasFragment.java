@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +27,7 @@ public class CuentasFragment extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_cuentas, container, false);
 
 
-        Button btnNextScreen = (Button) rootView.findViewById((R.id.btnNextScreen));
+        ImageButton btnNextScreen = (ImageButton) rootView.findViewById((R.id.btnNextScreen));
 
 
 
@@ -41,7 +42,7 @@ public class CuentasFragment extends Fragment {
         });
 
 
-        Button btn = (Button) rootView.findViewById((R.id.button));
+        /*Button btn = (Button) rootView.findViewById((R.id.button));
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +65,7 @@ public class CuentasFragment extends Fragment {
                 bd.close();
 
             }
-        });
+        });*/
 
 
         return rootView;

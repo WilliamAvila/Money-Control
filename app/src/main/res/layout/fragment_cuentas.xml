@@ -3,86 +3,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nueva Cuenta"
+        android:text=""
         android:id="@+id/btnNextScreen"
-        android:layout_marginBottom="70dp"
+        android:src="@drawable/btnaddaccount_selector"
+        android:background="@color/actionbar_transparent_background"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView"
+        android:layout_above="@+id/textView2"
+        android:layout_below="@+id/textView">
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/listView" />
+    </ScrollView>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Cuentas en Lempiras"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Cuentas Lempiras"
         android:id="@+id/textView"
-        android:layout_marginTop="46dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Cuentas en Dolares"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Cuentas Dólares"
         android:id="@+id/textView2"
-        android:layout_marginBottom="58dp"
-        android:layout_above="@+id/btnNextScreen"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Id Cuenta:"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="56dp" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView2"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:fillViewport="false"
+        android:layout_above="@+id/btnNextScreen">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:gravity="center"
-        android:padding="1dp"
-        android:layout_above="@+id/textViewBanco"
-        android:layout_alignLeft="@+id/btnNextScreen"
-        android:layout_alignStart="@+id/btnNextScreen"
-        android:layout_alignTop="@+id/textView3" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/textViewSaldo"
-        android:layout_below="@+id/editText"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/textViewBanco"
-        android:layout_below="@+id/textView3"
-        android:layout_toLeftOf="@+id/editText"
-        android:layout_toStartOf="@+id/editText" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ver Cuenta"
-        android:id="@+id/button"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/textViewBanco"
-        android:layout_alignStart="@+id/textViewBanco" />
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/listView2" />
+    </ScrollView>
 
 
 </RelativeLayout>

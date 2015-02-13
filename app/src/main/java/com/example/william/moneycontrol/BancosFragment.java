@@ -26,5 +26,7 @@ public class BancosFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_bancos, container, false);
     }
 
+  
+
 
 }

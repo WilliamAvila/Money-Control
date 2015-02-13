@@ -3,6 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView"
+        android:layout_gravity="center_horizontal|top" >
+
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -89,7 +101,8 @@
         android:id="@+id/editTextNumero"
         android:layout_above="@+id/textViewBank"
         android:layout_toRightOf="@+id/textViewNumber"
-        android:layout_toEndOf="@+id/textViewNumber" />
+        android:layout_toEndOf="@+id/textViewNumber"
+        android:hint="numero" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -162,15 +175,8 @@
         android:hint="Opcional"
         android:gravity="center"/>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ver"
-        android:id="@+id/button2"
-        android:layout_above="@+id/buttonCancel"
-        android:layout_centerHorizontal="true"
-        android:onClick="consultaporNumero" />
+        </RelativeLayout>
+    </ScrollView>
 
 
 </RelativeLayout>
