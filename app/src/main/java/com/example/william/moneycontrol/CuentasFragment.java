@@ -27,11 +27,15 @@ public class CuentasFragment extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_cuentas, container, false);
 
 
+<<<<<<< HEAD
         ImageButton btnNextScreen = (ImageButton) rootView.findViewById((R.id.btnNextScreen));
+=======
+      //  Button btnNextScreen = (ImageButton) rootView.findViewById((R.id.btnNextScreen));
+>>>>>>> 9cfef44e36a718f8fd3b53a0be91b0f66243e75e
 
 
 
-        btnNextScreen.setOnClickListener(new View.OnClickListener() {
+       /* btnNextScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent nextScreen = new Intent(getActivity().getApplicationContext(),SecondScreenActivity.class);
@@ -39,7 +43,7 @@ public class CuentasFragment extends Fragment {
                 startActivity(nextScreen);
 
             }
-        });
+        });*/
 
 
         /*Button btn = (Button) rootView.findViewById((R.id.button));
