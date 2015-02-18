@@ -11,13 +11,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.res.TypedArray;
+
+import java.util.ArrayList;
 
 /**
  * Created by william on 1/31/15.
  */
 public class CuentasFragment extends Fragment {
+
 
     private View rootView;
     @Override
@@ -27,15 +32,11 @@ public class CuentasFragment extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_cuentas, container, false);
 
 
-<<<<<<< HEAD
         ImageButton btnNextScreen = (ImageButton) rootView.findViewById((R.id.btnNextScreen));
-=======
-      //  Button btnNextScreen = (ImageButton) rootView.findViewById((R.id.btnNextScreen));
->>>>>>> 9cfef44e36a718f8fd3b53a0be91b0f66243e75e
 
 
 
-       /* btnNextScreen.setOnClickListener(new View.OnClickListener() {
+       btnNextScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent nextScreen = new Intent(getActivity().getApplicationContext(),SecondScreenActivity.class);
@@ -43,10 +44,10 @@ public class CuentasFragment extends Fragment {
                 startActivity(nextScreen);
 
             }
-        });*/
+        });
 
 
-        /*Button btn = (Button) rootView.findViewById((R.id.button));
+        Button btn = (Button) rootView.findViewById((R.id.button));
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,12 +70,26 @@ public class CuentasFragment extends Fragment {
                 bd.close();
 
             }
-        });*/
+        });
 
+
+
+        ArrayList<AccountItem> cuentas = GetlistContact();
+        ListView lv = (ListView)rootView.findViewById(R.id.listViewLpsAccounts);
+        lv.setAdapter(new ListViewAccountAdapter(getActivity().getApplicationContext(), cuentas));
 
         return rootView;
 
 
+    }
+    private ArrayList<AccountItem> GetlistContact(){
+        ArrayList<AccountItem> cuentas = new ArrayList<AccountItem>();
+
+
+
+        cuentas.add(new AccountItem("Fichosa","dolar",001));
+
+        return cuentas;
     }
 
 

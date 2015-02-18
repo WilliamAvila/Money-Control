@@ -16,51 +16,23 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/scrollView"
-        android:layout_above="@+id/textView2"
-        android:layout_below="@+id/textView">
-
-        <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/listView" />
-    </ScrollView>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Cuentas Lempiras"
+        android:text="Lista de Cuentas"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <TextView
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Cuentas Dólares"
-        android:id="@+id/textView2"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/scrollView2"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:fillViewport="false"
-        android:layout_above="@+id/btnNextScreen">
-
-        <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/listView2" />
-    </ScrollView>
+        android:id="@+id/listViewLpsAccounts"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/btnNextScreen"
+        android:layout_below="@+id/textView" />
 
 
 </RelativeLayout>
