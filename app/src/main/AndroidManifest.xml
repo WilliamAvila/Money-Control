@@ -19,7 +19,7 @@
 
 
         <!-- Add new Activity class name here -->
-        <activity android:name=".SecondScreenActivity"></activity>
+        <activity android:name=".CreateAccountActivity"></activity>
 
     </application>
 

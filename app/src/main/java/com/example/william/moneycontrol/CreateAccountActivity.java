@@ -1,6 +1,8 @@
 package com.example.william.moneycontrol;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -25,7 +27,7 @@ import android.widget.Toast;
 /**
  * Created by william on 1/25/15.
  */
-public class SecondScreenActivity extends ActionBarActivity {
+public class CreateAccountActivity extends ActionBarActivity {
 
     private EditText etNumero,etSaldoInicial,etDescripcion;
     String banco,moneda,tipo;
@@ -116,6 +118,7 @@ public class SecondScreenActivity extends ActionBarActivity {
         Toast.makeText(this, "Se Agrego la cuenta Correctamente",
                 Toast.LENGTH_SHORT).show();
 
+        
         finish();
     }
 
