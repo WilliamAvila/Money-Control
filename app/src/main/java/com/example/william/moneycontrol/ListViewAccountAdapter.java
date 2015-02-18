@@ -53,7 +53,7 @@ public class ListViewAccountAdapter extends BaseAdapter {
         }
 
         holder.txtBanco.setText(listCuentas.get(position).getBanco());
-        holder.txtTipo.setText(listCuentas.get(position).getTipo());
+        holder.txtTipo.setText(listCuentas.get(position).getMoneda());
         holder.txtNumeroCuenta.setText(String.valueOf(listCuentas.get(position).getNumeroCuenta()));
 
         return convertView;

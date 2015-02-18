@@ -60,22 +60,21 @@ public class CuentasFragment extends Fragment {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(rootView.getContext(),"MoneyControl", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
         String Banco="";
-        String Tipo="";
+        String Moneda="";
         int numeroCuenta=0;
 
 
         Cursor fila = bd.rawQuery(
-                "select Banco,numeroCuenta, TipoCuenta from Cuenta" , null);
+                "select Banco, Moneda,numeroCuenta from Cuenta" , null);
 
 
 
 
        while(fila.moveToNext()){
            Banco=fila.getString(0);
-           Tipo=fila.getString(1);
+           Moneda=fila.getString(1);
            numeroCuenta=fila.getInt(2);
-           cuentas.add(new AccountItem(Banco,Tipo,numeroCuenta));
-           fila.moveToNext();
+           cuentas.add(new AccountItem(Banco,Moneda,numeroCuenta));
        }
 
 

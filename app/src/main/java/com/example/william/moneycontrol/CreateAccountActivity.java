@@ -2,6 +2,7 @@ package com.example.william.moneycontrol;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -118,7 +119,6 @@ public class CreateAccountActivity extends ActionBarActivity {
         Toast.makeText(this, "Se Agrego la cuenta Correctamente",
                 Toast.LENGTH_SHORT).show();
 
-        
         finish();
     }
 

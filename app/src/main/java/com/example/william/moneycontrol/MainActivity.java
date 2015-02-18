@@ -181,6 +181,7 @@ public class MainActivity extends ActionBarActivity {
                 break;
             case 1:
                 fragment = new CuentasFragment();
+
                 break;
             case 2:
                 fragment = new CategoriasFragment();
