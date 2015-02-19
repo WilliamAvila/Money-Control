@@ -21,6 +21,7 @@
         <!-- Add new Activity class name here -->
         <activity android:name=".CreateAccountActivity"></activity>
         <activity android:name=".CreateBankActivity"></activity>
+        <activity android:name=".CreateLoanActivity"></activity>
         <activity android:name=".CreateCategoryActivity"></activity>
 
 

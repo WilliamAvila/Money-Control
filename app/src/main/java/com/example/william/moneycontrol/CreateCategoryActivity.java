@@ -20,6 +20,7 @@ import android.widget.Toast;
 public class CreateCategoryActivity extends ActionBarActivity {
 
     private EditText etDescripcion;
+    private EditText etNombre;
     String tipo;
     Spinner spinner;
     ActionBar actionBar;
@@ -50,7 +51,8 @@ public class CreateCategoryActivity extends ActionBarActivity {
 
 
         spinner.setAdapter(adapter);
-        etDescripcion=(EditText)findViewById(R.id.descripcion_cat);
+        etNombre=(EditText)findViewById(R.id.descripcion_cat);
+        etDescripcion=(EditText)findViewById(R.id.descripcion_cat2);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -73,11 +75,13 @@ public class CreateCategoryActivity extends ActionBarActivity {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
                 "MoneyControl", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
+        String nombre = etNombre.getText().toString();
         String descripcion = etDescripcion.getText().toString();
         tipo=spinner.getSelectedItem().toString();
 
         ContentValues registro = new ContentValues();
         registro.put("TipoCategoria",tipo);
+        registro.put("Nombre", nombre);
         registro.put("Descripcion", descripcion);
         bd.insert("Categoria", null, registro);
         bd.close();
@@ -85,26 +89,6 @@ public class CreateCategoryActivity extends ActionBarActivity {
                 Toast.LENGTH_SHORT).show();
 
         finish();
-    }
-
-    public void consultaporNumero(View v) {
-
-       /* AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"MoneyControl", null, 1);
-        SQLiteDatabase bd = admin.getWritableDatabase();
-
-
-        String cod = etNumero.getText().toString();
-        Cursor fila = bd.rawQuery(
-                "select SaldoInicial,Descripcion from Cuenta where NumeroCuenta=" + cod, null);
-
-
-        if (fila.moveToFirst()) {
-            etSaldoInicial.setText(fila.getString(0));
-            etDescripcion.setText(fila.getString(1));
-        } else
-            Toast.makeText(this, "No existe cuenta",
-                    Toast.LENGTH_SHORT).show();
-        bd.close();*/
     }
 
 }

@@ -20,20 +20,6 @@ import java.util.ArrayList;
  */
 public class CategoriasFragment extends Fragment {
 
-
-   /* public CategoriasFragment() {
-        // Required empty public constructor
-    }
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_categorias, container, false);
-    }
-
-*/
    private View rootView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,16 +55,18 @@ public class CategoriasFragment extends Fragment {
         SQLiteDatabase bd = admin.getWritableDatabase();
         String tipo="";
         String descripcion="";
+        String nombre="";
         int idCategoria=0;
 
         Cursor fila = bd.rawQuery(
-                "select Banco, Moneda,numeroCuenta from Cuenta" , null);
+                "select TipoCategoria, Nombre,Descripcion from Categoria" , null);
 
         while(fila.moveToNext()){
             idCategoria=fila.getInt(0);
-            descripcion=fila.getString(1);
-            tipo=fila.getString(2);
-            categorias.add(new CategoryItem(idCategoria,descripcion,tipo));
+            tipo=fila.getString(1);
+            nombre=fila.getString(2);
+            descripcion=fila.getString(3);
+            categorias.add(new CategoryItem(idCategoria,descripcion,nombre,tipo));
         }
 
         bd.close();

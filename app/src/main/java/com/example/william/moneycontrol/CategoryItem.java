@@ -5,12 +5,14 @@ package com.example.william.moneycontrol;
  */
 public class CategoryItem {
     int idCategoria;
+    String nombre;
     String descripcion;
     String tipo;
 
 
-    public CategoryItem(int idCategoria, String descripcion,String tipo) {
+    public CategoryItem(int idCategoria, String descripcion,String nombre,String tipo) {
         this.idCategoria = idCategoria;
+        this.nombre= nombre;
         this.descripcion = descripcion;
         this.tipo = tipo;
     }
@@ -38,4 +40,13 @@ public class CategoryItem {
     public void setIdCategoria(int idCategoria) {
         this.idCategoria = idCategoria;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
 }
