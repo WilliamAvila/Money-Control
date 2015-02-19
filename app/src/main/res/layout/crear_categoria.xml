@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" >
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -9,93 +9,120 @@
         android:id="@+id/scrollView"
         android:layout_gravity="center_horizontal|top" >
 
+    <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Nueva Categoría"
+        android:id="@+id/textViewNewAccount"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Tipo:"
+        android:id="@+id/textViewType"
+        android:layout_alignTop="@+id/spinnerTipo"
+        android:layout_toLeftOf="@+id/textViewNewAccount"
+        android:layout_toStartOf="@+id/textViewNewAccount" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerTipo"
+        android:layout_marginTop="51dp"
+        android:layout_below="@+id/textViewNewAccount"
+        android:layout_alignRight="@+id/descripcion_cat"
+        android:layout_alignEnd="@+id/descripcion_cat"
+        android:layout_alignLeft="@+id/descripcion_cat"
+        android:layout_alignStart="@+id/descripcion_cat" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Nombre:"
+        android:id="@+id/textViewDescription"
+        android:layout_alignTop="@+id/descripcion_cat"
+        android:layout_alignLeft="@+id/textViewType"
+        android:layout_alignStart="@+id/textViewType" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/descripcion_cat"
+        android:padding="1dp"
+        android:gravity="center"
+        android:layout_below="@+id/spinnerTipo"
+        android:layout_toRightOf="@+id/textViewDescription"
+        android:layout_toEndOf="@+id/textViewDescription"
+        android:layout_marginTop="45dp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Descripcion:"
+            android:id="@+id/textViewDescription2"
+            android:layout_alignTop="@+id/descripcion_cat2"
+            android:layout_alignLeft="@+id/textViewType"
+            android:layout_alignStart="@+id/textViewType" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/descripcion_cat2"
+            android:padding="1dp"
+            android:gravity="center"
+            android:layout_below="@+id/spinnerTipo"
+            android:layout_marginTop="140dp"
+            android:layout_alignRight="@+id/buttonCreate"
+            android:layout_alignEnd="@+id/buttonCreate"
+            android:layout_toRightOf="@+id/textViewDescription2"
+            android:layout_toEndOf="@+id/textViewDescription2" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancelar"
+        android:id="@+id/buttonCancel"
+        android:layout_marginLeft="66dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginBottom="106dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crear"
+        android:id="@+id/buttonCreate"
+        android:onClick="IngresarDatos"
+        android:layout_marginLeft="250dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginBottom="450dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+        </RelativeLayout>
 
     </ScrollView>
-
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textAppearance="?android:attr/textAppearanceLarge"
-    android:text="Nueva Categoría"
-    android:id="@+id/textViewNewAccount"
-    android:layout_alignParentTop="true"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="30dp" />
-
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textAppearance="?android:attr/textAppearanceMedium"
-    android:text="Tipo:"
-    android:id="@+id/textViewType"
-    android:layout_alignBottom="@+id/spinnerTipo"
-    android:layout_alignLeft="@+id/textViewDescription"
-    android:layout_alignStart="@+id/textViewDescription" />
-
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textAppearance="?android:attr/textAppearanceMedium"
-    android:text="Descripcion:"
-    android:id="@+id/textViewDescription"
-    android:layout_alignTop="@+id/editTextDescripcion"
-    android:layout_toLeftOf="@+id/editTextDescripcion"
-    android:layout_toStartOf="@+id/editTextDescripcion" />
-
-        <Spinner
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/spinnerTipo"
-    android:layout_below="@+id/textViewNewAccount"
-    android:layout_marginTop="51dp"
-    android:layout_alignLeft="@+id/textViewNewAccount"
-    android:layout_alignStart="@+id/textViewNewAccount"
-            android:layout_toLeftOf="@+id/buttonCreate"
-            android:layout_toStartOf="@+id/buttonCreate" />
-
-        <Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Crear"
-    android:id="@+id/buttonCreate"
-    android:onClick="IngresarDatos"
-    android:layout_alignParentBottom="true"
-    android:layout_toRightOf="@+id/textViewNewAccount"
-    android:layout_toEndOf="@+id/textViewNewAccount"
-    android:layout_marginBottom="123dp" />
-
-<Button
-    style="?android:attr/buttonStyleSmall"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Cancelar"
-    android:id="@+id/buttonCancel"
-    android:layout_alignTop="@+id/buttonCreate"
-    android:layout_alignLeft="@+id/textViewDescription"
-    android:layout_alignStart="@+id/textViewDescription" />
-
-<EditText
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:inputType="textMultiLine"
-    android:ems="10"
-    android:id="@+id/descripcion_cat"
-    android:padding="1dp"
-    android:hint="Opcional"
-    android:gravity="center"
-    android:layout_below="@+id/spinnerTipo"
-    android:layout_alignRight="@+id/buttonCreate"
-    android:layout_alignEnd="@+id/buttonCreate"
-    android:layout_marginTop="63dp" />
-
-    </RelativeLayout>
-
 
 </RelativeLayout>

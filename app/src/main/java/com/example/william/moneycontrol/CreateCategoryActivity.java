@@ -37,8 +37,19 @@ public class CreateCategoryActivity extends ActionBarActivity {
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
 
+
+        Button btnCancel = (Button) findViewById((R.id.buttonCancel));
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+
+        spinner.setAdapter(adapter);
         etDescripcion=(EditText)findViewById(R.id.descripcion_cat);
 
         ActionBar actionBar = getSupportActionBar();

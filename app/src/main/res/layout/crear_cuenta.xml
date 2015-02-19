@@ -141,6 +141,21 @@
         android:layout_toRightOf="@+id/textViewType"
         android:layout_toEndOf="@+id/textViewType" />
 
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/editTextDescripcion"
+        android:padding="1dp"
+        android:layout_alignTop="@+id/textViewDescription"
+        android:layout_alignLeft="@+id/editTextSaldoInicial"
+        android:layout_alignStart="@+id/editTextSaldoInicial"
+        android:hint="Opcional"
+        android:gravity="center"/>
+
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -161,19 +176,6 @@
         android:layout_alignTop="@+id/buttonCreate"
         android:layout_alignLeft="@+id/textViewDescription"
         android:layout_alignStart="@+id/textViewDescription" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/editTextDescripcion"
-        android:padding="1dp"
-        android:layout_alignTop="@+id/textViewDescription"
-        android:layout_alignLeft="@+id/editTextSaldoInicial"
-        android:layout_alignStart="@+id/editTextSaldoInicial"
-        android:hint="Opcional"
-        android:gravity="center"/>
 
         </RelativeLayout>
     </ScrollView>
