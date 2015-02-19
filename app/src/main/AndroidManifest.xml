@@ -23,8 +23,7 @@
         <activity android:name=".CreateBankActivity"></activity>
         <activity android:name=".CreateLoanActivity"></activity>
         <activity android:name=".CreateCategoryActivity"></activity>
-
-
+        <activity android:name=".CreateGastoIngresoActivity"></activity>
     </application>
 
 </manifest>
