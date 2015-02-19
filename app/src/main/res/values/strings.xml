@@ -55,5 +55,8 @@
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="categorias_title">Categorías</string>
+    <string name="cuentas_title">Cuentas</string>
+    <string name="prestamos_title">Préstamos</string>
 
 </resources>
