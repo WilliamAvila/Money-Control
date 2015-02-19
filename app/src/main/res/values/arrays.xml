@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="informesIngresos">
+        <item>Ingresos por categoría</item>
+        <item>Ingresos diarios</item>
+        <item>Ingresos mensuales</item>
+    </string-array>
+
+    <string-array name="informesGastos">
+        <item>Gastos por categoría</item>
+        <item>Gastos diarios</item>
+        <item>Gastos mensuales</item>
+    </string-array>
+</resources>

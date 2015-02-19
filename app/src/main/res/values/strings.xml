@@ -15,24 +15,23 @@
         <item>Préstamos</item>
         <item>Informes</item>
         <item>Configuraciones</item>
-
     </string-array>
 
     <string-array name="banks_array">
-    <item>Banco de Occidente</item>
-    <item>Banpais</item>
-    <item>Bac</item>
-    <item>Banco Fichosa</item>
-    <item>Banco Lafise</item>
-    <item>Banco Atlantida</item>
-    <item>Banco Azteca</item>
-    <item>Davivienda</item>
+        <item>Banco de Occidente</item>
+        <item>Banpais</item>
+        <item>Bac</item>
+        <item>Banco Fichosa</item>
+        <item>Banco Lafise</item>
+        <item>Banco Atlantida</item>
+        <item>Banco Azteca</item>
+        <item>Davivienda</item>
     </string-array>
 
     <string-array name="currency_array">
-    <item>Lps</item>
-    <item>Usd</item>
-    <item>Eur</item>
+        <item>Lps</item>
+        <item>Usd</item>
+        <item>Eur</item>
     </string-array>
 
     <string-array name="tipo_categoria_array">
@@ -47,9 +46,9 @@
     </string-array>
 
     <string-array name="type_array">
-    <item>Ahorro</item>
-    <item>Tarjeta de Credito</item>
-    <item>Tarjeta de Debito</item>
+        <item>Ahorro</item>
+        <item>Tarjeta de Credito</item>
+        <item>Tarjeta de Debito</item>
     </string-array>
     <!-- Nav Drawer List Item Icons -->
     <!-- Keep them in order as the titles are in -->
