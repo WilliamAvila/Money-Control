@@ -27,9 +27,7 @@ public class CuentasFragment extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_cuentas, container, false);
 
 
-        ImageButton btnNextScreen = (ImageButton) rootView.findViewById((R.id.btnNextScreen));
-
-
+       ImageButton btnNextScreen = (ImageButton) rootView.findViewById((R.id.btnNextScreen));
 
        btnNextScreen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,21 +39,15 @@ public class CuentasFragment extends Fragment {
             }
         });
 
-
-
-
-
         ArrayList<AccountItem> cuentas = GetlistAccounts();
         ListView lv = (ListView)rootView.findViewById(R.id.listViewLpsAccounts);
         lv.setAdapter(new ListViewAccountAdapter(getActivity().getApplicationContext(), cuentas));
 
         return rootView;
 
-
     }
     private ArrayList<AccountItem> GetlistAccounts(){
         ArrayList<AccountItem> cuentas = new ArrayList<AccountItem>();
-
 
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(rootView.getContext(),"MoneyControl", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
@@ -63,12 +55,8 @@ public class CuentasFragment extends Fragment {
         String Moneda="";
         int numeroCuenta=0;
 
-
         Cursor fila = bd.rawQuery(
                 "select Banco, Moneda,numeroCuenta from Cuenta" , null);
-
-
-
 
        while(fila.moveToNext()){
            Banco=fila.getString(0);
@@ -77,9 +65,7 @@ public class CuentasFragment extends Fragment {
            cuentas.add(new AccountItem(Banco,Moneda,numeroCuenta));
        }
 
-
         bd.close();
-
 
         return cuentas;
     }

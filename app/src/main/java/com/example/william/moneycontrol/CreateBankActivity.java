@@ -1,7 +1,9 @@
 package com.example.william.moneycontrol;
 
+import android.support.v7.app.ActionBarActivity;
+
 /**
- * Created by Jimmy Banegas on 18/02/2015.
+ * Created by william on 2/12/15.
  */
-public class CreateBankActivity {
+public class CreateBankActivity extends ActionBarActivity {
 }

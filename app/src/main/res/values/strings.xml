@@ -30,9 +30,20 @@
     </string-array>
 
     <string-array name="currency_array">
-    <item>Lps.</item>
+    <item>Lps</item>
     <item>Usd</item>
     <item>Eur</item>
+    </string-array>
+
+    <string-array name="tipo_categoria_array">
+        <item>Gasto</item>
+        <item>Ingreso</item>
+    </string-array>
+
+    <string-array name="tipo_transaccion_array">
+        <item>Gasto</item>
+        <item>Ingreso</item>
+        <item>Transferencia</item>
     </string-array>
 
     <string-array name="type_array">
