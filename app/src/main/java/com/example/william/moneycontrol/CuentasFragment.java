@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -41,7 +42,19 @@ public class CuentasFragment extends Fragment {
 
         ArrayList<AccountItem> cuentas = GetlistAccounts();
         ListView lv = (ListView)rootView.findViewById(R.id.listViewLpsAccounts);
+
         lv.setAdapter(new ListViewAccountAdapter(getActivity().getApplicationContext(), cuentas));
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                Intent nextScreen = new Intent(getActivity().getApplicationContext(), CreateAccountActivity.class);
+
+
+                startActivity(nextScreen);
+            }
+        });
 
         return rootView;
 
@@ -63,6 +76,7 @@ public class CuentasFragment extends Fragment {
            Moneda=fila.getString(1);
            numeroCuenta=fila.getInt(2);
            cuentas.add(new AccountItem(Banco,Moneda,numeroCuenta));
+
        }
 
         bd.close();
