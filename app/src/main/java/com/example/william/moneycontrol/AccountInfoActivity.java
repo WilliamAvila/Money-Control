@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +21,7 @@ public class AccountInfoActivity extends ActionBarActivity {
 
 
         ActionBar actionBar;
+        String numeroCuenta;
 
         public void onCreate(Bundle savedInstanceState){
             super.onCreate(savedInstanceState);
@@ -25,14 +29,24 @@ public class AccountInfoActivity extends ActionBarActivity {
 
             Intent i = getIntent();
             // Receiving the Data
-            String numeroCuenta = i.getStringExtra("NumeroCuenta");
+            numeroCuenta = i.getStringExtra("NumeroCuenta");
 
             TextView tv = (TextView)findViewById(R.id.txtViewNumCuenta);
             tv.setText(numeroCuenta);
             ViewAccountData(numeroCuenta);
+
+
         }
 
+        public void DeleteAccount(View v) {
+            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
+                    "MoneyControl", null, 1);
+            SQLiteDatabase bd = admin.getWritableDatabase();
+            bd.delete("Cuenta", "NumeroCuenta=" + numeroCuenta, null);
+            bd.close();
+            finish();
 
+        }
 
         public void ViewAccountData(String accountNumber){
 
