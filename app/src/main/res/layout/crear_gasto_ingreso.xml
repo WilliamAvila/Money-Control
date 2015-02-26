@@ -52,9 +52,10 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Descripción:"
                 android:id="@+id/textViewDescription"
-                android:layout_alignTop="@+id/descripcion_gasto"
-                android:layout_toLeftOf="@+id/descripcion_gasto"
-                android:layout_toStartOf="@+id/descripcion_gasto" />
+                android:layout_alignBaseline="@+id/descripcion_gasto"
+                android:layout_alignBottom="@+id/descripcion_gasto"
+                android:layout_alignRight="@+id/buttonCancel"
+                android:layout_alignEnd="@+id/buttonCancel" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -64,11 +65,9 @@
                 android:id="@+id/descripcion_gasto"
                 android:padding="1dp"
                 android:gravity="center"
-                android:layout_marginTop="52dp"
                 android:layout_below="@+id/spinnerCategorias"
-                android:layout_toRightOf="@+id/buttonCancel"
-                android:layout_alignRight="@+id/monto"
-                android:layout_alignEnd="@+id/monto" />
+                android:layout_toRightOf="@+id/textViewDescription"
+                android:layout_toEndOf="@+id/textViewDescription" />
 
 
             <TextView
@@ -77,9 +76,10 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Monto:"
                 android:id="@+id/textViewMonto"
-                android:layout_alignBottom="@+id/monto"
-                android:layout_alignLeft="@+id/textViewFecha"
-                android:layout_alignStart="@+id/textViewFecha" />
+                android:layout_marginTop="37dp"
+                android:layout_below="@+id/txtDate"
+                android:layout_alignLeft="@+id/txtDate"
+                android:layout_alignStart="@+id/txtDate" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -89,11 +89,53 @@
                 android:id="@+id/monto"
                 android:padding="1dp"
                 android:gravity="center"
-                android:layout_below="@+id/textViewFecha"
-                android:layout_alignRight="@+id/buttonCreate"
-                android:layout_alignEnd="@+id/buttonCreate"
-                android:layout_marginTop="29dp" />
+                android:layout_alignTop="@+id/textViewMonto"
+                android:layout_toRightOf="@+id/textViewMonto"
+                android:layout_toEndOf="@+id/textViewMonto" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Categoria:"
+                android:id="@+id/textView4"
+                android:layout_below="@+id/spinnerTipo"
+                android:layout_alignLeft="@+id/textViewDescription"
+                android:layout_alignStart="@+id/textViewDescription" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerCategorias"
+                android:layout_alignTop="@+id/textView4"
+                android:layout_alignLeft="@+id/descripcion_gasto"
+                android:layout_alignStart="@+id/descripcion_gasto" />
+
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha"
+                android:id="@+id/btnCalendar"
+                android:layout_below="@+id/descripcion_gasto"
+                android:layout_toRightOf="@+id/textViewNewGasto"
+                android:layout_toEndOf="@+id/textViewNewGasto"
+                android:layout_marginTop="40dp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/txtDate"
+                android:padding="1dp"
+                android:gravity="center"
+                android:layout_alignBottom="@+id/btnCalendar"
+                android:layout_alignRight="@+id/textViewNewGasto"
+                android:layout_alignEnd="@+id/textViewNewGasto"
+                android:layout_alignLeft="@+id/textViewDescription"
+                android:layout_alignStart="@+id/textViewDescription" />
 
             <Button
                 style="?android:attr/buttonStyleSmall"
@@ -116,41 +158,10 @@
                 android:onClick="IngresarDatos"
                 android:layout_marginLeft="250dp"
                 android:layout_marginStart="250dp"
-                android:layout_marginBottom="500dp"
+                android:layout_marginBottom="450dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Categoria:"
-                android:id="@+id/textView4"
-                android:layout_marginTop="34dp"
-                android:layout_below="@+id/spinnerTipo"
-                android:layout_alignLeft="@+id/textViewDescription"
-                android:layout_alignStart="@+id/textViewDescription" />
-
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinnerCategorias"
-                android:layout_alignTop="@+id/textView4"
-                android:layout_alignLeft="@+id/descripcion_gasto"
-                android:layout_alignStart="@+id/descripcion_gasto" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Fecha:"
-                android:id="@+id/textViewFecha"
-                android:layout_marginTop="31dp"
-                android:layout_below="@+id/descripcion_gasto"
-                android:layout_alignLeft="@+id/textViewDescription"
-                android:layout_alignStart="@+id/textViewDescription" />
-
 
         </RelativeLayout>
 
