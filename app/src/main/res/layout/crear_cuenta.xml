@@ -153,7 +153,7 @@
         android:layout_alignLeft="@+id/editTextSaldoInicial"
         android:layout_alignStart="@+id/editTextSaldoInicial"
         android:hint="Opcional"
-        android:gravity="center"/>
+        android:gravity="center" />
 
 
     <Button

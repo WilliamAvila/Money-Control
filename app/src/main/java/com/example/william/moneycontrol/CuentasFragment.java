@@ -58,7 +58,7 @@ public class CuentasFragment extends Fragment {
                 lv.showContextMenu();
 
                 TextView tv = (TextView) view.findViewById(R.id.txtViewNumeroCuenta);
-                nextScreen.putExtra("Id",tv.getText().toString());
+                nextScreen.putExtra("NumeroCuenta",tv.getText().toString());
                 startActivity(nextScreen);
             }
 
