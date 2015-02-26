@@ -1,6 +1,10 @@
 package com.example.william.moneycontrol;
 
+import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -9,16 +13,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
  * Created by Jimmy Banegas on 19/02/2015.
  */
-public class CreateGastoIngresoActivity extends ActionBarActivity {
+public class CreateGastoIngresoActivity extends ActionBarActivity implements View.OnClickListener {
     private EditText etDescripcion;
     String tipo;
     String categoria;
@@ -26,6 +33,12 @@ public class CreateGastoIngresoActivity extends ActionBarActivity {
     private EditText etMonto;
     Spinner spinner;
     Spinner spinnerCategoria;
+    Button btnCalendar, btnTimePicker;
+    private EditText ettxtDate;
+
+    // Variable for storing current date and time
+    private int mYear, mMonth, mDay, mHour, mMinute;
+
 
     ActionBar actionBar;
 
@@ -60,6 +73,10 @@ public class CreateGastoIngresoActivity extends ActionBarActivity {
         spinner.setAdapter(adapter);
         spinnerCategoria.setAdapter(adapter2);
         etDescripcion=(EditText)findViewById(R.id.descripcion_gasto);
+        ettxtDate=(EditText)findViewById(R.id.txtDate);
+        btnCalendar = (Button) findViewById(R.id.btnCalendar);
+
+        btnCalendar.setOnClickListener((View.OnClickListener) this);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -94,6 +111,35 @@ public class CreateGastoIngresoActivity extends ActionBarActivity {
                 Toast.LENGTH_SHORT).show();
 
         finish();
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        if (v == btnCalendar) {
+
+            // Process to get Current Date
+            final Calendar c = Calendar.getInstance();
+            mYear = c.get(Calendar.YEAR);
+            mMonth = c.get(Calendar.MONTH);
+            mDay = c.get(Calendar.DAY_OF_MONTH);
+
+            // Launch Date Picker Dialog
+            DatePickerDialog dpd = new DatePickerDialog(this,
+                    new DatePickerDialog.OnDateSetListener() {
+
+                        @Override
+                        public void onDateSet(DatePicker view, int year,
+                                              int monthOfYear, int dayOfMonth) {
+                            // Display Selected date in textbox
+                            ettxtDate.setText(dayOfMonth + "-"
+                                    + (monthOfYear + 1) + "-" + year);
+
+                        }
+                    }, mYear, mMonth, mDay);
+            dpd.show();
+        }
+
     }
 
 }
