@@ -30,6 +30,7 @@
         <activity android:name=".IngresosPorCategoria"></activity>
         <activity android:name=".IngresosPorDia"></activity>
         <activity android:name=".IngresosPorMes"></activity>
+        <activity android:name=".AccountInfoActivity"></activity>
     </application>
 
 </manifest>

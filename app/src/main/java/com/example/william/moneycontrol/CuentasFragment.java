@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -41,7 +43,7 @@ public class CuentasFragment extends Fragment {
         });
 
         ArrayList<AccountItem> cuentas = GetlistAccounts();
-        ListView lv = (ListView)rootView.findViewById(R.id.listViewLpsAccounts);
+        final ListView lv = (ListView)rootView.findViewById(R.id.listViewLpsAccounts);
 
         lv.setAdapter(new ListViewAccountAdapter(getActivity().getApplicationContext(), cuentas));
 
@@ -49,12 +51,20 @@ public class CuentasFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                Intent nextScreen = new Intent(getActivity().getApplicationContext(), CreateAccountActivity.class);
+                Intent nextScreen = new Intent(getActivity().getApplicationContext(), AccountInfoActivity.class);
+                Log.e("hello", parent.getAdapter().getItem(position).toString());
 
+                registerForContextMenu(lv);
+                lv.showContextMenu();
 
+                TextView tv = (TextView) view.findViewById(R.id.txtViewNumeroCuenta);
+                nextScreen.putExtra("Id",tv.getText().toString());
                 startActivity(nextScreen);
             }
+
         });
+
+
 
         return rootView;
 
