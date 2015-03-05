@@ -55,7 +55,7 @@ public class CreateLoanActivity extends ActionBarActivity {
         etDescripcion=(EditText)findViewById(R.id.descripcion_loan);
         etMonto =(EditText) findViewById(R.id.monto);
         etTasa_interés =(EditText) findViewById(R.id.tasa);
-        etPlazo_meses =(EditText) findViewById(R.id.plazo);
+        etPlazo_meses =(EditText) findViewById(R.id.descripcion_loan);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
