@@ -40,8 +40,8 @@
                 android:id="@+id/spinnerBanco"
                 android:layout_marginTop="40dp"
                 android:layout_below="@+id/textViewNewLoan"
-                android:layout_alignRight="@+id/descripcion_cat"
-                android:layout_alignEnd="@+id/descripcion_cat"
+                android:layout_alignRight="@+id/textEditNombreBanco"
+                android:layout_alignEnd="@+id/textEditNombreBanco"
                 android:layout_toRightOf="@+id/buttonCancel"
                 android:layout_toEndOf="@+id/buttonCancel" />
 
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Descripción:"
-                android:id="@+id/textViewDescription"
+                android:id="@+id/textViewNombre"
                 android:layout_alignTop="@+id/descripcion_loan"
                 android:layout_alignLeft="@+id/textViewBanco"
                 android:layout_alignStart="@+id/textViewBanco" />
@@ -65,7 +65,7 @@
                 android:padding="1dp"
                 android:gravity="center"
                 android:layout_below="@+id/spinnerBanco"
-                android:layout_toRightOf="@+id/textViewDescription"
+                android:layout_toRightOf="@+id/textViewNombre"
                 android:layout_marginTop="30dp"
                 android:layout_alignRight="@+id/tasa"
                 android:layout_alignEnd="@+id/tasa" />

@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Descripción:"
-                android:id="@+id/textViewDescription"
+                android:id="@+id/textViewNombre"
                 android:layout_alignBaseline="@+id/descripcion_gasto"
                 android:layout_alignBottom="@+id/descripcion_gasto"
                 android:layout_alignRight="@+id/buttonCancel"
@@ -66,8 +66,8 @@
                 android:padding="1dp"
                 android:gravity="center"
                 android:layout_below="@+id/spinnerCategorias"
-                android:layout_toRightOf="@+id/textViewDescription"
-                android:layout_toEndOf="@+id/textViewDescription" />
+                android:layout_toRightOf="@+id/textViewNombre"
+                android:layout_toEndOf="@+id/textViewNombre" />
 
 
             <TextView
@@ -100,8 +100,8 @@
                 android:text="Categoria:"
                 android:id="@+id/textView4"
                 android:layout_below="@+id/spinnerTipo"
-                android:layout_alignLeft="@+id/textViewDescription"
-                android:layout_alignStart="@+id/textViewDescription" />
+                android:layout_alignLeft="@+id/textViewNombre"
+                android:layout_alignStart="@+id/textViewNombre" />
 
             <Spinner
                 android:layout_width="wrap_content"
@@ -134,8 +134,8 @@
                 android:layout_alignBottom="@+id/btnCalendar"
                 android:layout_alignRight="@+id/textViewNewGasto"
                 android:layout_alignEnd="@+id/textViewNewGasto"
-                android:layout_alignLeft="@+id/textViewDescription"
-                android:layout_alignStart="@+id/textViewDescription" />
+                android:layout_alignLeft="@+id/textViewNombre"
+                android:layout_alignStart="@+id/textViewNombre" />
 
             <Button
                 style="?android:attr/buttonStyleSmall"
