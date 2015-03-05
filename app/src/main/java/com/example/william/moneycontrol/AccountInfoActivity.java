@@ -56,7 +56,7 @@ public class AccountInfoActivity extends ActionBarActivity {
           TextView tv1 =(TextView)findViewById(R.id.textViewBank);
           TextView tv2 =(TextView)findViewById(R.id.textViewBalance);
           TextView tv3 =(TextView)findViewById(R.id.textViewType);
-          TextView tv4 =(TextView)findViewById(R.id.textViewDescription);
+         // TextView tv4 =(TextView)findViewById(R.id.textViewDescription);
 
           Cursor fila = bd.rawQuery(
                 "select Banco,Moneda,SaldoInicial,TipoCuenta,Descripcion from Cuenta where NumeroCuenta=" + accountNumber, null);
