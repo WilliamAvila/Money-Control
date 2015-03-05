@@ -1,7 +1,6 @@
 package com.example.william.moneycontrol;
 
 import android.content.ContentValues;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -51,8 +50,8 @@ public class CreateCategoryActivity extends ActionBarActivity {
 
 
         spinner.setAdapter(adapter);
-        etNombre=(EditText)findViewById(R.id.descripcion_cat);
-        etDescripcion=(EditText)findViewById(R.id.descripcion_cat2);
+        etNombre=(EditText)findViewById(R.id.textEditNombreBanco);
+        etDescripcion=(EditText)findViewById(R.id.DescripcionBanco);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);

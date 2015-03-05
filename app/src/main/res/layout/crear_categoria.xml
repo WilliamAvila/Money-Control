@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Nueva Categoría"
-        android:id="@+id/textViewNewAccount"
+        android:id="@+id/textViewNewBank"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp" />
@@ -31,19 +31,19 @@
         android:text="Tipo:"
         android:id="@+id/textViewType"
         android:layout_alignTop="@+id/spinnerTipo"
-        android:layout_toLeftOf="@+id/textViewNewAccount"
-        android:layout_toStartOf="@+id/textViewNewAccount" />
+        android:layout_toLeftOf="@+id/textViewNewBank"
+        android:layout_toStartOf="@+id/textViewNewBank" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/spinnerTipo"
         android:layout_marginTop="51dp"
-        android:layout_below="@+id/textViewNewAccount"
-        android:layout_alignRight="@+id/descripcion_cat"
-        android:layout_alignEnd="@+id/descripcion_cat"
-        android:layout_alignLeft="@+id/descripcion_cat"
-        android:layout_alignStart="@+id/descripcion_cat" />
+        android:layout_below="@+id/textViewNewBank"
+        android:layout_alignRight="@+id/textEditNombreBanco"
+        android:layout_alignEnd="@+id/textEditNombreBanco"
+        android:layout_alignLeft="@+id/textEditNombreBanco"
+        android:layout_alignStart="@+id/textEditNombreBanco" />
 
 
     <TextView
@@ -51,8 +51,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Nombre:"
-        android:id="@+id/textViewDescription"
-        android:layout_alignTop="@+id/descripcion_cat"
+        android:id="@+id/textViewNombre"
+        android:layout_alignTop="@+id/textEditNombreBanco"
         android:layout_alignLeft="@+id/textViewType"
         android:layout_alignStart="@+id/textViewType" />
 
@@ -61,12 +61,12 @@
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
-        android:id="@+id/descripcion_cat"
+        android:id="@+id/textEditNombreBanco"
         android:padding="1dp"
         android:gravity="center"
         android:layout_below="@+id/spinnerTipo"
-        android:layout_toRightOf="@+id/textViewDescription"
-        android:layout_toEndOf="@+id/textViewDescription"
+        android:layout_toRightOf="@+id/textViewNombre"
+        android:layout_toEndOf="@+id/textViewNombre"
         android:layout_marginTop="45dp" />
 
 
@@ -75,8 +75,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Descripcion:"
-            android:id="@+id/textViewDescription2"
-            android:layout_alignTop="@+id/descripcion_cat2"
+            android:id="@+id/textViewDescBanco"
+            android:layout_alignTop="@+id/DescripcionBanco"
             android:layout_alignLeft="@+id/textViewType"
             android:layout_alignStart="@+id/textViewType" />
 
@@ -85,15 +85,15 @@
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
             android:ems="10"
-            android:id="@+id/descripcion_cat2"
+            android:id="@+id/DescripcionBanco"
             android:padding="1dp"
             android:gravity="center"
             android:layout_below="@+id/spinnerTipo"
             android:layout_marginTop="140dp"
             android:layout_alignRight="@+id/buttonCreate"
             android:layout_alignEnd="@+id/buttonCreate"
-            android:layout_toRightOf="@+id/textViewDescription2"
-            android:layout_toEndOf="@+id/textViewDescription2" />
+            android:layout_toRightOf="@+id/textViewDescBanco"
+            android:layout_toEndOf="@+id/textViewDescBanco" />
 
     <Button
         style="?android:attr/buttonStyleSmall"

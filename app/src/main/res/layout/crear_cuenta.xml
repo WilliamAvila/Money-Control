@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Nueva Cuenta"
-        android:id="@+id/textViewNewAccount"
+        android:id="@+id/textViewNewBank"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp" />
@@ -30,11 +30,11 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Numero:"
-        android:id="@+id/textViewNumber"
+        android:id="@+id/textViewName"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/textViewNewAccount"
-        android:layout_toLeftOf="@+id/textViewNewAccount"
-        android:layout_toStartOf="@+id/textViewNewAccount" />
+        android:layout_below="@+id/textViewNewBank"
+        android:layout_toLeftOf="@+id/textViewNewBank"
+        android:layout_toStartOf="@+id/textViewNewBank" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -43,9 +43,9 @@
         android:text="Banco:"
         android:id="@+id/textViewBank"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/textViewNumber"
-        android:layout_alignLeft="@+id/textViewNumber"
-        android:layout_alignStart="@+id/textViewNumber" />
+        android:layout_below="@+id/textViewName"
+        android:layout_alignLeft="@+id/textViewName"
+        android:layout_alignStart="@+id/textViewName" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Descripcion:"
-        android:id="@+id/textViewDescription"
+        android:id="@+id/textViewNombre"
         android:layout_below="@+id/spinnerType"
         android:layout_alignLeft="@+id/textViewType"
         android:layout_alignStart="@+id/textViewType"
@@ -98,10 +98,10 @@
         android:gravity="center"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editTextNumero"
+        android:id="@+id/editTextName"
         android:layout_above="@+id/textViewBank"
-        android:layout_toRightOf="@+id/textViewNumber"
-        android:layout_toEndOf="@+id/textViewNumber"
+        android:layout_toRightOf="@+id/textViewName"
+        android:layout_toEndOf="@+id/textViewName"
         android:hint="numero" />
 
     <Spinner
@@ -109,8 +109,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/spinnerBanks"
         android:layout_above="@+id/textViewCurrency"
-        android:layout_alignLeft="@+id/editTextNumero"
-        android:layout_alignStart="@+id/editTextNumero" />
+        android:layout_alignLeft="@+id/editTextName"
+        android:layout_alignStart="@+id/editTextName" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -130,8 +130,8 @@
         android:id="@+id/editTextSaldoInicial"
         android:layout_alignBottom="@+id/textViewInitialAmmount"
         android:layout_toRightOf="@+id/textViewInitialAmmount"
-        android:layout_alignRight="@+id/editTextNumero"
-        android:layout_alignEnd="@+id/editTextNumero" />
+        android:layout_alignRight="@+id/editTextName"
+        android:layout_alignEnd="@+id/editTextName" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -149,7 +149,7 @@
         android:ems="10"
         android:id="@+id/editTextDescripcion"
         android:padding="1dp"
-        android:layout_alignTop="@+id/textViewDescription"
+        android:layout_alignTop="@+id/textViewNombre"
         android:layout_alignLeft="@+id/editTextSaldoInicial"
         android:layout_alignStart="@+id/editTextSaldoInicial"
         android:hint="Opcional"
@@ -174,8 +174,8 @@
         android:text="Cancelar"
         android:id="@+id/buttonCancel"
         android:layout_alignTop="@+id/buttonCreate"
-        android:layout_alignLeft="@+id/textViewDescription"
-        android:layout_alignStart="@+id/textViewDescription" />
+        android:layout_alignLeft="@+id/textViewNombre"
+        android:layout_alignStart="@+id/textViewNombre" />
 
         </RelativeLayout>
     </ScrollView>
