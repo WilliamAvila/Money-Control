@@ -60,7 +60,7 @@ public class CreateAccountActivity extends ActionBarActivity {
             }
         });
 
-        etNumero=(EditText)findViewById(R.id.editTextNumero);
+        etNumero=(EditText)findViewById(R.id.editTextName);
         etSaldoInicial=(EditText)findViewById(R.id.editTextSaldoInicial);
         etDescripcion=(EditText)findViewById(R.id.editTextDescripcion);
 

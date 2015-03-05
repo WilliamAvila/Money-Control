@@ -24,6 +24,7 @@
         <activity android:name=".CreateLoanActivity"></activity>
         <activity android:name=".CreateCategoryActivity"></activity>
         <activity android:name=".CreateGastoIngresoActivity"></activity>
+        <activity android:name=".CreateTransferActivity"></activity>
         <activity android:name=".GastosPorCategoria"></activity>
         <activity android:name=".GastosPorDia"></activity>
         <activity android:name=".GastosPorMes"></activity>

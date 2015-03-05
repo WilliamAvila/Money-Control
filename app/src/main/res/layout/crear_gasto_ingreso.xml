@@ -42,8 +42,8 @@
                 android:layout_below="@+id/textViewNewGasto"
                 android:layout_alignLeft="@+id/descripcion_gasto"
                 android:layout_alignStart="@+id/descripcion_gasto"
-                android:layout_alignRight="@+id/descripcion_gasto"
-                android:layout_alignEnd="@+id/descripcion_gasto" />
+                android:layout_alignRight="@+id/buttonCreate"
+                android:layout_alignEnd="@+id/buttonCreate" />
 
 
             <TextView
@@ -51,9 +51,8 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Descripción:"
-                android:id="@+id/textViewDescription"
-                android:layout_alignBaseline="@+id/descripcion_gasto"
-                android:layout_alignBottom="@+id/descripcion_gasto"
+                android:id="@+id/textViewNombre"
+                android:layout_above="@+id/btnCalendar"
                 android:layout_alignRight="@+id/buttonCancel"
                 android:layout_alignEnd="@+id/buttonCancel" />
 
@@ -66,8 +65,11 @@
                 android:padding="1dp"
                 android:gravity="center"
                 android:layout_below="@+id/spinnerCategorias"
-                android:layout_toRightOf="@+id/textViewDescription"
-                android:layout_toEndOf="@+id/textViewDescription" />
+                android:layout_marginTop="30dp"
+                android:layout_alignRight="@+id/btnCalendar"
+                android:layout_alignEnd="@+id/btnCalendar"
+                android:layout_toRightOf="@+id/textViewNombre"
+                android:layout_toEndOf="@+id/textViewNombre" />
 
 
             <TextView
@@ -76,10 +78,10 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Monto:"
                 android:id="@+id/textViewMonto"
-                android:layout_marginTop="37dp"
-                android:layout_below="@+id/txtDate"
+                android:layout_below="@+id/btnCalendar"
                 android:layout_alignLeft="@+id/txtDate"
-                android:layout_alignStart="@+id/txtDate" />
+                android:layout_alignStart="@+id/txtDate"
+                android:layout_marginTop="29dp" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -90,8 +92,8 @@
                 android:padding="1dp"
                 android:gravity="center"
                 android:layout_alignTop="@+id/textViewMonto"
-                android:layout_toRightOf="@+id/textViewMonto"
-                android:layout_toEndOf="@+id/textViewMonto" />
+                android:layout_alignRight="@+id/btnCalendar"
+                android:layout_alignEnd="@+id/btnCalendar" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -100,8 +102,9 @@
                 android:text="Categoria:"
                 android:id="@+id/textView4"
                 android:layout_below="@+id/spinnerTipo"
-                android:layout_alignLeft="@+id/textViewDescription"
-                android:layout_alignStart="@+id/textViewDescription" />
+                android:layout_alignLeft="@+id/textViewNombre"
+                android:layout_alignStart="@+id/textViewNombre"
+                android:layout_marginTop="29dp" />
 
             <Spinner
                 android:layout_width="wrap_content"
@@ -109,7 +112,9 @@
                 android:id="@+id/spinnerCategorias"
                 android:layout_alignTop="@+id/textView4"
                 android:layout_alignLeft="@+id/descripcion_gasto"
-                android:layout_alignStart="@+id/descripcion_gasto" />
+                android:layout_alignStart="@+id/descripcion_gasto"
+                android:layout_alignRight="@+id/spinnerTipo"
+                android:layout_alignEnd="@+id/spinnerTipo" />
 
 
 
@@ -119,9 +124,8 @@
                 android:text="Fecha"
                 android:id="@+id/btnCalendar"
                 android:layout_below="@+id/descripcion_gasto"
-                android:layout_toRightOf="@+id/textViewNewGasto"
-                android:layout_toEndOf="@+id/textViewNewGasto"
-                android:layout_marginTop="40dp" />
+                android:layout_toRightOf="@+id/txtDate"
+                android:layout_toEndOf="@+id/txtDate" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -132,10 +136,8 @@
                 android:padding="1dp"
                 android:gravity="center"
                 android:layout_alignBottom="@+id/btnCalendar"
-                android:layout_alignRight="@+id/textViewNewGasto"
-                android:layout_alignEnd="@+id/textViewNewGasto"
-                android:layout_alignLeft="@+id/textViewDescription"
-                android:layout_alignStart="@+id/textViewDescription" />
+                android:layout_alignLeft="@+id/textViewNombre"
+                android:layout_alignStart="@+id/textViewNombre" />
 
             <Button
                 style="?android:attr/buttonStyleSmall"

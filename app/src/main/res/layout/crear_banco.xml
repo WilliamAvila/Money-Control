@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" >
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -9,174 +9,91 @@
         android:id="@+id/scrollView"
         android:layout_gravity="center_horizontal|top" >
 
-
         <RelativeLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Nueva Cuenta"
-        android:id="@+id/textViewNewAccount"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Nuevo Banco"
+                android:id="@+id/textViewNewBank"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Numero:"
-        android:id="@+id/textViewNumber"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/textViewNewAccount"
-        android:layout_toLeftOf="@+id/textViewNewAccount"
-        android:layout_toStartOf="@+id/textViewNewAccount" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Banco:"
-        android:id="@+id/textViewBank"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/textViewNumber"
-        android:layout_alignLeft="@+id/textViewNumber"
-        android:layout_alignStart="@+id/textViewNumber" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Nombre:"
+                android:id="@+id/textViewNombre"
+                android:layout_alignTop="@+id/textEditNombreBanco"
+                android:layout_toLeftOf="@+id/textViewNewBank" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Moneda:"
-        android:id="@+id/textViewCurrency"
-        android:layout_below="@+id/textViewBank"
-        android:layout_alignLeft="@+id/textViewBank"
-        android:layout_alignStart="@+id/textViewBank"
-        android:layout_marginTop="30dp" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/textEditNombreBanco"
+                android:padding="1dp"
+                android:gravity="center"
+                android:layout_toRightOf="@+id/textViewNombre"
+                android:layout_toEndOf="@+id/textViewNombre"
+                android:layout_marginTop="45dp"
+                android:layout_below="@+id/textViewNewBank" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Saldo Inicial:"
-        android:id="@+id/textViewInitialAmmount"
-        android:layout_below="@+id/textViewCurrency"
-        android:layout_alignLeft="@+id/textViewCurrency"
-        android:layout_alignStart="@+id/textViewCurrency"
-        android:layout_marginTop="30dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Tipo:"
-        android:id="@+id/textViewType"
-        android:layout_below="@+id/textViewInitialAmmount"
-        android:layout_alignLeft="@+id/textViewInitialAmmount"
-        android:layout_alignStart="@+id/textViewInitialAmmount"
-        android:layout_marginTop="30dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Descripcion:"
+                android:id="@+id/textViewDescBanco"
+                android:layout_alignTop="@+id/DescripcionBanco"
+                android:layout_toLeftOf="@+id/textViewNewBank" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Descripcion:"
-        android:id="@+id/textViewDescription"
-        android:layout_below="@+id/spinnerType"
-        android:layout_alignLeft="@+id/textViewType"
-        android:layout_alignStart="@+id/textViewType"
-        android:layout_marginTop="30dp" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/DescripcionBanco"
+                android:padding="1dp"
+                android:gravity="center"
+                android:layout_marginTop="140dp"
+                android:layout_toRightOf="@+id/textViewDescBanco"
+                android:layout_below="@+id/textViewNewBank"
+                android:layout_alignRight="@+id/textEditNombreBanco"
+                android:layout_alignEnd="@+id/textEditNombreBanco" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="1dp"
-        android:gravity="center"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editTextNumero"
-        android:layout_above="@+id/textViewBank"
-        android:layout_toRightOf="@+id/textViewNumber"
-        android:layout_toEndOf="@+id/textViewNumber"
-        android:hint="numero" />
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancelar"
+                android:id="@+id/buttonCancel"
+                android:layout_below="@+id/DescripcionBanco"
+                android:layout_alignLeft="@+id/textViewNombre"
+                android:layout_alignStart="@+id/textViewNombre"
+                android:layout_marginTop="66dp" />
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinnerBanks"
-        android:layout_above="@+id/textViewCurrency"
-        android:layout_alignLeft="@+id/editTextNumero"
-        android:layout_alignStart="@+id/editTextNumero" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinnerCurrency"
-        android:layout_above="@+id/textViewInitialAmmount"
-        android:layout_toRightOf="@+id/textViewCurrency"
-        android:layout_toEndOf="@+id/textViewCurrency" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:padding="1dp"
-        android:gravity="center"
-        android:id="@+id/editTextSaldoInicial"
-        android:layout_alignBottom="@+id/textViewInitialAmmount"
-        android:layout_toRightOf="@+id/textViewInitialAmmount"
-        android:layout_alignRight="@+id/editTextNumero"
-        android:layout_alignEnd="@+id/editTextNumero" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinnerType"
-        android:layout_alignBottom="@+id/textViewType"
-        android:layout_toRightOf="@+id/textViewType"
-        android:layout_toEndOf="@+id/textViewType" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Crear"
-        android:id="@+id/buttonCreate"
-        android:layout_marginTop="100dp"
-        android:layout_below="@+id/editTextDescripcion"
-        android:layout_alignRight="@+id/editTextSaldoInicial"
-        android:layout_alignEnd="@+id/editTextSaldoInicial"
-        android:onClick="IngresarDatos" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cancelar"
-        android:id="@+id/buttonCancel"
-        android:layout_alignTop="@+id/buttonCreate"
-        android:layout_alignLeft="@+id/textViewDescription"
-        android:layout_alignStart="@+id/textViewDescription" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/editTextDescripcion"
-        android:padding="1dp"
-        android:layout_alignTop="@+id/textViewDescription"
-        android:layout_alignLeft="@+id/editTextSaldoInicial"
-        android:layout_alignStart="@+id/editTextSaldoInicial"
-        android:hint="Opcional"
-        android:gravity="center"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Crear"
+                android:id="@+id/buttonCreate"
+                android:onClick="IngresarDatos"
+                android:layout_alignTop="@+id/buttonCancel"
+                android:layout_toRightOf="@+id/textViewNewBank"
+                android:layout_toEndOf="@+id/textViewNewBank" />
 
         </RelativeLayout>
-    </ScrollView>
 
+    </ScrollView>
 
 </RelativeLayout>

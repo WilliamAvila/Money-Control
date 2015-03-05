@@ -38,37 +38,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinnerBanco"
-                android:layout_marginTop="40dp"
                 android:layout_below="@+id/textViewNewLoan"
-                android:layout_alignRight="@+id/descripcion_cat"
-                android:layout_alignEnd="@+id/descripcion_cat"
-                android:layout_toRightOf="@+id/buttonCancel"
-                android:layout_toEndOf="@+id/buttonCancel" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Descripción:"
-                android:id="@+id/textViewDescription"
-                android:layout_alignTop="@+id/descripcion_loan"
-                android:layout_alignLeft="@+id/textViewBanco"
-                android:layout_alignStart="@+id/textViewBanco" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:ems="10"
-                android:id="@+id/descripcion_loan"
-                android:padding="1dp"
-                android:gravity="center"
-                android:layout_below="@+id/spinnerBanco"
-                android:layout_toRightOf="@+id/textViewDescription"
-                android:layout_marginTop="30dp"
-                android:layout_alignRight="@+id/tasa"
-                android:layout_alignEnd="@+id/tasa" />
+                android:layout_toRightOf="@+id/textViewPlazo"
+                android:layout_marginTop="50dp"
+                android:layout_alignRight="@+id/buttonCreate"
+                android:layout_alignEnd="@+id/buttonCreate" />
 
 
             <TextView
@@ -77,9 +51,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Monto:"
                 android:id="@+id/textViewMonto"
-                android:layout_alignTop="@+id/monto"
-                android:layout_alignLeft="@+id/textViewBanco"
-                android:layout_alignStart="@+id/textViewType" />
+                android:layout_alignBottom="@+id/monto"
+                android:layout_alignLeft="@+id/textView7"
+                android:layout_alignStart="@+id/textView7" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -87,36 +61,9 @@
                 android:inputType="numberDecimal"
                 android:ems="10"
                 android:id="@+id/monto"
-                android:padding="1dp"
                 android:gravity="center"
                 android:layout_below="@+id/spinnerBanco"
-                android:layout_marginTop="210dp"
-                android:layout_alignRight="@+id/buttonCreate"
-                android:layout_alignEnd="@+id/buttonCreate"
-                android:layout_toRightOf="@+id/textViewMonto"
-                android:layout_toEndOf="@+id/textViewMonto" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Tasa:"
-                android:id="@+id/textViewTasa"
-                android:layout_alignTop="@+id/tasa"
-                android:layout_alignLeft="@+id/textViewBanco"
-                android:layout_alignStart="@+id/textViewType" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/tasa"
-                android:padding="1dp"
-                android:gravity="center"
-                android:layout_below="@+id/spinnerBanco"
-                android:layout_marginTop="88dp"
+                android:layout_marginTop="120dp"
                 android:layout_alignRight="@+id/buttonCreate"
                 android:layout_alignEnd="@+id/buttonCreate"
                 android:layout_toEndOf="@+id/textViewMonto"
@@ -127,26 +74,52 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Tasa:"
+                android:id="@+id/textViewTasa"
+                android:layout_alignBaseline="@+id/tasa"
+                android:layout_alignBottom="@+id/tasa"
+                android:layout_alignLeft="@+id/textViewMonto"
+                android:layout_alignStart="@+id/textViewMonto" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="20"
+                android:id="@+id/tasa"
+                android:padding="10dp"
+                android:gravity="center"
+                android:layout_marginTop="37dp"
+                android:layout_below="@+id/textViewMonto"
+                android:layout_alignRight="@+id/descripcion_loan"
+                android:layout_alignEnd="@+id/descripcion_loan"
+                android:layout_toRightOf="@+id/textViewMonto"
+                android:layout_toEndOf="@+id/textViewMonto" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Plazo (meses):"
                 android:id="@+id/textViewPlazo"
-                android:layout_alignTop="@+id/plazo"
-                android:layout_alignLeft="@+id/textViewBanco"
-                android:layout_alignStart="@+id/textViewType" />
+                android:layout_alignBottom="@+id/plazo"
+                android:layout_alignLeft="@+id/textView7"
+                android:layout_alignStart="@+id/textView7" />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:ems="10"
-                android:id="@+id/plazo"
-                android:padding="1dp"
+                android:id="@+id/descripcion_loan"
+                android:padding="10dp"
                 android:gravity="center"
-                android:layout_below="@+id/spinnerBanco"
-                android:layout_marginTop="150dp"
-                android:layout_alignRight="@+id/buttonCreate"
-                android:layout_alignEnd="@+id/buttonCreate"
-                android:layout_toEndOf="@+id/textViewPlazo"
-                android:layout_toRightOf="@+id/textViewPlazo" />
+                android:layout_centerVertical="true"
+                android:layout_alignRight="@+id/monto"
+                android:layout_alignEnd="@+id/monto"
+                android:layout_toRightOf="@+id/textView7"
+                android:layout_toEndOf="@+id/textView7" />
 
 
             <Button
@@ -174,6 +147,30 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Descripción:"
+                android:id="@+id/textView7"
+                android:layout_centerVertical="true"
+                android:layout_alignLeft="@+id/textViewBanco"
+                android:layout_alignStart="@+id/textViewBanco" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/plazo"
+                android:padding="10dp"
+                android:gravity="center"
+                android:layout_below="@+id/spinnerBanco"
+                android:layout_alignLeft="@+id/spinnerBanco"
+                android:layout_alignStart="@+id/spinnerBanco"
+                android:layout_alignRight="@+id/spinnerBanco"
+                android:layout_alignEnd="@+id/spinnerBanco" />
 
         </RelativeLayout>
 
