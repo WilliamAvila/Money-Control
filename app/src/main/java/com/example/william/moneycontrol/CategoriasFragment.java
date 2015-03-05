@@ -40,10 +40,10 @@ public class CategoriasFragment extends Fragment {
             }
         });
 
-      /*  ArrayList<CategoryItem> categorias = GetlistCategorias();
-        ListView lv = (ListView)rootView.findViewById(R.id.listViewLpsAccounts);
+        ArrayList<CategoryItem> categorias = GetlistCategorias();
+        final ListView lv = (ListView)rootView.findViewById(R.id.listViewCategorias);
 
-        lv.setAdapter(new ListViewAccountAdapter(getActivity().getApplicationContext(), categorias));*/
+        lv.setAdapter(new ListViewCategoryAdapter(getActivity().getApplicationContext(), categorias));
 
         return rootView;
 
@@ -59,7 +59,7 @@ public class CategoriasFragment extends Fragment {
         int idCategoria=0;
 
         Cursor fila = bd.rawQuery(
-                "select TipoCategoria, Nombre,Descripcion from Categoria" , null);
+                "select IdCategoria,TipoCategoria, Nombre,Descripcion from Categoria" , null);
 
         while(fila.moveToNext()){
             idCategoria=fila.getInt(0);

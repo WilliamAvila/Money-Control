@@ -14,7 +14,11 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table Cuenta(IdCuenta integer primary key autoincrement,NumeroCuenta int,Banco text, Moneda text,SaldoInicial real ,TipoCuenta text,Descripcion text)");
+        db.execSQL("create table Cuenta(IdCuenta integer primary key autoincrement,NumeroCuenta int" +
+                ",Banco text, Moneda text,SaldoInicial real ,TipoCuenta text,Descripcion text)");
+
+        db.execSQL("create table Categoria(IdCategoria integer primary key autoincrement," +
+                "Nombre text ,TipoCategoria text,Descripcion text)");
     }
 
     @Override
