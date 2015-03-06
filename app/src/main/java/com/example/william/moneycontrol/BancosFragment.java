@@ -2,6 +2,8 @@ package com.example.william.moneycontrol;
 
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -41,10 +43,11 @@ public class BancosFragment extends Fragment {
             }
         });
 
-        /*ArrayList<AccountItem> bancos = GetlistBancos();
+        ArrayList<BankItem> bancos = GetlistBancos();
+
         ListView lv = (ListView) rootView.findViewById(R.id.listViewBancos);
 
-        lv.setAdapter(new ListViewAccountAdapter(getActivity().getApplicationContext(), bancos));
+        lv.setAdapter(new ListViewBankAdapter(getActivity().getApplicationContext(), bancos));
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -56,12 +59,33 @@ public class BancosFragment extends Fragment {
             }
         });
 
-*/
         return rootView;
     }
 
-    private ArrayList<AccountItem> GetlistBancos() {
-        return null;
+    private ArrayList<BankItem> GetlistBancos() {
+
+        ArrayList<BankItem> bancos = new ArrayList<BankItem>();
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(rootView.getContext(),"MoneyControl", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+
+        String descripcion="";
+        String nombre="";
+        int idBanco=0;
+
+        Cursor fila = bd.rawQuery(
+                "select idBanco, Nombre,Descripcion from Banco" , null);
+
+        while(fila.moveToNext()){
+            idBanco=fila.getInt(0);
+            nombre=fila.getString(1);
+            descripcion=fila.getString(2);
+            bancos.add(new BankItem(idBanco, descripcion, nombre));
+        }
+
+        bd.close();
+
+        return bancos;
     }
 
 }

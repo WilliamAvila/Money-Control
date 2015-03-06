@@ -62,16 +62,16 @@ public class CreateBankActivity extends ActionBarActivity {
     public void IngresarDatos(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
                 "MoneyControl", null, 1);
+
         SQLiteDatabase bd = admin.getWritableDatabase();
         String nombre = etNombre.getText().toString();
         String descripcion = etDescripcion.getText().toString();
-
 
         ContentValues registro = new ContentValues();
 
         registro.put("Nombre", nombre);
         registro.put("Descripcion", descripcion);
-        bd.insert("Categoria", null, registro);
+        bd.insert("Banco", null, registro);
         bd.close();
         Toast.makeText(this, "Se Agregó Correctamente",
                 Toast.LENGTH_SHORT).show();

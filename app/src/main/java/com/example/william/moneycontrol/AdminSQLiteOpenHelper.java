@@ -24,15 +24,10 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                 "Banco text ,Descripcion text,Monto real,Tasa real, Plazo real)");
 
         db.execSQL("create table Transaccion(IdTransaccion integer primary key autoincrement," +
-                "Tipo text ,Categoria text,Monto real, Destino text, Fuente text,Fecha date, DComentario text)");
+                "Tipo text ,Categoria text,Monto real, Destino text, Fuente text,Fecha date, Comentario text)");
 
-        db.execSQL("create table Prestamo(IdPrestamo integer primary key autoincrement," +
-                "Banco text ,Descripcion text,Monto real,Tasa real, Plazo real)");
-
-
-        db.execSQL("create table Banco(IdBnaco integer primary key autoincrement," +
+        db.execSQL("create table Banco(IdBanco integer primary key autoincrement," +
                 "Nombre text ,Descripcion text)");
-
 
     }
 
