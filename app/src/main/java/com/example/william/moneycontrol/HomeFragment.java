@@ -11,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import com.example.william.moneycontrol.Cuentas.AccountItem;
+import com.example.william.moneycontrol.Cuentas.ListViewAccountAdapter;
+import com.example.william.moneycontrol.Informes.CreateGastoIngresoActivity;
+
 import java.util.ArrayList;
 
 /**

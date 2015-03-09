@@ -19,19 +19,19 @@
 
 
         <!-- Add new Activity class name here -->
-        <activity android:name=".CreateAccountActivity"></activity>
-        <activity android:name=".CreateBankActivity"></activity>
-        <activity android:name=".CreateLoanActivity"></activity>
-        <activity android:name=".CreateCategoryActivity"></activity>
-        <activity android:name=".CreateGastoIngresoActivity"></activity>
+        <activity android:name=".Cuentas.CreateAccountActivity"></activity>
+        <activity android:name=".Bancos.CreateBankActivity"></activity>
+        <activity android:name=".Prestamos.CreateLoanActivity"></activity>
+        <activity android:name=".Categorias.CreateCategoryActivity"></activity>
+        <activity android:name=".Informes.CreateGastoIngresoActivity"></activity>
         <activity android:name=".CreateTransferActivity"></activity>
-        <activity android:name=".GastosPorCategoria"></activity>
-        <activity android:name=".GastosPorDia"></activity>
-        <activity android:name=".GastosPorMes"></activity>
-        <activity android:name=".IngresosPorCategoria"></activity>
-        <activity android:name=".IngresosPorDia"></activity>
-        <activity android:name=".IngresosPorMes"></activity>
-        <activity android:name=".AccountInfoActivity"></activity>
+        <activity android:name=".Categorias.GastosPorCategoria"></activity>
+        <activity android:name=".Informes.GastosPorDia"></activity>
+        <activity android:name=".Informes.GastosPorMes"></activity>
+        <activity android:name=".Informes.IngresosPorCategoria"></activity>
+        <activity android:name=".Informes.IngresosPorDia"></activity>
+        <activity android:name=".Informes.IngresosPorMes"></activity>
+        <activity android:name=".Cuentas.AccountInfoActivity"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.example.william.moneycontrol;
+package com.example.william.moneycontrol.Prestamos;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.william.moneycontrol.AdminSQLiteOpenHelper;
+import com.example.william.moneycontrol.R;
 
 /**
  * Created by Jimmy Banegas on 18/02/2015.

@@ -1,4 +1,4 @@
-package com.example.william.moneycontrol;
+package com.example.william.moneycontrol.Cuentas;
 
 
 import android.content.Intent;
@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.william.moneycontrol.AdminSQLiteOpenHelper;
+import com.example.william.moneycontrol.R;
 
 /**
  * Created by william on 2/25/15.

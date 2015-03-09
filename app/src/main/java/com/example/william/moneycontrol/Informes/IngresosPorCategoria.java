@@ -1,25 +1,28 @@
-package com.example.william.moneycontrol;
+package com.example.william.moneycontrol.Informes;
 
-import android.app.ActionBar;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
+
+import com.example.william.moneycontrol.R;
 
 /**
  * Created by Jimmy Banegas on 23/02/2015.
  */
-public class GastosPorMes extends ActionBarActivity {
-    android.support.v7.app.ActionBar actionBar;
+public class IngresosPorCategoria extends ActionBarActivity{
+
+    ActionBar actionBar;
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.gastos_por_mes);
+        setContentView(R.layout.ingresos_por_categoria);
 
         actionBar = getSupportActionBar();
-        actionBar.setTitle("Gastos por mes");
+        actionBar.setTitle("Ingresos por categoría");
 
 
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
 

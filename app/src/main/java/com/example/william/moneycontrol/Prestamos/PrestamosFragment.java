@@ -1,16 +1,19 @@
-package com.example.william.moneycontrol;
+package com.example.william.moneycontrol.Prestamos;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+
+import com.example.william.moneycontrol.AdminSQLiteOpenHelper;
+import com.example.william.moneycontrol.Prestamos.CreateLoanActivity;
+import com.example.william.moneycontrol.Prestamos.LoanItem;
+import com.example.william.moneycontrol.R;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.william.moneycontrol;
+package com.example.william.moneycontrol.Prestamos;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,29 +7,32 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.william.moneycontrol.Prestamos.LoanItem;
+import com.example.william.moneycontrol.R;
+
 import java.util.ArrayList;
 
 /**
  * Created by Jimmy Banegas on 06/03/2015.
  */
-public class ListViewBankAdapter extends BaseAdapter {
-
-    private  static ArrayList<BankItem> listBancos;
+public class ListViewLoanAdapter extends BaseAdapter {
+    private  static ArrayList<LoanItem> listPrestamos;
     private LayoutInflater mInflater;
 
-    public ListViewBankAdapter (Context BancosFragment, ArrayList<BankItem> results){
-        listBancos = results;
-        mInflater = LayoutInflater.from(BancosFragment);
+    public ListViewLoanAdapter(Context PrestamosFragment, ArrayList<LoanItem> results){
+        listPrestamos = results;
+        mInflater = LayoutInflater.from(PrestamosFragment);
     }
+
 
     @Override
     public int getCount() {
-        return listBancos.size();
+        return listPrestamos.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return listBancos.get(position);
+        return listPrestamos.get(position);
     }
 
     @Override
@@ -43,7 +46,6 @@ public class ListViewBankAdapter extends BaseAdapter {
         if(convertView == null){
             convertView = mInflater.inflate(R.layout.drawer_account_item, null);
             holder = new ViewHolder();
-
             holder.txtNombre = (TextView) convertView.findViewById(R.id.txtViewBanco);
             holder.txtTipo = (TextView) convertView.findViewById(R.id.txtViewTipo);
             // holder.txtNumeroCuenta = (TextView) convertView.findViewById((R.id.txtViewNumeroCuenta));
@@ -53,9 +55,9 @@ public class ListViewBankAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.txtNombre.setText(listBancos.get(position).getNombre());
-        holder.txtTipo.setText(listBancos.get(position).getDescripcion());
-        //   holder.txtNumeroCuenta.setText(String.valueOf(listBancos.get(position)()));
+        holder.txtNombre.setText(listPrestamos.get(position).getIdPrestamo());
+        holder.txtTipo.setText((int) listPrestamos.get(position).getMonto());
+        //   holder.txtNumeroCuenta.setText(String.valueOf(listPrestamos.get(position)()));
 
         return convertView;
     }

@@ -1,4 +1,4 @@
-package com.example.william.moneycontrol;
+package com.example.william.moneycontrol.Navigation;
 
 /**
  * Created by william on 1/31/15.
@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.william.moneycontrol.R;
 
 public class NavDrawerListAdapter extends BaseAdapter {
 

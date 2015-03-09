@@ -1,4 +1,4 @@
-package com.example.william.moneycontrol;
+package com.example.william.moneycontrol.Bancos;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,30 +13,24 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.william.moneycontrol.AdminSQLiteOpenHelper;
+import com.example.william.moneycontrol.R;
+
 /**
- * Created by Jimmy Banegas on 18/02/2015.
+ * Created by william on 2/12/15.
  */
-public class CreateCategoryActivity extends ActionBarActivity {
+public class CreateBankActivity extends ActionBarActivity {
 
     private EditText etDescripcion;
     private EditText etNombre;
-    String tipo;
-    Spinner spinner;
     ActionBar actionBar;
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.crear_categoria);
+        setContentView(R.layout.crear_banco);
 
         actionBar = getSupportActionBar();
-        actionBar.setTitle("Categorías");
-        spinner = (Spinner) findViewById(R.id.spinnerTipo);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.tipo_categoria_array, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
+        actionBar.setTitle("Bancos");
 
 
         Button btnCancel = (Button) findViewById((R.id.buttonCancel));
@@ -48,8 +42,6 @@ public class CreateCategoryActivity extends ActionBarActivity {
             }
         });
 
-
-        spinner.setAdapter(adapter);
         etNombre=(EditText)findViewById(R.id.textEditNombreBanco);
         etDescripcion=(EditText)findViewById(R.id.DescripcionBanco);
 
@@ -73,16 +65,16 @@ public class CreateCategoryActivity extends ActionBarActivity {
     public void IngresarDatos(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
                 "MoneyControl", null, 1);
+
         SQLiteDatabase bd = admin.getWritableDatabase();
         String nombre = etNombre.getText().toString();
         String descripcion = etDescripcion.getText().toString();
-        tipo=spinner.getSelectedItem().toString();
 
         ContentValues registro = new ContentValues();
-        registro.put("TipoCategoria",tipo);
+
         registro.put("Nombre", nombre);
         registro.put("Descripcion", descripcion);
-        bd.insert("Categoria", null, registro);
+        bd.insert("Banco", null, registro);
         bd.close();
         Toast.makeText(this, "Se Agregó Correctamente",
                 Toast.LENGTH_SHORT).show();

@@ -1,4 +1,4 @@
-package com.example.william.moneycontrol;
+package com.example.william.moneycontrol.Cuentas;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.william.moneycontrol.AdminSQLiteOpenHelper;
+import com.example.william.moneycontrol.R;
 
 /**
  * Created by william on 1/25/15.

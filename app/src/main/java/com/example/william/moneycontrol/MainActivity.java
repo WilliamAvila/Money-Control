@@ -16,6 +16,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.william.moneycontrol.Bancos.BancosFragment;
+import com.example.william.moneycontrol.Categorias.CategoriasFragment;
+import com.example.william.moneycontrol.Configuraciones.ConfigFragment;
+import com.example.william.moneycontrol.Cuentas.CuentasFragment;
+import com.example.william.moneycontrol.Informes.InformesFragment;
+import com.example.william.moneycontrol.Navigation.NavDrawerItem;
+import com.example.william.moneycontrol.Navigation.NavDrawerListAdapter;
+import com.example.william.moneycontrol.Prestamos.PrestamosFragment;
+
 import java.util.ArrayList;
 
 

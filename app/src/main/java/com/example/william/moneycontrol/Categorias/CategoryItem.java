@@ -1,4 +1,4 @@
-package com.example.william.moneycontrol;
+package com.example.william.moneycontrol.Categorias;
 
 /**
  * Created by Jimmy Banegas on 18/02/2015.

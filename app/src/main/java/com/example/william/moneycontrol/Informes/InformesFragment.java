@@ -1,4 +1,4 @@
-package com.example.william.moneycontrol;
+package com.example.william.moneycontrol.Informes;
 
 
 import android.content.Intent;
@@ -8,15 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-
-import static android.R.*;
+import com.example.william.moneycontrol.Categorias.GastosPorCategoria;
+import com.example.william.moneycontrol.R;
 
 
 /**
