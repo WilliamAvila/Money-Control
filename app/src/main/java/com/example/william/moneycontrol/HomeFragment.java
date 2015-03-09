@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -35,6 +36,17 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent nextScreen = new Intent(getActivity().getApplicationContext(),CreateGastoIngresoActivity.class);
+                startActivity(nextScreen);
+            }
+        });
+
+
+        Button btnChart = (Button) rootView.findViewById((R.id.buttonChart));
+
+        btnChart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent nextScreen = new Intent(getActivity().getApplicationContext(),ChartActivity.class);
                 startActivity(nextScreen);
             }
         });
