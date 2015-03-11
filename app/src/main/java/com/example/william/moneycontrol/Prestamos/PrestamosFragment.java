@@ -10,9 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import com.example.william.moneycontrol.AdminSQLiteOpenHelper;
-import com.example.william.moneycontrol.Prestamos.CreateLoanActivity;
-import com.example.william.moneycontrol.Prestamos.LoanItem;
+import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
 import com.example.william.moneycontrol.R;
 
 import java.util.ArrayList;

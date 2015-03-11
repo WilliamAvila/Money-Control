@@ -1,4 +1,4 @@
-package com.example.william.moneycontrol;
+package com.example.william.moneycontrol.Helpers;
 
 /**
  * Created by william on 3/9/15.
@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.william.moneycontrol.R;
 
 
 public class ChartActivity extends ActionBarActivity {

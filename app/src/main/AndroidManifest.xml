@@ -25,16 +25,16 @@
         <activity android:name=".Bancos.CreateBankActivity"></activity>
         <activity android:name=".Prestamos.CreateLoanActivity"></activity>
         <activity android:name=".Categorias.CreateCategoryActivity"></activity>
-        <activity android:name=".Informes.CreateGastoIngresoActivity"></activity>
-        <activity android:name=".CreateTransferActivity"></activity>
-        <activity android:name=".Categorias.GastosPorCategoria"></activity>
+        <activity android:name=".Transacciones.CreateGastoIngresoActivity"></activity>
+        <activity android:name=".Transacciones.CreateTransferActivity"></activity>
+        <activity android:name=".Informes.GastosPorCategoria"></activity>
         <activity android:name=".Informes.GastosPorDia"></activity>
         <activity android:name=".Informes.GastosPorMes"></activity>
         <activity android:name=".Informes.IngresosPorCategoria"></activity>
         <activity android:name=".Informes.IngresosPorDia"></activity>
         <activity android:name=".Informes.IngresosPorMes"></activity>
         <activity android:name=".Cuentas.AccountInfoActivity"></activity>
-        <activity android:name=".ChartActivity"></activity>
-        <activity android:name=".ShowWebChartActivity"></activity>
+        <activity android:name=".Helpers.ChartActivity"></activity>
+        <activity android:name=".Helpers.ShowWebChartActivity"></activity>
     </application>
 </manifest>

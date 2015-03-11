@@ -1,4 +1,4 @@
-package com.example.william.moneycontrol;
+package com.example.william.moneycontrol.Transacciones;
 
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
@@ -15,13 +15,16 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
+import com.example.william.moneycontrol.R;
+
 import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Created by Jimmy Banegas on 05/03/2015.
+ * Created by Jimmy Banegas on 19/02/2015.
  */
-public class CreateTransferActivity  extends ActionBarActivity implements View.OnClickListener {
+public class CreateGastoIngresoActivity extends ActionBarActivity implements View.OnClickListener {
     private EditText etDescripcion;
     String tipo;
     String categoria;
@@ -40,7 +43,7 @@ public class CreateTransferActivity  extends ActionBarActivity implements View.O
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.crear_transferencia);
+        setContentView(R.layout.crear_gasto_ingreso);
 
         actionBar = getSupportActionBar();
         actionBar.setTitle("Transacciones");

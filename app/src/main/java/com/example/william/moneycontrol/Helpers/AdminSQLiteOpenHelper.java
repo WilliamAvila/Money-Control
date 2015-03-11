@@ -1,4 +1,4 @@
-package com.example.william.moneycontrol;
+package com.example.william.moneycontrol.Helpers;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

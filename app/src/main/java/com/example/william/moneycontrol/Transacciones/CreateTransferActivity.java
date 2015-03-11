@@ -1,10 +1,7 @@
-package com.example.william.moneycontrol.Informes;
+package com.example.william.moneycontrol.Transacciones;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.ContentValues;
-import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -16,19 +13,18 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.example.william.moneycontrol.AdminSQLiteOpenHelper;
+import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
 import com.example.william.moneycontrol.R;
 
 import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Created by Jimmy Banegas on 19/02/2015.
+ * Created by Jimmy Banegas on 05/03/2015.
  */
-public class CreateGastoIngresoActivity extends ActionBarActivity implements View.OnClickListener {
+public class CreateTransferActivity  extends ActionBarActivity implements View.OnClickListener {
     private EditText etDescripcion;
     String tipo;
     String categoria;
@@ -47,7 +43,7 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.crear_gasto_ingreso);
+        setContentView(R.layout.crear_transferencia);
 
         actionBar = getSupportActionBar();
         actionBar.setTitle("Transacciones");

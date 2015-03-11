@@ -14,7 +14,9 @@ import android.widget.ListView;
 
 import com.example.william.moneycontrol.Cuentas.AccountItem;
 import com.example.william.moneycontrol.Cuentas.ListViewAccountAdapter;
-import com.example.william.moneycontrol.Informes.CreateGastoIngresoActivity;
+import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
+import com.example.william.moneycontrol.Helpers.ChartActivity;
+import com.example.william.moneycontrol.Transacciones.CreateGastoIngresoActivity;
 
 import java.util.ArrayList;
 

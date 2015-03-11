@@ -6,9 +6,11 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.example.william.moneycontrol.R;
 
@@ -17,7 +19,7 @@ import java.util.Calendar;
 /**
  * Created by Jimmy Banegas on 23/02/2015.
  */
-public class IngresosPorDia extends ActionBarActivity implements View.OnClickListener{
+public class GastosPorCategoria extends ActionBarActivity implements View.OnClickListener{
     Button btnCalendar, btnTimePicker;
     private EditText ettxtDate;
     Button btnCalendar2, btnTimePicker2;
@@ -26,15 +28,14 @@ public class IngresosPorDia extends ActionBarActivity implements View.OnClickLis
     // Variable for storing current date and time
     private int mYear, mMonth, mDay, mHour, mMinute;
 
-
     ActionBar actionBar;
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ingresos_por_dia);
+        setContentView(R.layout.gastos_por_categoria);
 
         actionBar = getSupportActionBar();
-        actionBar.setTitle("Ingresos por día");
+        actionBar.setTitle("Gastos por categoría");
 
         ettxtDate=(EditText)findViewById(R.id.editText);
         btnCalendar = (Button) findViewById(R.id.btnDesde);
@@ -45,7 +46,6 @@ public class IngresosPorDia extends ActionBarActivity implements View.OnClickLis
         btnCalendar2 = (Button) findViewById(R.id.btnHasta);
 
         btnCalendar2.setOnClickListener((View.OnClickListener) this);
-
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -111,4 +111,5 @@ public class IngresosPorDia extends ActionBarActivity implements View.OnClickLis
         }
 
     }
+
 }

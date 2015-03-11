@@ -1,4 +1,4 @@
-package com.example.william.moneycontrol;
+package com.example.william.moneycontrol.Helpers;
 
 /**
  * Created by william on 3/9/15.
@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
+
+import com.example.william.moneycontrol.R;
 
 @SuppressLint("SetJavaScriptEnabled")
 public class ShowWebChartActivity extends ActionBarActivity {
