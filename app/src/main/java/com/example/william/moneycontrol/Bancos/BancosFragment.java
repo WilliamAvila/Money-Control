@@ -53,7 +53,7 @@ public class BancosFragment extends Fragment {
 
         lv.setAdapter(new ListViewBankAdapter(getActivity().getApplicationContext(), bancos));
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
@@ -61,7 +61,7 @@ public class BancosFragment extends Fragment {
 
                 startActivity(nextScreen);
             }
-        });
+        });*/
 
         return rootView;
     }

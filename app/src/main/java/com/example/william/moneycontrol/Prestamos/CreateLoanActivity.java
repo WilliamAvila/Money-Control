@@ -83,9 +83,9 @@ public class CreateLoanActivity extends ActionBarActivity {
         SQLiteDatabase bd = admin.getWritableDatabase();
         String descripcion = etDescripcion.getText().toString();
         banco=spinner.getSelectedItem().toString();
-        String monto = etMonto.getText().toString();
-        String plazo = etPlazo_meses.getText().toString();
-        String tasa = etTasa_interés.getText().toString();
+        float monto =  Float.parseFloat(etMonto.getText().toString());
+        float plazo = Float.parseFloat(etPlazo_meses.getText().toString());
+        float tasa = Float.parseFloat(etTasa_interés.getText().toString());
 
         ContentValues registro = new ContentValues();
         registro.put("Banco",banco);

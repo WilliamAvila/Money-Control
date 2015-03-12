@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ListView;
 
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
 import com.example.william.moneycontrol.R;
@@ -37,10 +38,10 @@ public class PrestamosFragment extends Fragment {
             }
         });
 
-      /*  ArrayList<CategoryItem> categorias = GetlistCategorias();
-        ListView lv = (ListView)rootView.findViewById(R.id.listViewLpsAccounts);
+        ArrayList<LoanItem> prestamos = GetlistPrestamos();
+        ListView lv = (ListView)rootView.findViewById(R.id.listViewLoans);
 
-        lv.setAdapter(new ListViewAccountAdapter(getActivity().getApplicationContext(), categorias));*/
+        lv.setAdapter(new ListViewLoanAdapter(getActivity().getApplicationContext(), prestamos));
 
         return rootView;
 
