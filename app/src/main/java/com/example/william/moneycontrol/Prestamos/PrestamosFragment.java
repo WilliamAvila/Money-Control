@@ -53,22 +53,22 @@ public class PrestamosFragment extends Fragment {
         SQLiteDatabase bd = admin.getWritableDatabase();
         String descripcion="";
         int idPrestamo=0;
-        int idBanco;
+        String idBanco;
         float monto;
-        float tasa_interés;
+        float tasa_interes;
         float plazo_meses;
 
         Cursor fila = bd.rawQuery(
-                "select Banco,Descripcion,Monto,Plazo,Tasa from Prestamo" , null);
+                "select IdPrestamo, Banco,Descripcion,Monto,Plazo,Tasa from Prestamo" , null);
 
         while(fila.moveToNext()){
             idPrestamo=fila.getInt(0);
-            idBanco=fila.getInt(1);
+            idBanco=fila.getString(1);
             descripcion=fila.getString(2);
             monto=fila.getFloat(3);
             plazo_meses=fila.getFloat(4);
-            tasa_interés=fila.getFloat(5);
-            prestamos.add(new LoanItem(idPrestamo,idBanco,descripcion,monto,tasa_interés,plazo_meses));
+            tasa_interes=fila.getFloat(5);
+            prestamos.add(new LoanItem(idPrestamo,idBanco,descripcion,monto,tasa_interes,plazo_meses));
         }
 
         bd.close();

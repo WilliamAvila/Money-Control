@@ -55,8 +55,8 @@ public class ListViewLoanAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.txtNombre.setText(listPrestamos.get(position).getIdPrestamo());
-        holder.txtTipo.setText((int) listPrestamos.get(position).getMonto());
+        holder.txtNombre.setText(String.valueOf(listPrestamos.get(position).getIdPrestamo()));
+        holder.txtTipo.setText(String.valueOf(listPrestamos.get(position).getMonto()));
         //   holder.txtNumeroCuenta.setText(String.valueOf(listPrestamos.get(position)()));
 
         return convertView;

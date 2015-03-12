@@ -5,19 +5,19 @@ package com.example.william.moneycontrol.Prestamos;
  */
 public class LoanItem {
     int idPrestamo;
-    int idBanco;
+    String idBanco;
     String descripcion;
     float monto;
-    float tasa_interés;
+    float tasa_interes;
     float plazo_meses;
 
 
-    public  LoanItem(int idPrestamo,int idBanco,String descripcion,float monto,float tasa_interés,float plazo_meses){
+    public  LoanItem(int idPrestamo,String idBanco,String descripcion,float monto,float tasa_interes,float plazo_meses){
         this.idPrestamo=idPrestamo;
         this.idBanco=idBanco;
         this.descripcion=descripcion;
         this.monto=monto;
-        this.tasa_interés=tasa_interés;
+        this.tasa_interes=tasa_interes;
         this.plazo_meses=plazo_meses;
     }
 
@@ -38,11 +38,11 @@ public class LoanItem {
     }
 
     public float getTasa_interés() {
-        return tasa_interés;
+        return tasa_interes;
     }
 
     public void setTasa_interés(float tasa_interés) {
-        this.tasa_interés = tasa_interés;
+        this.tasa_interes = tasa_interés;
     }
 
     public float getPlazo_meses() {
@@ -61,11 +61,11 @@ public class LoanItem {
         this.idPrestamo = idPrestamo;
     }
 
-    public int getIdBanco() {
+    public String getIdBanco() {
         return idBanco;
     }
 
-    public void setIdBanco(int idBanco) {
+    public void setIdBanco(String idBanco) {
         this.idBanco = idBanco;
     }
 }
