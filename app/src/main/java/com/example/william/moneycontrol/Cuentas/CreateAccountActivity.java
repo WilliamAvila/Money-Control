@@ -12,10 +12,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
 import com.example.william.moneycontrol.R;
+
+import java.util.ArrayList;
 
 /**
  * Created by william on 1/25/15.
@@ -33,14 +36,26 @@ public class CreateAccountActivity extends ActionBarActivity {
 
         actionBar = getSupportActionBar();
         actionBar.setTitle("Cuentas");
-        spinner = (Spinner) findViewById(R.id.spinnerBanks);
+
+
+
+        /*spinner = (Spinner) findViewById(R.id.spinnerBanks);
+
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.banks_array, android.R.layout.simple_spinner_item);
+
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
+        spinner.setAdapter(adapter);*/
+
+
+        AddBanks();
+
+
+
 
         spinner2 = (Spinner) findViewById(R.id.spinnerCurrency);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
@@ -82,6 +97,34 @@ public class CreateAccountActivity extends ActionBarActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+
+    public void AddBanks(){
+        ArrayList<AccountItem> cuentas = new ArrayList<AccountItem>();
+        ArrayList<String> bancos = new ArrayList<String>();
+
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getApplicationContext(),"MoneyControl", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+        String Nombre="";
+
+
+        Cursor fila = bd.rawQuery(
+                "select Nombre from Banco" , null);
+
+        while(fila.moveToNext()){
+            Nombre=fila.getString(0);
+            bancos.add(Nombre);
+
+        }
+
+        bd.close();
+
+        spinner = (Spinner) findViewById(R.id.spinnerBanks);
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bancos); //selected item will look like a spinner set from XML
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerArrayAdapter);
     }
 
 
