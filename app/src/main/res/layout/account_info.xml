@@ -64,20 +64,36 @@
         android:id="@+id/textView10"
         android:layout_gravity="center_horizontal" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/textViewDecription"
-        android:layout_gravity="center_horizontal" />
-
     <Button
-        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Delete Account"
+        android:text="Borrar Cuenta"
         android:id="@+id/buttonDelete"
         android:layout_gravity="center_horizontal"
         android:onClick="DeleteAccount" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nuevo Gasto"
+        android:id="@+id/buttonGasto"
+        android:layout_gravity="center_horizontal"
+        android:onClick="AgregarGasto" />/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nuevo Ingreso"
+        android:id="@+id/buttonIngreso"
+        android:layout_gravity="center_horizontal"
+        android:onClick="AgregarIngreso" />/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transferencia"
+        android:id="@+id/buttonTransferencia"
+        android:layout_gravity="center_horizontal"
+        android:onClick="AgregarTransferencia" />/>
 
 </LinearLayout>

@@ -5,13 +5,17 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.example.william.moneycontrol.Cuentas.AccountInfoActivity;
 import com.example.william.moneycontrol.Cuentas.AccountItem;
 import com.example.william.moneycontrol.Cuentas.ListViewAccountAdapter;
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
@@ -32,17 +36,6 @@ public class HomeFragment extends Fragment {
 
         rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
-        ImageButton btnNextScreen = (ImageButton) rootView.findViewById((R.id.btnNuevaTransaccion));
-
-        btnNextScreen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent nextScreen = new Intent(getActivity().getApplicationContext(),CreateGastoIngresoActivity.class);
-                startActivity(nextScreen);
-            }
-        });
-
-
         Button btnChart = (Button) rootView.findViewById((R.id.buttonChart));
 
         btnChart.setOnClickListener(new View.OnClickListener() {
@@ -54,8 +47,27 @@ public class HomeFragment extends Fragment {
         });
 
         ArrayList<AccountItem> cuentas = GetlistAccounts();
-        ListView lv = (ListView)rootView.findViewById(R.id.listViewResumen);
+        final ListView lv = (ListView)rootView.findViewById(R.id.listViewResumen);
         lv.setAdapter(new ListViewAccountAdapter(getActivity().getApplicationContext(), cuentas));
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                Intent nextScreen = new Intent(getActivity().getApplicationContext(), AccountInfoActivity.class);
+                Log.e("hello", parent.getAdapter().getItem(position).toString());
+
+                registerForContextMenu(lv);
+                lv.showContextMenu();
+
+                TextView tv = (TextView) view.findViewById(R.id.txtViewNumeroCuenta);
+                nextScreen.putExtra("NumeroCuenta",tv.getText().toString());
+                startActivity(nextScreen);
+            }
+
+        });
+
+
         return rootView;
 
     }

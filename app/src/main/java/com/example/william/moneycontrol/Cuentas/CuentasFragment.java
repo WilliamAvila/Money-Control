@@ -50,7 +50,7 @@ public class CuentasFragment extends Fragment {
 
         lv.setAdapter(new ListViewAccountAdapter(getActivity().getApplicationContext(), cuentas));
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
@@ -65,9 +65,7 @@ public class CuentasFragment extends Fragment {
                 startActivity(nextScreen);
             }
 
-        });
-
-
+        });*/
 
         return rootView;
 
@@ -96,30 +94,6 @@ public class CuentasFragment extends Fragment {
 
         return cuentas;
     }
-
-
-//    public void consultaporNumero(View v) {
-//
-//
-//        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(rootView.getContext(),"MoneyControl", null, 1);
-//        SQLiteDatabase bd = admin.getWritableDatabase();
-//        EditText et1 = (EditText)rootView.findViewById(R.id.editText);
-//        TextView tv1 =(TextView)rootView.findViewById(R.id.textViewBanco);
-//        TextView tv2 =(TextView)rootView.findViewById(R.id.textViewSaldo);
-//        String cod = et1.getText().toString();
-//        Cursor fila = bd.rawQuery(
-//                "select Banco,SaldoInicial from Cuenta where IdCuenta=" + cod, null);
-//
-//
-//        if (fila.moveToFirst()) {
-//            tv1.setText(fila.getString(0));
-//            tv2.setText(fila.getString(1));
-//        } else
-//            Toast.makeText(rootView.getContext(), "No existe cuenta",
-//                    Toast.LENGTH_SHORT).show();
-//        bd.close();
-//    }
-
 
 
 }

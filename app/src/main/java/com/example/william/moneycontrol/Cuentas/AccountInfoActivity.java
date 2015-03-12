@@ -7,12 +7,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
 import com.example.william.moneycontrol.R;
+import com.example.william.moneycontrol.Transacciones.CreateGastoIngresoActivity;
+import com.example.william.moneycontrol.Transacciones.CreateTransferActivity;
 
 /**
  * Created by william on 2/25/15.
@@ -25,6 +28,9 @@ public class AccountInfoActivity extends ActionBarActivity {
 
         public void onCreate(Bundle savedInstanceState){
             super.onCreate(savedInstanceState);
+            actionBar = getSupportActionBar();
+            actionBar.setTitle("Opciones de Cuenta");
+
             setContentView(R.layout.account_info);
 
             Intent i = getIntent();
@@ -35,8 +41,21 @@ public class AccountInfoActivity extends ActionBarActivity {
             tv.setText(numeroCuenta);
             ViewAccountData(numeroCuenta);
 
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setDisplayHomeAsUpEnabled(true);
 
         }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
         public void DeleteAccount(View v) {
             AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
@@ -47,6 +66,26 @@ public class AccountInfoActivity extends ActionBarActivity {
             finish();
 
         }
+
+    public void AgregarGasto(View v) {
+        Intent nextScreen = new Intent(getApplicationContext(),CreateGastoIngresoActivity.class);
+
+        startActivity(nextScreen);
+
+    }
+
+    public void AgregarIngreso(View v) {
+        Intent nextScreen = new Intent(getApplicationContext(),CreateGastoIngresoActivity.class);
+
+        startActivity(nextScreen);
+
+    }
+
+    public void AgregarTransferencia(View v) {
+        Intent nextScreen = new Intent(getApplicationContext(),CreateTransferActivity.class);
+
+        startActivity(nextScreen);
+    }
 
         public void ViewAccountData(String accountNumber){
 

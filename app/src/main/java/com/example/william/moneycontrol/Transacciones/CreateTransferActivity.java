@@ -26,12 +26,12 @@ import java.util.Date;
  */
 public class CreateTransferActivity  extends ActionBarActivity implements View.OnClickListener {
     private EditText etDescripcion;
-    String tipo;
-    String categoria;
+    String origen;
+    String destino;
     Date fecha;
     private EditText etMonto;
-    Spinner spinner;
-    Spinner spinnerCategoria;
+    Spinner spinnerOrigen;
+    Spinner spinnerDestino;
     Button btnCalendar, btnTimePicker;
     private EditText ettxtDate;
 
@@ -47,19 +47,14 @@ public class CreateTransferActivity  extends ActionBarActivity implements View.O
 
         actionBar = getSupportActionBar();
         actionBar.setTitle("Transacciones");
-        spinner = (Spinner) findViewById(R.id.spinnerTipo);
-        spinnerCategoria = (Spinner) findViewById(R.id.spinnerCategorias);
+        spinnerOrigen = (Spinner) findViewById(R.id.spinnerOrigen);
+        spinnerDestino = (Spinner) findViewById(R.id.spinnerDestino);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.tipo_transaccion_array, android.R.layout.simple_spinner_item);
+                R.array.banks_array, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
-
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
-                R.array.tipo_categoria_array, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         Button btnCancel = (Button) findViewById((R.id.buttonCancel));
 
@@ -69,9 +64,10 @@ public class CreateTransferActivity  extends ActionBarActivity implements View.O
                 finish();
             }
         });
-        spinner.setAdapter(adapter);
-        spinnerCategoria.setAdapter(adapter2);
+        spinnerOrigen.setAdapter(adapter);
+        spinnerDestino.setAdapter(adapter);
         etDescripcion=(EditText)findViewById(R.id.descripcion_gasto);
+        etMonto = (EditText)findViewById(R.id.monto);
         ettxtDate=(EditText)findViewById(R.id.txtDate);
         btnCalendar = (Button) findViewById(R.id.btnCalendar);
 
@@ -97,14 +93,26 @@ public class CreateTransferActivity  extends ActionBarActivity implements View.O
     public void IngresarDatos(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
                 "MoneyControl", null, 1);
+
         SQLiteDatabase bd = admin.getWritableDatabase();
         String descripcion = etDescripcion.getText().toString();
-        tipo=spinner.getSelectedItem().toString();
+        String monto = etMonto.getText().toString();
+        String fecha = ettxtDate.getText().toString();
+        origen=spinnerOrigen.getSelectedItem().toString();
+        destino=spinnerDestino.getSelectedItem().toString();
 
         ContentValues registro = new ContentValues();
-        registro.put("TipoCategoria",tipo);
-        registro.put("Descripcion", descripcion);
-        bd.insert("Categoria", null, registro);
+
+        registro.put("Tipo","Transferencia");
+        registro.put("Categoria","");
+        registro.put("Monto", monto);
+        registro.put("Destino",destino);
+        registro.put("Fuente",origen);
+        registro.put("Fecha", fecha);
+        registro.put("Comentario", descripcion);
+
+        bd.insert("Transaccion", null, registro);
+
         bd.close();
         Toast.makeText(this, "Se Agregó Correctamente",
                 Toast.LENGTH_SHORT).show();

@@ -42,8 +42,8 @@
                 android:layout_below="@+id/textViewNewTransfer"
                 android:layout_alignLeft="@+id/descripcion_gasto"
                 android:layout_alignStart="@+id/descripcion_gasto"
-                android:layout_alignRight="@+id/descripcion_gasto"
-                android:layout_alignEnd="@+id/descripcion_gasto" />
+                android:layout_alignRight="@+id/spinnerDestino"
+                android:layout_alignEnd="@+id/spinnerDestino" />
 
 
             <TextView
@@ -52,7 +52,6 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Descripción:"
                 android:id="@+id/textViewDescrip"
-                android:layout_alignBaseline="@+id/descripcion_gasto"
                 android:layout_alignBottom="@+id/descripcion_gasto"
                 android:layout_alignRight="@+id/buttonCancel"
                 android:layout_alignEnd="@+id/buttonCancel" />
@@ -66,6 +65,9 @@
                 android:padding="1dp"
                 android:gravity="center"
                 android:layout_below="@+id/spinnerDestino"
+                android:layout_alignRight="@+id/btnCalendar"
+                android:layout_alignEnd="@+id/btnCalendar"
+                android:layout_marginTop="42dp"
                 android:layout_toRightOf="@+id/textViewDescrip"
                 android:layout_toEndOf="@+id/textViewDescrip" />
 
@@ -89,9 +91,9 @@
                 android:id="@+id/monto"
                 android:padding="1dp"
                 android:gravity="center"
-                android:layout_alignTop="@+id/textViewMonto"
-                android:layout_toRightOf="@+id/textViewMonto"
-                android:layout_toEndOf="@+id/textViewMonto" />
+                android:layout_alignBottom="@+id/textViewMonto"
+                android:layout_toEndOf="@+id/textViewDestino"
+                android:layout_toRightOf="@+id/textViewDestino" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -101,7 +103,8 @@
                 android:id="@+id/textViewDestino"
                 android:layout_below="@+id/spinnerOrigen"
                 android:layout_alignLeft="@+id/textViewDescrip"
-                android:layout_alignStart="@+id/textViewDescrip" />
+                android:layout_alignStart="@+id/textViewDescrip"
+                android:layout_marginTop="38dp" />
 
             <Spinner
                 android:layout_width="wrap_content"
@@ -110,8 +113,8 @@
                 android:layout_alignTop="@+id/textViewDestino"
                 android:layout_alignLeft="@+id/descripcion_gasto"
                 android:layout_alignStart="@+id/descripcion_gasto"
-                android:layout_alignRight="@+id/spinnerOrigen"
-                android:layout_alignEnd="@+id/spinnerOrigen" />
+                android:layout_toLeftOf="@+id/btnCalendar"
+                android:layout_toStartOf="@+id/btnCalendar" />
 
 
 
@@ -121,9 +124,8 @@
                 android:text="Fecha"
                 android:id="@+id/btnCalendar"
                 android:layout_below="@+id/descripcion_gasto"
-                android:layout_toRightOf="@+id/textViewNewTransfer"
-                android:layout_toEndOf="@+id/textViewNewTransfer"
-                android:layout_marginTop="40dp" />
+                android:layout_toRightOf="@+id/txtDate"
+                android:layout_toEndOf="@+id/txtDate" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -134,8 +136,6 @@
                 android:padding="1dp"
                 android:gravity="center"
                 android:layout_alignBottom="@+id/btnCalendar"
-                android:layout_alignRight="@+id/textViewNewTransfer"
-                android:layout_alignEnd="@+id/textViewNewTransfer"
                 android:layout_alignLeft="@+id/textViewDescrip"
                 android:layout_alignStart="@+id/textViewDescrip" />
 

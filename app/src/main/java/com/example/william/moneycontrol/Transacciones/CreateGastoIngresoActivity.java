@@ -30,7 +30,7 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
     String categoria;
     Date fecha;
     private EditText etMonto;
-    Spinner spinner;
+    Spinner spinnerTipo;
     Spinner spinnerCategoria;
     Button btnCalendar, btnTimePicker;
     private EditText ettxtDate;
@@ -47,7 +47,7 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
 
         actionBar = getSupportActionBar();
         actionBar.setTitle("Transacciones");
-        spinner = (Spinner) findViewById(R.id.spinnerTipo);
+        spinnerTipo = (Spinner) findViewById(R.id.spinnerTipo);
         spinnerCategoria = (Spinner) findViewById(R.id.spinnerCategorias);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -69,10 +69,11 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
                 finish();
             }
         });
-        spinner.setAdapter(adapter);
+        spinnerTipo.setAdapter(adapter);
         spinnerCategoria.setAdapter(adapter2);
         etDescripcion=(EditText)findViewById(R.id.descripcion_gasto);
         ettxtDate=(EditText)findViewById(R.id.txtDate);
+        etMonto = (EditText)findViewById(R.id.monto);
         btnCalendar = (Button) findViewById(R.id.btnCalendar);
 
         btnCalendar.setOnClickListener((View.OnClickListener) this);
@@ -98,13 +99,23 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
                 "MoneyControl", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
-        String descripcion = etDescripcion.getText().toString();
-        tipo=spinner.getSelectedItem().toString();
 
+        String descripcion = etDescripcion.getText().toString();
+        String monto = etMonto.getText().toString();
+        String fecha = ettxtDate.getText().toString();
+        tipo=spinnerTipo.getSelectedItem().toString();
+        categoria=spinnerCategoria.getSelectedItem().toString();
         ContentValues registro = new ContentValues();
-        registro.put("TipoCategoria",tipo);
-        registro.put("Descripcion", descripcion);
-        bd.insert("Categoria", null, registro);
+
+        registro.put("Tipo",tipo);
+        registro.put("Categoria",categoria);
+        registro.put("Monto", monto);
+        registro.put("Destino","");
+        registro.put("Fuente","1");//Cuenta en la que se hace la transaccion
+        registro.put("Fecha", fecha);
+        registro.put("Comentario", descripcion);
+
+        bd.insert("Transaccion", null, registro);
         bd.close();
         Toast.makeText(this, "Se Agregó Correctamente",
                 Toast.LENGTH_SHORT).show();
@@ -116,7 +127,6 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
     public void onClick(View v) {
 
         if (v == btnCalendar) {
-
             // Process to get Current Date
             final Calendar c = Calendar.getInstance();
             mYear = c.get(Calendar.YEAR);
