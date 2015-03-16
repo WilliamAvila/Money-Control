@@ -3,6 +3,7 @@
     package="com.example.william.moneycontrol" >
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -14,10 +15,29 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
+
+        <!--Dropbox-->
+        <activity android:name="com.dropbox.sync.android.DbxAuthActivity" />
+        <activity
+            android:name="com.dropbox.client2.android.AuthActivity"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <data android:scheme="db-ugps1msaywg3kjm" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <service
+            android:name="com.dropbox.sync.android.DbxSyncService"
+            android:enabled="true"
+            android:exported="false"
+            android:label="Dropbox Sync" />
+
 
 
         <!-- Add new Activity class name here -->
@@ -35,5 +55,7 @@
         <activity android:name=".Informes.IngresosPorMes"></activity>
         <activity android:name=".Cuentas.AccountInfoActivity"></activity>
         <activity android:name=".Helpers.ShowWebChartActivity"></activity>
+
+
     </application>
 </manifest>

@@ -9,9 +9,11 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
 import com.example.william.moneycontrol.Helpers.ShowWebChartActivity;
@@ -28,6 +30,7 @@ public class GastosPorCategoria extends ActionBarActivity implements View.OnClic
     private EditText ettxtDate;
     Button btnCalendar2, btnTimePicker2;
     private EditText ettxtDate2;
+    Spinner spinnerCuentas;
     Button btnShow;
 
     // Variable for storing current date and time
@@ -41,6 +44,7 @@ public class GastosPorCategoria extends ActionBarActivity implements View.OnClic
 
         actionBar = getSupportActionBar();
         actionBar.setTitle("Gastos por categoría");
+        AddAccounts();
 
         ettxtDate=(EditText)findViewById(R.id.editText);
         btnCalendar = (Button) findViewById(R.id.btnDesde);
@@ -115,6 +119,35 @@ public class GastosPorCategoria extends ActionBarActivity implements View.OnClic
 
 
     }
+
+    public void AddAccounts(){
+        ArrayList<String> cuentas = new ArrayList<String>();
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getApplicationContext(),"MoneyControl", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+        String Nombre="";
+        String Banco = "";
+
+        Cursor fila = bd.rawQuery(
+                "select NumeroCuenta, Banco from Cuenta" , null);
+
+        while(fila.moveToNext()){
+            Nombre=fila.getString(0);
+            Banco=fila.getString(1);
+            cuentas.add(Nombre+ " "+ Banco);
+        }
+
+        bd.close();
+
+        spinnerCuentas = (Spinner) findViewById(R.id.spinnerAccounts);
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, cuentas); //selected item will look like a spinner set from XML
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCuentas.setAdapter(spinnerArrayAdapter);
+
+    }
+
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
