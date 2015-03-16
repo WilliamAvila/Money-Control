@@ -33,7 +33,6 @@ public class HomeFragment extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
 
-
         ArrayList<AccountItem> cuentas = GetlistAccounts();
         final ListView lv = (ListView)rootView.findViewById(R.id.listViewResumen);
         lv.setAdapter(new ListViewAccountAdapter(getActivity().getApplicationContext(), cuentas));
@@ -49,6 +48,7 @@ public class HomeFragment extends Fragment {
                 lv.showContextMenu();
 
                 TextView tv = (TextView) view.findViewById(R.id.txtViewNumeroCuenta);
+
                 nextScreen.putExtra("NumeroCuenta",tv.getText().toString());
                 startActivity(nextScreen);
             }
@@ -69,7 +69,7 @@ public class HomeFragment extends Fragment {
         int numeroCuenta=0;
 
         Cursor fila = bd.rawQuery(
-                "select Banco, Moneda,numeroCuenta from Cuenta" , null);
+                "select Banco, Moneda,SaldoInicial from Cuenta" , null);
 
         while(fila.moveToNext()){
             Banco=fila.getString(0);

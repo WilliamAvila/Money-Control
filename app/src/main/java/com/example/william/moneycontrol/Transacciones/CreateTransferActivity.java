@@ -2,10 +2,12 @@ package com.example.william.moneycontrol.Transacciones;
 
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -15,9 +17,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.william.moneycontrol.Cuentas.AccountItem;
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
 import com.example.william.moneycontrol.R;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -47,8 +51,9 @@ public class CreateTransferActivity  extends ActionBarActivity implements View.O
 
         actionBar = getSupportActionBar();
         actionBar.setTitle("Transacciones");
-        spinnerOrigen = (Spinner) findViewById(R.id.spinnerOrigen);
-        spinnerDestino = (Spinner) findViewById(R.id.spinnerDestino);
+        AddAccounts();
+      //  spinnerOrigen = (Spinner) findViewById(R.id.spinnerOrigen);
+     //   spinnerDestino = (Spinner) findViewById(R.id.spinnerDestino);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.banks_array, android.R.layout.simple_spinner_item);
@@ -64,8 +69,8 @@ public class CreateTransferActivity  extends ActionBarActivity implements View.O
                 finish();
             }
         });
-        spinnerOrigen.setAdapter(adapter);
-        spinnerDestino.setAdapter(adapter);
+     //   spinnerOrigen.setAdapter(adapter);
+     //   spinnerDestino.setAdapter(adapter);
         etDescripcion=(EditText)findViewById(R.id.descripcion_gasto);
         etMonto = (EditText)findViewById(R.id.monto);
         ettxtDate=(EditText)findViewById(R.id.txtDate);
@@ -89,6 +94,34 @@ public class CreateTransferActivity  extends ActionBarActivity implements View.O
         }
     }
 
+    public void AddAccounts(){
+        ArrayList<String> cuentas = new ArrayList<String>();
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getApplicationContext(),"MoneyControl", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+        String Nombre="";
+        String Banco = "";
+
+        Cursor fila = bd.rawQuery(
+                "select NumeroCuenta, Banco from Cuenta" , null);
+
+        while(fila.moveToNext()){
+            Nombre=fila.getString(0);
+            Banco=fila.getString(1);
+            cuentas.add(Nombre+ " "+ Banco);
+        }
+
+        bd.close();
+
+        spinnerOrigen = (Spinner) findViewById(R.id.spinnerOrigen);
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, cuentas); //selected item will look like a spinner set from XML
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerOrigen.setAdapter(spinnerArrayAdapter);
+
+        spinnerDestino = (Spinner) findViewById(R.id.spinnerDestino);
+        spinnerDestino.setAdapter(spinnerArrayAdapter);
+    }
+
 
     public void IngresarDatos(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
@@ -98,8 +131,11 @@ public class CreateTransferActivity  extends ActionBarActivity implements View.O
         String descripcion = etDescripcion.getText().toString();
         String monto = etMonto.getText().toString();
         String fecha = ettxtDate.getText().toString();
-        origen=spinnerOrigen.getSelectedItem().toString();
-        destino=spinnerDestino.getSelectedItem().toString();
+        origen=spinnerOrigen.getSelectedItem().toString().split(" ")[0];
+        destino=spinnerDestino.getSelectedItem().toString().split(" ")[0];
+
+        Log.e("Origen", origen);
+        Log.e("Destino", destino);
 
         ContentValues registro = new ContentValues();
 

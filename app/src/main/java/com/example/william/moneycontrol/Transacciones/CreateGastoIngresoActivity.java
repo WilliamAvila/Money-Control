@@ -2,11 +2,13 @@ package com.example.william.moneycontrol.Transacciones;
 
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -38,6 +40,8 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
     Button btnCalendar, btnTimePicker;
     private EditText ettxtDate;
 
+    String numeroCuenta;
+
     // Variable for storing current date and time
     private int mYear, mMonth, mDay, mHour, mMinute;
 
@@ -52,13 +56,8 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
         actionBar.setTitle("Transacciones");
         spinnerTipo = (Spinner) findViewById(R.id.spinnerTipo);
 
-
-
         spinnerCategoria = (Spinner) findViewById(R.id.spinnerCategorias);
         AddCategories();
-
-
-
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -66,7 +65,6 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
-
 
         Button btnCancel = (Button) findViewById((R.id.buttonCancel));
 
@@ -86,6 +84,12 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        Intent i = getIntent();
+        // Receiving the Data
+        numeroCuenta = i.getStringExtra("NumeroCuenta");
+
+        Log.e("hello", numeroCuenta);
 
     }
 
@@ -112,7 +116,6 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
         SQLiteDatabase bd = admin.getWritableDatabase();
         String Nombre="";
 
-
         Cursor fila = bd.rawQuery(
                 "select Nombre from Categoria" , null);
 
@@ -121,7 +124,6 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
             categorias.add(Nombre);
 
         }
-
 
         bd.close();
 
@@ -148,7 +150,7 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
         registro.put("Categoria",categoria);
         registro.put("Monto", monto);
         registro.put("Destino","");
-        registro.put("Fuente","1");//Cuenta en la que se hace la transaccion
+        registro.put("Fuente",numeroCuenta);//Cuenta en la que se hace la transaccion
         registro.put("Fecha", fecha);
         registro.put("Comentario", descripcion);
 
@@ -162,7 +164,6 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
 
     @Override
     public void onClick(View v) {
-
         if (v == btnCalendar) {
             // Process to get Current Date
             final Calendar c = Calendar.getInstance();
