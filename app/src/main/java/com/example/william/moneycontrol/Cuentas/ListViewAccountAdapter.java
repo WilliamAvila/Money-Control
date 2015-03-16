@@ -18,11 +18,14 @@ import java.util.ArrayList;
 public class ListViewAccountAdapter extends BaseAdapter {
     private  static ArrayList<AccountItem> listCuentas;
     private LayoutInflater mInflater;
+    private int[] colors = new int[] { 0x30FF0000, 0x300000FF,0xFFEE3333 };
 
     public ListViewAccountAdapter(Context CuentasFragment, ArrayList<AccountItem> results){
         listCuentas = results;
         mInflater = LayoutInflater.from(CuentasFragment);
     }
+
+
 
 
     @Override
@@ -46,6 +49,11 @@ public class ListViewAccountAdapter extends BaseAdapter {
         if(convertView == null){
             convertView = mInflater.inflate(R.layout.drawer_account_item, null);
             holder = new ViewHolder();
+
+            int colorPos = position % colors.length;
+            convertView.setBackgroundColor(colors[colorPos]);
+
+
             holder.txtBanco = (TextView) convertView.findViewById(R.id.txtViewBanco);
             holder.txtTipo = (TextView) convertView.findViewById(R.id.txtViewTipo);
             holder.txtNumeroCuenta = (TextView) convertView.findViewById((R.id.txtViewNumeroCuenta));

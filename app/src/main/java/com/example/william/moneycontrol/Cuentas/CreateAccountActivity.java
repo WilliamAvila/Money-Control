@@ -1,8 +1,11 @@
 package com.example.william.moneycontrol.Cuentas;
 
 import android.content.ContentValues;
+import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -11,11 +14,13 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
+import com.example.william.moneycontrol.MainActivity;
 import com.example.william.moneycontrol.R;
 
 import java.util.ArrayList;
@@ -32,6 +37,9 @@ public class CreateAccountActivity extends ActionBarActivity {
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+
+
+
         setContentView(R.layout.crear_cuenta);
 
         actionBar = getSupportActionBar();
@@ -158,6 +166,12 @@ public class CreateAccountActivity extends ActionBarActivity {
         Toast.makeText(this, "Se Agrego la cuenta Correctamente",
                 Toast.LENGTH_SHORT).show();
 
+
+
+
+        Intent intent = new Intent(CreateAccountActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
         finish();
     }
 

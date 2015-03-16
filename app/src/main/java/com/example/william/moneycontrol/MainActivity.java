@@ -2,6 +2,7 @@ package com.example.william.moneycontrol;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.support.v4.widget.DrawerLayout;
@@ -128,7 +129,11 @@ public class MainActivity extends ActionBarActivity {
             // on first time display view for first nav item
             displayView(0);
         }
-
+        int i =0;
+        Intent intent= getIntent();
+        i= intent.getIntExtra("Index",0);
+        Log.d("Index",String.valueOf(i));
+        displayView(i);
 
 
     }

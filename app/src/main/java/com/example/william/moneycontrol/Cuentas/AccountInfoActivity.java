@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
+import com.example.william.moneycontrol.MainActivity;
 import com.example.william.moneycontrol.R;
 import com.example.william.moneycontrol.Transacciones.CreateGastoIngresoActivity;
 import com.example.william.moneycontrol.Transacciones.CreateTransferActivity;
@@ -63,6 +64,10 @@ public class AccountInfoActivity extends ActionBarActivity {
             SQLiteDatabase bd = admin.getWritableDatabase();
             bd.delete("Cuenta", "NumeroCuenta=" + numeroCuenta, null);
             bd.close();
+
+            Intent intent = new Intent(AccountInfoActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
             finish();
 
         }

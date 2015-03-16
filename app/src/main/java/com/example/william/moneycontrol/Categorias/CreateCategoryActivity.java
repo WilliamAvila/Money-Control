@@ -1,6 +1,7 @@
 package com.example.william.moneycontrol.Categorias;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -14,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
+import com.example.william.moneycontrol.MainActivity;
 import com.example.william.moneycontrol.R;
 
 /**
@@ -90,6 +92,10 @@ public class CreateCategoryActivity extends ActionBarActivity {
         Toast.makeText(this, "Se Agregó Correctamente",
                 Toast.LENGTH_SHORT).show();
 
+        Intent intent = new Intent(CreateCategoryActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("Index",2);
+        startActivity(intent);
         finish();
     }
 
