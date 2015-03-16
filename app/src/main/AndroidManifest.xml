@@ -34,7 +34,6 @@
         <activity android:name=".Informes.IngresosPorDia"></activity>
         <activity android:name=".Informes.IngresosPorMes"></activity>
         <activity android:name=".Cuentas.AccountInfoActivity"></activity>
-        <activity android:name=".Helpers.ChartActivity"></activity>
         <activity android:name=".Helpers.ShowWebChartActivity"></activity>
     </application>
 </manifest>

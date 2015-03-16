@@ -103,6 +103,9 @@ public class CreateAccountActivity extends ActionBarActivity {
     public void AddBanks(){
         ArrayList<AccountItem> cuentas = new ArrayList<AccountItem>();
         ArrayList<String> bancos = new ArrayList<String>();
+        bancos.add("Banco Azteca");
+        bancos.add("BAC");
+        bancos.add("Banco Fichosa");
 
 
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getApplicationContext(),"MoneyControl", null, 1);
@@ -118,6 +121,7 @@ public class CreateAccountActivity extends ActionBarActivity {
             bancos.add(Nombre);
 
         }
+
 
         bd.close();
 

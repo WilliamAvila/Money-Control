@@ -2,6 +2,7 @@ package com.example.william.moneycontrol.Transacciones;
 
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -15,9 +16,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.william.moneycontrol.Cuentas.AccountItem;
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
 import com.example.william.moneycontrol.R;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -48,7 +51,15 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
         actionBar = getSupportActionBar();
         actionBar.setTitle("Transacciones");
         spinnerTipo = (Spinner) findViewById(R.id.spinnerTipo);
+
+
+
         spinnerCategoria = (Spinner) findViewById(R.id.spinnerCategorias);
+        AddCategories();
+
+
+
+
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.tipo_transaccion_array, android.R.layout.simple_spinner_item);
@@ -56,10 +67,6 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
 
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
-                R.array.tipo_categoria_array, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         Button btnCancel = (Button) findViewById((R.id.buttonCancel));
 
@@ -70,7 +77,6 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
             }
         });
         spinnerTipo.setAdapter(adapter);
-        spinnerCategoria.setAdapter(adapter2);
         etDescripcion=(EditText)findViewById(R.id.descripcion_gasto);
         ettxtDate=(EditText)findViewById(R.id.txtDate);
         etMonto = (EditText)findViewById(R.id.monto);
@@ -92,6 +98,37 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+
+    public void AddCategories(){
+        ArrayList<AccountItem> cuentas = new ArrayList<AccountItem>();
+        ArrayList<String> categorias = new ArrayList<String>();
+        categorias.add("University");
+        categorias.add("Food");
+
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getApplicationContext(),"MoneyControl", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+        String Nombre="";
+
+
+        Cursor fila = bd.rawQuery(
+                "select Nombre from Categoria" , null);
+
+        while(fila.moveToNext()){
+            Nombre=fila.getString(0);
+            categorias.add(Nombre);
+
+        }
+
+
+        bd.close();
+
+        spinnerCategoria = (Spinner) findViewById(R.id.spinnerCategorias);
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categorias); //selected item will look like a spinner set from XML
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCategoria.setAdapter(spinnerArrayAdapter);
     }
 
 
@@ -141,8 +178,9 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
                         public void onDateSet(DatePicker view, int year,
                                               int monthOfYear, int dayOfMonth) {
                             // Display Selected date in textbox
-                            ettxtDate.setText(dayOfMonth + "-"
-                                    + (monthOfYear + 1) + "-" + year);
+                            ettxtDate.setText(year + "-"
+                                    + (monthOfYear + 1) + "-" + dayOfMonth);
+
 
                         }
                     }, mYear, mMonth, mDay);

@@ -10,8 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,8 +17,6 @@ import com.example.william.moneycontrol.Cuentas.AccountInfoActivity;
 import com.example.william.moneycontrol.Cuentas.AccountItem;
 import com.example.william.moneycontrol.Cuentas.ListViewAccountAdapter;
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
-import com.example.william.moneycontrol.Helpers.ChartActivity;
-import com.example.william.moneycontrol.Transacciones.CreateGastoIngresoActivity;
 
 import java.util.ArrayList;
 
@@ -36,15 +32,7 @@ public class HomeFragment extends Fragment {
 
         rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
-        Button btnChart = (Button) rootView.findViewById((R.id.buttonChart));
 
-        btnChart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent nextScreen = new Intent(getActivity().getApplicationContext(),ChartActivity.class);
-                startActivity(nextScreen);
-            }
-        });
 
         ArrayList<AccountItem> cuentas = GetlistAccounts();
         final ListView lv = (ListView)rootView.findViewById(R.id.listViewResumen);
