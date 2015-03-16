@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -32,6 +33,7 @@ public class GastosPorCategoria extends ActionBarActivity implements View.OnClic
     private EditText ettxtDate2;
     Spinner spinnerCuentas;
     Button btnShow;
+    String AccountNumber;
 
     // Variable for storing current date and time
     private int mYear, mMonth, mDay, mHour, mMinute;
@@ -92,11 +94,12 @@ public class GastosPorCategoria extends ActionBarActivity implements View.OnClic
         String Monto = "";
         String Categoria = "";
 
-
+        AccountNumber = spinnerCuentas.getSelectedItem().toString().split(" ")[0];
+        Log.e("Numero Cuenta", AccountNumber);
 
 
         Cursor fila = bd.rawQuery(
-                "select Categoria,Monto from Transaccion where Tipo = \"Gasto\" and Fecha between '" + fecha1+"' and '" + fecha2 + "'", null);
+                "select Categoria,Monto from Transaccion where Tipo = \"Gasto\" and Fecha between '" + fecha1+"' and '" + fecha2 + "'"+" and Fuente = \""+AccountNumber+"\"", null);
 
         while(fila.moveToNext()){
             Categoria=fila.getString(0);
