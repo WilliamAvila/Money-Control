@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -80,7 +81,8 @@ public class CreateLoanActivity extends ActionBarActivity implements View.OnClic
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
+            case android
+.R.id.home:
                 this.finish();
                 return true;
             default:
@@ -93,13 +95,47 @@ public class CreateLoanActivity extends ActionBarActivity implements View.OnClic
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
                 "MoneyControl", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
-        String descripcion = etDescripcion.getText().toString();
-        banco=spinner.getSelectedItem().toString();
-        float monto =  Float.parseFloat(etMonto.getText().toString());
-        float tasa = Float.parseFloat(etTasa_interés.getText().toString());
-        String fecha = ettxtDate.getText().toString();
 
+        String descripcion = etDescripcion.getText().toString();
+        if (descripcion.matches("")) {
+            descripcion="";
+        }
+
+        banco=spinner.getSelectedItem().toString();
+        if (banco.matches("")) {
+            Toast.makeText(this, "Banco vacío", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+         if (etMonto.getText().toString().matches("")) {
+            Toast.makeText(this, "Monto vacío", Toast.LENGTH_SHORT).show();
+            return;
+         }
+
+        float monto =  Float.parseFloat(etMonto.getText().toString());
+
+         if (etTasa_interés.getText().toString().matches("")) {
+            Toast.makeText(this, "Tasa vacía", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        float tasa = Float.parseFloat(etTasa_interés.getText().toString());
+
+
+        String fecha = ettxtDate.getText().toString();
+       if (fecha.matches("")) {
+            Toast.makeText(this, "Fecha vacía", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
+         if (etPlazo_meses.getText().toString().matches("")) {
+            Toast.makeText(this, "Plazo vacío", Toast.LENGTH_SHORT).show();
+            return;
+        }
         float plazo = Float.parseFloat(etPlazo_meses.getText().toString());
+
+
 
         ContentValues registro = new ContentValues();
         registro.put("Banco",banco);
@@ -138,7 +174,6 @@ public class CreateLoanActivity extends ActionBarActivity implements View.OnClic
             bancos.add(Nombre);
 
         }
-
         bd.close();
 
         spinner = (Spinner) findViewById(R.id.spinnerBanco);

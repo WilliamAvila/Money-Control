@@ -143,8 +143,19 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
         SQLiteDatabase bd = admin.getWritableDatabase();
 
         String descripcion = etDescripcion.getText().toString();
+        if (descripcion.matches("")) {
+            descripcion="";
+        }
         String monto = etMonto.getText().toString();
+        if (etMonto.getText().toString().matches("")) {
+            Toast.makeText(this, "Monto vacío", Toast.LENGTH_SHORT).show();
+            return;
+        }
         String fecha = ettxtDate.getText().toString();
+        if (fecha.matches("")) {
+            Toast.makeText(this, "Fecha vacío", Toast.LENGTH_SHORT).show();
+            return;
+        }
         tipo=spinnerTipo.getSelectedItem().toString();
         categoria=spinnerCategoria.getSelectedItem().toString();
         ContentValues registro = new ContentValues();

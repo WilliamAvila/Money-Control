@@ -83,6 +83,15 @@ public class CreateCategoryActivity extends ActionBarActivity {
         String descripcion = etDescripcion.getText().toString();
         tipo=spinner.getSelectedItem().toString();
 
+        if (nombre.matches("")) {
+            Toast.makeText(this, "Nombre vacío", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (descripcion.matches("")) {
+           descripcion="";
+        }
+
         ContentValues registro = new ContentValues();
         registro.put("TipoCategoria",tipo);
         registro.put("Nombre", nombre);
