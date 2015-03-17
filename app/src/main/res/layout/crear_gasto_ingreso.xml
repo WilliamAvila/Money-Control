@@ -131,14 +131,15 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
+                android:inputType="none"
                 android:ems="10"
                 android:id="@+id/txtDate"
                 android:padding="1dp"
                 android:gravity="center"
                 android:layout_alignBottom="@+id/btnCalendar"
                 android:layout_alignLeft="@+id/textViewNombre"
-                android:layout_alignStart="@+id/textViewNombre" />
+                android:layout_alignStart="@+id/textViewNombre"
+                android:editable="false" />
 
             <Button
                 style="?android:attr/buttonStyleSmall"

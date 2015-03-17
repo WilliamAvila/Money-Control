@@ -77,16 +77,17 @@ public class CuentasFragment extends Fragment {
         SQLiteDatabase bd = admin.getWritableDatabase();
         String Banco="";
         String Moneda="";
-        int numeroCuenta=0;
-
+        String numeroCuenta="";
+        double saldo;
         Cursor fila = bd.rawQuery(
-                "select Banco, Moneda,numeroCuenta from Cuenta" , null);
+                "select Banco, Moneda,numeroCuenta,Saldo from Cuenta" , null);
 
        while(fila.moveToNext()){
            Banco=fila.getString(0);
            Moneda=fila.getString(1);
-           numeroCuenta=fila.getInt(2);
-           cuentas.add(new AccountItem(Banco,Moneda,numeroCuenta));
+           numeroCuenta=fila.getString(2);
+           saldo=fila.getDouble(3);
+           cuentas.add(new AccountItem(numeroCuenta,Banco,Moneda,saldo));
 
        }
 

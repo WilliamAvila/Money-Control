@@ -5,14 +5,14 @@ package com.example.william.moneycontrol.Cuentas;
  */
 public class AccountItem {
 
-    double numeroCuenta;
+    String numeroCuenta;
     String moneda;
     double saldo;
     String tipo;
     String banco;
     String Descripcion;
 
-    public AccountItem(int numeroCuenta, String moneda, double saldo, String tipo, String banco, String descripcion) {
+    public AccountItem(String numeroCuenta, String moneda, double saldo, String tipo, String banco, String descripcion) {
         this.numeroCuenta = numeroCuenta;
         this.moneda = moneda;
         this.saldo = saldo;
@@ -21,13 +21,14 @@ public class AccountItem {
         Descripcion = descripcion;
     }
 
-    public AccountItem(String banco, String moneda, double numeroCuenta) {
+    public AccountItem(String numeroCuenta,String banco, String moneda, double saldo) {
+        this.numeroCuenta = numeroCuenta;
         this.banco = banco;
         this.moneda = moneda;
-        this.numeroCuenta = numeroCuenta;
+        this.saldo =saldo;
     }
 
-    public double getNumeroCuenta() {
+    public String getNumeroCuenta() {
         return numeroCuenta;
     }
 
@@ -51,7 +52,7 @@ public class AccountItem {
         return Descripcion;
     }
 
-    public void setNumeroCuenta(int numeroCuenta) {
+    public void setNumeroCuenta(String numeroCuenta) {
         this.numeroCuenta = numeroCuenta;
     }
 

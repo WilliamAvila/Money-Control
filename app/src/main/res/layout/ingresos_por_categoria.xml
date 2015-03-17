@@ -48,7 +48,6 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
             android:ems="10"
             android:id="@+id/editText"
             android:padding="1dp"
@@ -59,7 +58,8 @@
             android:layout_alignEnd="@+id/imageView"
             android:layout_toRightOf="@+id/btnDesde"
             android:layout_toEndOf="@+id/btnDesde"
-            android:editable="false" />
+            android:editable="false"
+            android:inputType="none" />
 
         <Button
             android:layout_width="wrap_content"
@@ -73,7 +73,6 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
             android:ems="10"
             android:id="@+id/editText2"
             android:padding="1dp"
@@ -82,7 +81,9 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_toRightOf="@+id/btnHasta"
-            android:layout_toEndOf="@+id/btnHasta" />
+            android:layout_toEndOf="@+id/btnHasta"
+            android:editable="false"
+            android:inputType="none" />
 
         <Button
             style="?android:attr/buttonStyleSmall"

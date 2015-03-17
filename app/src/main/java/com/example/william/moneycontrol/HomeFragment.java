@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
 
     private View rootView;
-    private String NumeroCuenta;
+    private final  ArrayList<AccountItem> cuentas=new ArrayList<AccountItem>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class HomeFragment extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
 
-        ArrayList<AccountItem> cuentas = GetlistAccounts();
+        final ArrayList<AccountItem> cuentas = GetlistAccounts();
         final ListView lv = (ListView)rootView.findViewById(R.id.listViewResumen);
         lv.setAdapter(new ListViewAccountAdapter(getActivity().getApplicationContext(), cuentas));
 
@@ -48,7 +48,7 @@ public class HomeFragment extends Fragment {
                 registerForContextMenu(lv);
                 lv.showContextMenu();
 
-                nextScreen.putExtra("NumeroCuenta",NumeroCuenta);
+                nextScreen.putExtra("NumeroCuenta",cuentas.get(position).getNumeroCuenta());
                 startActivity(nextScreen);
             }
 
@@ -59,13 +59,14 @@ public class HomeFragment extends Fragment {
 
     }
     private ArrayList<AccountItem> GetlistAccounts(){
-        ArrayList<AccountItem> cuentas = new ArrayList<AccountItem>();
+
 
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(rootView.getContext(),"MoneyControl", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
         String Banco="";
         String Moneda="";
         Double Saldo;
+        String NumeroCuenta="";
 
         Cursor fila = bd.rawQuery(
                 "select Banco, Moneda,Saldo,NumeroCuenta from Cuenta" , null);
@@ -75,7 +76,7 @@ public class HomeFragment extends Fragment {
             Moneda=fila.getString(1);
             Saldo=fila.getDouble(2);
             NumeroCuenta=fila.getString(3);
-            cuentas.add(new AccountItem(Banco,Moneda,Saldo));
+            cuentas.add(new AccountItem(NumeroCuenta,Banco,Moneda,Saldo));
         }
 
         bd.close();
