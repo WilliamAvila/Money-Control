@@ -1,5 +1,6 @@
 package com.example.william.moneycontrol.Prestamos;
 
+import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -21,18 +23,24 @@ import com.example.william.moneycontrol.MainActivity;
 import com.example.william.moneycontrol.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by Jimmy Banegas on 18/02/2015.
  */
-public class CreateLoanActivity extends ActionBarActivity {
+public class CreateLoanActivity extends ActionBarActivity implements View.OnClickListener {
     private EditText etDescripcion;
     String banco;
     private EditText etMonto;
     private EditText etTasa_interés;
     private EditText etPlazo_meses;
     Spinner spinner;
+    Button btnCalendar, btnTimePicker;
+    private EditText ettxtDate;
     ActionBar actionBar;
+
+    // Variable for storing current date and time
+    private int mYear, mMonth, mDay, mHour, mMinute;
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -40,8 +48,6 @@ public class CreateLoanActivity extends ActionBarActivity {
 
         actionBar = getSupportActionBar();
         actionBar.setTitle("Préstamos");
-
-
 
         Button btnCancel = (Button) findViewById((R.id.buttonCancel));
 
@@ -60,6 +66,12 @@ public class CreateLoanActivity extends ActionBarActivity {
         etTasa_interés =(EditText) findViewById(R.id.tasa);
         etPlazo_meses =(EditText) findViewById(R.id.plazo);
 
+        ettxtDate=(EditText)findViewById(R.id.editText3);
+        btnCalendar = (Button) findViewById(R.id.button);
+
+        btnCalendar.setOnClickListener((View.OnClickListener) this);
+
+       etPlazo_meses.requestFocus();
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
@@ -85,6 +97,7 @@ public class CreateLoanActivity extends ActionBarActivity {
         banco=spinner.getSelectedItem().toString();
         float monto =  Float.parseFloat(etMonto.getText().toString());
         float tasa = Float.parseFloat(etTasa_interés.getText().toString());
+        String fecha = ettxtDate.getText().toString();
 
         float plazo = Float.parseFloat(etPlazo_meses.getText().toString());
 
@@ -94,6 +107,7 @@ public class CreateLoanActivity extends ActionBarActivity {
         registro.put("Monto", monto);
         registro.put("Tasa", tasa);
         registro.put("Plazo", plazo);
+        registro.put("Fecha",fecha);
         bd.insert("Prestamo", null, registro);
         bd.close();
         Toast.makeText(this, "Se Agregó Correctamente",
@@ -133,6 +147,32 @@ public class CreateLoanActivity extends ActionBarActivity {
         spinner.setAdapter(spinnerArrayAdapter);
     }
 
+    @Override
+    public void onClick(View v) {
+        if (v == btnCalendar) {
+            // Process to get Current Date
+            final Calendar c = Calendar.getInstance();
+            mYear = c.get(Calendar.YEAR);
+            mMonth = c.get(Calendar.MONTH);
+            mDay = c.get(Calendar.DAY_OF_MONTH);
 
+            // Launch Date Picker Dialog
+            DatePickerDialog dpd = new DatePickerDialog(this,
+                    new DatePickerDialog.OnDateSetListener() {
+
+                        @Override
+                        public void onDateSet(DatePicker view, int year,
+                                              int monthOfYear, int dayOfMonth) {
+                            // Display Selected date in textbox
+                            ettxtDate.setText(year + "-"
+                                    + (monthOfYear + 1) + "-" + dayOfMonth);
+
+
+                        }
+                    }, mYear, mMonth, mDay);
+            dpd.show();
+        }
+
+    }
 
 }

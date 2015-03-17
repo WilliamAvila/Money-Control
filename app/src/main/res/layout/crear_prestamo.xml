@@ -23,7 +23,8 @@
                 android:id="@+id/textViewNewLoan"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp" />
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="25dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -31,7 +32,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Banco:"
                 android:id="@+id/textViewBanco"
-                android:layout_alignTop="@+id/spinnerBanco"
+                android:layout_below="@+id/textViewNewLoan"
                 android:layout_toLeftOf="@+id/textViewNewLoan"
                 android:layout_toStartOf="@+id/textViewNewLoan" />
 
@@ -41,9 +42,8 @@
                 android:id="@+id/spinnerBanco"
                 android:layout_below="@+id/textViewNewLoan"
                 android:layout_toRightOf="@+id/textViewPlazo"
-                android:layout_marginTop="50dp"
-                android:layout_alignRight="@+id/buttonCreate"
-                android:layout_alignEnd="@+id/buttonCreate" />
+                android:layout_alignRight="@+id/monto"
+                android:layout_alignEnd="@+id/monto"/>
 
 
             <TextView
@@ -52,9 +52,10 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Monto:"
                 android:id="@+id/textViewMonto"
-                android:layout_alignBottom="@+id/monto"
-                android:layout_alignLeft="@+id/textView7"
-                android:layout_alignStart="@+id/textView7" />
+                android:layout_marginTop="47dp"
+                android:layout_below="@+id/textViewPlazo"
+                android:layout_alignRight="@+id/textViewBanco"
+                android:layout_alignEnd="@+id/textViewBanco" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -63,12 +64,9 @@
                 android:ems="10"
                 android:id="@+id/monto"
                 android:gravity="center"
-                android:layout_below="@+id/spinnerBanco"
-                android:layout_marginTop="120dp"
-                android:layout_alignRight="@+id/buttonCreate"
-                android:layout_alignEnd="@+id/buttonCreate"
-                android:layout_toEndOf="@+id/textViewMonto"
-                android:layout_toRightOf="@+id/textViewMonto" />
+                android:layout_alignBottom="@+id/textViewMonto"
+                android:layout_toRightOf="@+id/textViewMonto"
+                android:layout_toEndOf="@+id/textViewMonto" />
 
 
             <TextView
@@ -77,10 +75,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Tasa:"
                 android:id="@+id/textViewTasa"
-                android:layout_alignBaseline="@+id/tasa"
                 android:layout_alignBottom="@+id/tasa"
-                android:layout_alignLeft="@+id/textViewMonto"
-                android:layout_alignStart="@+id/textViewMonto" />
+                android:layout_alignLeft="@+id/textViewBanco"
+                android:layout_alignStart="@+id/textViewBanco" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -90,10 +87,10 @@
                 android:id="@+id/tasa"
                 android:padding="10dp"
                 android:gravity="center"
-                android:layout_marginTop="37dp"
+                android:layout_marginTop="27dp"
                 android:layout_below="@+id/textViewMonto"
-                android:layout_alignRight="@+id/descripcion_loan"
-                android:layout_alignEnd="@+id/descripcion_loan"
+                android:layout_alignRight="@+id/plazo"
+                android:layout_alignEnd="@+id/plazo"
                 android:layout_toRightOf="@+id/textViewMonto"
                 android:layout_toEndOf="@+id/textViewMonto" />
 
@@ -116,11 +113,10 @@
                 android:id="@+id/descripcion_loan"
                 android:padding="10dp"
                 android:gravity="center"
-                android:layout_centerVertical="true"
-                android:layout_alignRight="@+id/monto"
-                android:layout_alignEnd="@+id/monto"
+                android:layout_alignBottom="@+id/textView7"
                 android:layout_toRightOf="@+id/textView7"
-                android:layout_toEndOf="@+id/textView7" />
+                android:layout_alignRight="@+id/plazo"
+                android:layout_alignEnd="@+id/plazo" />
 
 
             <Button
@@ -155,9 +151,10 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Descripción:"
                 android:id="@+id/textView7"
-                android:layout_centerVertical="true"
-                android:layout_alignLeft="@+id/textViewBanco"
-                android:layout_alignStart="@+id/textViewBanco" />
+                android:layout_below="@+id/tasa"
+                android:layout_alignLeft="@+id/textViewTasa"
+                android:layout_alignStart="@+id/textViewTasa"
+                android:layout_marginTop="25dp" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -172,6 +169,28 @@
                 android:layout_alignStart="@+id/spinnerBanco"
                 android:layout_alignRight="@+id/spinnerBanco"
                 android:layout_alignEnd="@+id/spinnerBanco" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/editText3"
+                android:padding="1dp"
+                android:gravity="center"
+                android:layout_marginTop="35dp"
+                android:layout_below="@+id/textView7"
+                android:layout_alignLeft="@+id/textView7"
+                android:layout_alignStart="@+id/textView7" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha"
+                android:id="@+id/button"
+                android:layout_alignBottom="@+id/editText3"
+                android:layout_toRightOf="@+id/textViewNewLoan"
+                android:layout_toEndOf="@+id/textViewNewLoan" />
 
         </RelativeLayout>
 

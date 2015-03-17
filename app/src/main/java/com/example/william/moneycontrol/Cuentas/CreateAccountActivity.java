@@ -45,8 +45,6 @@ public class CreateAccountActivity extends ActionBarActivity {
         actionBar = getSupportActionBar();
         actionBar.setTitle("Cuentas");
 
-
-
         /*spinner = (Spinner) findViewById(R.id.spinnerBanks);
 
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -61,8 +59,6 @@ public class CreateAccountActivity extends ActionBarActivity {
 
 
         AddBanks();
-
-
 
 
         spinner2 = (Spinner) findViewById(R.id.spinnerCurrency);
@@ -89,6 +85,8 @@ public class CreateAccountActivity extends ActionBarActivity {
         etNumero=(EditText)findViewById(R.id.editTextName);
         etSaldoInicial=(EditText)findViewById(R.id.editTextSaldoInicial);
         etDescripcion=(EditText)findViewById(R.id.editTextDescripcion);
+
+        etNumero.requestFocus();
 
 
         ActionBar actionBar = getSupportActionBar();
