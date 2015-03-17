@@ -153,7 +153,7 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
         }
         String fecha = ettxtDate.getText().toString();
         if (fecha.matches("")) {
-            Toast.makeText(this, "Fecha vacío", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Fecha vacía", Toast.LENGTH_SHORT).show();
             return;
         }
         tipo=spinnerTipo.getSelectedItem().toString();
