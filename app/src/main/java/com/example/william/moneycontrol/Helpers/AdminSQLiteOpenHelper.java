@@ -21,7 +21,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                 "Nombre text ,TipoCategoria text,Descripcion text)");
 
         db.execSQL("create table Prestamo(IdPrestamo integer primary key autoincrement," +
-                "Banco text ,Descripcion text,Monto real,Tasa real, Plazo real)");
+                "Banco text ,Descripcion text,Monto real,Tasa real, Plazo real,Fecha date)");
 
         db.execSQL("create table Transaccion(IdTransaccion integer primary key autoincrement," +
                 "Tipo text ,Categoria text,Monto real, Destino text, Fuente text,Fecha date, Comentario text)");

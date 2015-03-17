@@ -124,6 +124,4 @@ public class AccountInfoActivity extends ActionBarActivity {
 
         }
 
-
-
 }
