@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -151,6 +152,27 @@ public class CreateAccountActivity extends ActionBarActivity {
         tipo=spinner3.getSelectedItem().toString();
 
 
+        if (num.matches("")) {
+            Toast.makeText(this, "Número vacío", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (saldo.matches("")) {
+            Toast.makeText(this, "Saldo inicial vacío", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (banco.matches("")) {
+            Toast.makeText(this, "Banco vacío", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(descripcion.matches("")){
+            descripcion = "";
+        }
+
+
+        Log.e("Tipo ",tipo+"\n");
 
         ContentValues registro = new ContentValues();
         registro.put("NumeroCuenta", num);
@@ -160,11 +182,10 @@ public class CreateAccountActivity extends ActionBarActivity {
         registro.put("TipoCuenta",tipo);
         registro.put("Descripcion", descripcion);
         bd.insert("Cuenta", null, registro);
+        Log.e("Registro ingresado  ",registro+"\n");
         bd.close();
         Toast.makeText(this, "Se Agrego la cuenta Correctamente",
                 Toast.LENGTH_SHORT).show();
-
-
 
 
         Intent intent = new Intent(CreateAccountActivity.this, MainActivity.class);
@@ -174,7 +195,6 @@ public class CreateAccountActivity extends ActionBarActivity {
     }
 
         public void consultaporNumero(View v) {
-
 
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"MoneyControl", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
