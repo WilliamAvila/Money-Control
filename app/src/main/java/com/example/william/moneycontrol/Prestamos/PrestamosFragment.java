@@ -5,12 +5,16 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.example.william.moneycontrol.Cuentas.AccountInfoActivity;
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
 import com.example.william.moneycontrol.R;
 
@@ -39,9 +43,27 @@ public class PrestamosFragment extends Fragment {
         });
 
         ArrayList<LoanItem> prestamos = GetlistPrestamos();
-        ListView lv = (ListView)rootView.findViewById(R.id.listViewLoans);
+        final ListView lv = (ListView)rootView.findViewById(R.id.listViewLoans);
 
         lv.setAdapter(new ListViewLoanAdapter(getActivity().getApplicationContext(), prestamos));
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                Intent nextScreen = new Intent(getActivity().getApplicationContext(), PagoPrestamos.class);
+                Log.e("hello", parent.getAdapter().getItem(position).toString());
+
+                registerForContextMenu(lv);
+                lv.showContextMenu();
+
+                TextView tv = (TextView) view.findViewById(R.id.txtViewBanco);
+
+                nextScreen.putExtra("NumeroPrestamo",tv.getText().toString());
+                startActivity(nextScreen);
+            }
+
+        });
 
         return rootView;
 

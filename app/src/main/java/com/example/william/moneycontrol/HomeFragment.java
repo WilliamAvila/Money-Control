@@ -26,6 +26,7 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
 
     private View rootView;
+    private String NumeroCuenta;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,14 +43,12 @@ public class HomeFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
                 Intent nextScreen = new Intent(getActivity().getApplicationContext(), AccountInfoActivity.class);
-                Log.e("hello", parent.getAdapter().getItem(position).toString());
+                Log.e("Item at Position", parent.getAdapter().getItem(position).toString());
 
                 registerForContextMenu(lv);
                 lv.showContextMenu();
 
-                TextView tv = (TextView) view.findViewById(R.id.txtViewNumeroCuenta);
-
-                nextScreen.putExtra("NumeroCuenta",tv.getText().toString());
+                nextScreen.putExtra("NumeroCuenta",NumeroCuenta);
                 startActivity(nextScreen);
             }
 
@@ -66,16 +65,17 @@ public class HomeFragment extends Fragment {
         SQLiteDatabase bd = admin.getWritableDatabase();
         String Banco="";
         String Moneda="";
-        int numeroCuenta=0;
+        Double Saldo;
 
         Cursor fila = bd.rawQuery(
-                "select Banco, Moneda,SaldoInicial from Cuenta" , null);
+                "select Banco, Moneda,Saldo,NumeroCuenta from Cuenta" , null);
 
         while(fila.moveToNext()){
             Banco=fila.getString(0);
             Moneda=fila.getString(1);
-            numeroCuenta=fila.getInt(2);
-            cuentas.add(new AccountItem(Banco,Moneda,numeroCuenta));
+            Saldo=fila.getDouble(2);
+            NumeroCuenta=fila.getString(3);
+            cuentas.add(new AccountItem(Banco,Moneda,Saldo));
         }
 
         bd.close();

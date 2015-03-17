@@ -5,7 +5,7 @@ package com.example.william.moneycontrol.Cuentas;
  */
 public class AccountItem {
 
-    int numeroCuenta;
+    double numeroCuenta;
     String moneda;
     double saldo;
     String tipo;
@@ -21,13 +21,13 @@ public class AccountItem {
         Descripcion = descripcion;
     }
 
-    public AccountItem(String banco, String moneda, int numeroCuenta) {
+    public AccountItem(String banco, String moneda, double numeroCuenta) {
         this.banco = banco;
         this.moneda = moneda;
         this.numeroCuenta = numeroCuenta;
     }
 
-    public int getNumeroCuenta() {
+    public double getNumeroCuenta() {
         return numeroCuenta;
     }
 

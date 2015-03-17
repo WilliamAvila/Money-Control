@@ -159,6 +159,7 @@ public class CreateAccountActivity extends ActionBarActivity {
         registro.put("Banco",banco);
         registro.put("Moneda",moneda);
         registro.put("SaldoInicial",saldo);
+        registro.put("Saldo",saldo);
         registro.put("TipoCuenta",tipo);
         registro.put("Descripcion", descripcion);
         bd.insert("Cuenta", null, registro);

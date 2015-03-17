@@ -16,10 +16,13 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.william.moneycontrol.Cuentas.AccountItem;
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
+import com.example.william.moneycontrol.MainActivity;
+import com.example.william.moneycontrol.Prestamos.LoanItem;
 import com.example.william.moneycontrol.R;
 
 import java.util.ArrayList;
@@ -156,10 +159,45 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
 
         bd.insert("Transaccion", null, registro);
         bd.close();
+
+
+        UpdateAccountData(numeroCuenta,monto);
         Toast.makeText(this, "Se Agregó Correctamente",
                 Toast.LENGTH_SHORT).show();
-
         finish();
+    }
+
+    public void UpdateAccountData(String numCuenta,String monto){
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getApplicationContext(),"MoneyControl", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+
+
+
+        Log.d("Monto", String.valueOf(monto));
+
+        Cursor fila = bd.rawQuery(
+                "update Cuenta set Saldo=Saldo-" + monto+" where NumeroCuenta = " + numCuenta, null);
+
+        bd.close();
+
+    }
+
+
+    public void AddAccountData(String numCuenta,int monto){
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getApplicationContext(),"MoneyControl", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+
+
+
+        Log.d("Monto", String.valueOf(monto));
+
+        Cursor fila = bd.rawQuery(
+                "update Cuenta set Saldo=Saldo+" + monto+" where NumeroCuenta = " + numCuenta, null);
+
+        bd.close();
+
     }
 
     @Override
