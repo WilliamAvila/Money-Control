@@ -99,7 +99,7 @@ public class GastosPorCategoria extends ActionBarActivity implements View.OnClic
 
 
         Cursor fila = bd.rawQuery(
-                "select Categoria,Monto from Transaccion where Tipo = \"Gasto\" and Fecha between '" + fecha1+"' and '" + fecha2 + "'"+" and Fuente = \""+AccountNumber+"\"", null);
+                "select Categoria,Monto from Transaccion where Tipo = \"Gasto\" and Fecha between '" + fecha1+"' and '" + fecha2 + "' and Fuente = \""+AccountNumber+"\"", null);
 
         while(fila.moveToNext()){
             Categoria=fila.getString(0);

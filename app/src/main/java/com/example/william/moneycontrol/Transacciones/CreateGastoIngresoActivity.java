@@ -161,7 +161,7 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
         bd.close();
 
 
-        if(tipo=="Gasto")
+        if(tipo.equals("Gasto"))
             UpdateAccountData(numeroCuenta,monto);
         else
             AddAccountData(numeroCuenta,monto);

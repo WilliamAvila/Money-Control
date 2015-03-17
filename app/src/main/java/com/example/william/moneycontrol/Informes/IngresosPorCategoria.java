@@ -7,11 +7,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
 import com.example.william.moneycontrol.Helpers.ShowWebChartActivity;
@@ -28,7 +31,10 @@ public class IngresosPorCategoria extends ActionBarActivity implements View.OnCl
     private EditText ettxtDate;
     Button btnCalendar2, btnTimePicker2;
     private EditText ettxtDate2;
+    Spinner spinnerCuentas;
     Button btnShow;
+    String AccountNumber;
+
     // Variable for storing current date and time
     private int mYear, mMonth, mDay, mHour, mMinute;
 
@@ -41,6 +47,7 @@ public class IngresosPorCategoria extends ActionBarActivity implements View.OnCl
 
         actionBar = getSupportActionBar();
         actionBar.setTitle("Ingresos por categoría");
+        AddAccounts();
 
         ettxtDate=(EditText)findViewById(R.id.editText);
         btnCalendar = (Button) findViewById(R.id.btnDesde);
@@ -89,11 +96,12 @@ public class IngresosPorCategoria extends ActionBarActivity implements View.OnCl
         String Monto = "";
         String Categoria = "";
 
-
+        AccountNumber = spinnerCuentas.getSelectedItem().toString().split(" ")[0];
+        Log.e("Numero Cuenta", AccountNumber);
 
 
         Cursor fila = bd.rawQuery(
-                "select Categoria,Monto from Transaccion where Tipo = \"Ingreso\" and Fecha between '" + fecha1+"' and '" + fecha2 + "'", null);
+                "select Categoria,Monto from Transaccion where Tipo = \"Ingreso\" and Fecha between '" + fecha1+"' and '" + fecha2 + "' and Fuente = \""+AccountNumber+"\"", null);
 
         while(fila.moveToNext()){
             Categoria=fila.getString(0);
@@ -114,6 +122,33 @@ public class IngresosPorCategoria extends ActionBarActivity implements View.OnCl
 
         startActivity(intent);
 
+
+    }
+
+
+    public void AddAccounts(){
+        ArrayList<String> cuentas = new ArrayList<String>();
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getApplicationContext(),"MoneyControl", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+        String Nombre="";
+        String Banco = "";
+
+        Cursor fila = bd.rawQuery(
+                "select NumeroCuenta, Banco from Cuenta" , null);
+
+        while(fila.moveToNext()){
+            Nombre=fila.getString(0);
+            Banco=fila.getString(1);
+            cuentas.add(Nombre+ " "+ Banco);
+        }
+
+        bd.close();
+
+        spinnerCuentas = (Spinner) findViewById(R.id.spinnerAccountsIngresos);
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, cuentas); //selected item will look like a spinner set from XML
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCuentas.setAdapter(spinnerArrayAdapter);
 
     }
 
@@ -147,8 +182,8 @@ public class IngresosPorCategoria extends ActionBarActivity implements View.OnCl
                         public void onDateSet(DatePicker view, int year,
                                               int monthOfYear, int dayOfMonth) {
                             // Display Selected date in textbox
-                            ettxtDate.setText(dayOfMonth + "-"
-                                    + (monthOfYear + 1) + "-" + year);
+                            ettxtDate.setText(year + "-"
+                                    + (monthOfYear + 1) + "-" + dayOfMonth);
 
                         }
                     }, mYear, mMonth, mDay);
@@ -168,8 +203,8 @@ public class IngresosPorCategoria extends ActionBarActivity implements View.OnCl
                         public void onDateSet(DatePicker view, int year,
                                               int monthOfYear, int dayOfMonth) {
                             // Display Selected date in textbox
-                            ettxtDate2.setText(dayOfMonth + "-"
-                                    + (monthOfYear + 1) + "-" + year);
+                            ettxtDate2.setText(year + "-"
+                                    + (monthOfYear + 1) + "-" + dayOfMonth);
 
                         }
                     }, mYear, mMonth, mDay);

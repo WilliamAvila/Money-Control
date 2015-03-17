@@ -94,6 +94,16 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
 
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerAccountsIngresos"
+            android:layout_alignTop="@+id/imageView"
+            android:layout_alignLeft="@+id/textViewFecha"
+            android:layout_alignStart="@+id/textViewFecha"
+            android:layout_alignRight="@+id/textViewFecha"
+            android:layout_alignEnd="@+id/textViewFecha" />
+
     </RelativeLayout>
 
 

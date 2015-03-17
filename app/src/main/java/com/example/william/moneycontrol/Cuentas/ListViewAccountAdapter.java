@@ -18,7 +18,16 @@ import java.util.ArrayList;
 public class ListViewAccountAdapter extends BaseAdapter {
     private  static ArrayList<AccountItem> listCuentas;
     private LayoutInflater mInflater;
-    private int[] colors = new int[] { 0x30FF0000, 0x300000FF,0xFFEE3333 };
+    private int[] colors = new int[] {0xFF33B5E5,
+            0xFFAA66CC,
+            0xFF99CC00,
+            0xFFFFBB33,
+            0xFFFF4444,
+            0xFF0099CC,
+            0xFF9933CC,
+            0xFF669900,
+            0xFFFF8800,
+            0xFFCC0000,0xFFBB3377,0x99CC0077,0xFFBB33AA,0xFFBB3300,0xFF4444AA,0x30FF0000, 0x300000FF,0xFFEE3333 };
 
     public ListViewAccountAdapter(Context CuentasFragment, ArrayList<AccountItem> results){
         listCuentas = results;
