@@ -2,6 +2,7 @@ package com.example.william.moneycontrol.Transacciones;
 
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.william.moneycontrol.Cuentas.AccountItem;
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
+import com.example.william.moneycontrol.MainActivity;
 import com.example.william.moneycontrol.R;
 
 import java.util.ArrayList;
@@ -150,9 +152,18 @@ public class CreateTransferActivity  extends ActionBarActivity implements View.O
         bd.insert("Transaccion", null, registro);
 
         bd.close();
+
+        UpdateAccountData(origen,monto);
+
+        AddAccountData(destino,monto);
+
+
         Toast.makeText(this, "Se Agregó Correctamente",
                 Toast.LENGTH_SHORT).show();
 
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
         finish();
     }
 
@@ -182,6 +193,69 @@ public class CreateTransferActivity  extends ActionBarActivity implements View.O
                     }, mYear, mMonth, mDay);
             dpd.show();
         }
+
+    }
+
+    public void UpdateAccountData(String numCuenta,String monto){
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getApplicationContext(),"MoneyControl", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+
+        Cursor fila = bd.rawQuery(
+                "select Saldo from Cuenta where NumeroCuenta="+numCuenta , null);
+
+        double saldo=0;
+        if(fila.moveToFirst())
+            saldo = fila.getDouble(0);
+
+        ContentValues registro = new ContentValues();
+
+        saldo -= Double.parseDouble(monto);
+
+        registro.put("Saldo", String.valueOf(saldo));
+        int cant = bd.update("Cuenta", registro, "NumeroCuenta=" + numCuenta, null);
+        bd.close();
+
+        if (cant == 1)
+            Toast.makeText(this, "Se Actualizaron los datos", Toast.LENGTH_SHORT)
+                    .show();
+        else
+            Toast.makeText(this, "No existe NumeroCuenta",
+                    Toast.LENGTH_SHORT).show();
+
+
+    }
+
+
+    public void AddAccountData(String numCuenta,String monto){
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getApplicationContext(),"MoneyControl", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+
+        Cursor fila = bd.rawQuery(
+                "select Saldo from Cuenta where NumeroCuenta="+numCuenta , null);
+
+        double saldo=0;
+        if(fila.moveToFirst())
+            saldo = fila.getDouble(0);
+
+        ContentValues registro = new ContentValues();
+
+        saldo += Double.parseDouble(monto);
+
+        registro.put("Saldo", String.valueOf(saldo));
+        int cant = bd.update("Cuenta", registro, "NumeroCuenta=" + numCuenta, null);
+        bd.close();
+
+        if (cant == 1)
+            Toast.makeText(this, "Se Actualizaron los datos", Toast.LENGTH_SHORT)
+                    .show();
+        else
+            Toast.makeText(this, "No existe NumeroCuenta",
+                    Toast.LENGTH_SHORT).show();
+
+
+
 
     }
 

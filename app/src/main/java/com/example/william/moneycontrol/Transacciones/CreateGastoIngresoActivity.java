@@ -161,7 +161,11 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
         bd.close();
 
 
-        UpdateAccountData(numeroCuenta,monto);
+        if(tipo=="Gasto")
+            UpdateAccountData(numeroCuenta,monto);
+        else
+            AddAccountData(numeroCuenta,monto);
+
         Toast.makeText(this, "Se Agregó Correctamente",
                 Toast.LENGTH_SHORT).show();
 
@@ -180,7 +184,7 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
                 "select Saldo from Cuenta where NumeroCuenta="+numCuenta , null);
 
         double saldo=0;
-        if(fila.moveToNext())
+        if(fila.moveToFirst())
            saldo = fila.getDouble(0);
 
         ContentValues registro = new ContentValues();
@@ -202,19 +206,35 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
     }
 
 
-    public void AddAccountData(String numCuenta,int monto){
+    public void AddAccountData(String numCuenta,String monto){
 
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getApplicationContext(),"MoneyControl", null, 1);
-        SQLiteDatabase bd = admin.getWritableDatabase();
+            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getApplicationContext(),"MoneyControl", null, 1);
+            SQLiteDatabase bd = admin.getWritableDatabase();
+
+            Cursor fila = bd.rawQuery(
+                    "select Saldo from Cuenta where NumeroCuenta="+numCuenta , null);
+
+            double saldo=0;
+            if(fila.moveToFirst())
+                saldo = fila.getDouble(0);
+
+            ContentValues registro = new ContentValues();
+
+            saldo += Double.parseDouble(monto);
+
+            registro.put("Saldo", String.valueOf(saldo));
+            int cant = bd.update("Cuenta", registro, "NumeroCuenta=" + numCuenta, null);
+            bd.close();
+
+            if (cant == 1)
+                Toast.makeText(this, "Se Actualizaron los datos", Toast.LENGTH_SHORT)
+                        .show();
+            else
+                Toast.makeText(this, "No existe NumeroCuenta",
+                        Toast.LENGTH_SHORT).show();
 
 
 
-        Log.d("Monto", String.valueOf(monto));
-
-        Cursor fila = bd.rawQuery(
-                "update Cuenta set Saldo=Saldo+" + monto+" where NumeroCuenta = " + numCuenta, null);
-
-        bd.close();
 
     }
 

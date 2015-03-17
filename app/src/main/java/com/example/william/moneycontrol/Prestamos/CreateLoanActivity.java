@@ -123,7 +123,9 @@ public class CreateLoanActivity extends ActionBarActivity implements View.OnClic
     public void AddBanks(){
         ArrayList<AccountItem> cuentas = new ArrayList<AccountItem>();
         ArrayList<String> bancos = new ArrayList<String>();
-
+        bancos.add("Banco Azteca");
+        bancos.add("BAC");
+        bancos.add("Banco Fichosa");
 
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getApplicationContext(),"MoneyControl", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
