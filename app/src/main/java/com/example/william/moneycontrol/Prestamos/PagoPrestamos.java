@@ -25,7 +25,7 @@ import java.util.ArrayList;
  */
 public class PagoPrestamos  extends ActionBarActivity {
 
-
+        private final ArrayList<LoanItem> prestamos = new ArrayList<LoanItem>();
         ActionBar actionBar;
         String numeroPrestamo;
 
@@ -42,10 +42,7 @@ public class PagoPrestamos  extends ActionBarActivity {
             Log.d("Numero Prestamo", numeroPrestamo);
 
 
-            ArrayList<LoanItem> prestamos =GetlistPlazos(numeroPrestamo);
-            final ListView lv = (ListView)findViewById(R.id.listViewPlazos);
-
-            lv.setAdapter(new ListViewLoanAdapter(getApplicationContext(), prestamos));
+            GetlistPlazos(numeroPrestamo);
 
 
             ActionBar actionBar = getSupportActionBar();
@@ -64,11 +61,23 @@ public class PagoPrestamos  extends ActionBarActivity {
             }
         }
 
+    @Override
+    public void onBackPressed() {
+        // TODO Auto-generated method stub
+        super.onBackPressed();
 
 
 
-    private ArrayList<LoanItem> GetlistPlazos(String IdPrestamo){
-        ArrayList<LoanItem> prestamos = new ArrayList<LoanItem>();
+        finish();
+
+
+    }
+
+
+
+
+    private void GetlistPlazos(String IdPrestamo){
+
 
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getApplicationContext(),"MoneyControl", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
@@ -83,10 +92,10 @@ public class PagoPrestamos  extends ActionBarActivity {
         Cursor fila = bd.rawQuery(
                 "select Fecha,Monto,Plazo,Tasa,Banco from Prestamo where IdPrestamo = "+ IdPrestamo , null);
 
+
         if(fila.moveToFirst()){
             fecha=fila.getString(0);
             Log.d("Fecha", fecha);
-            Log.d("Fecha", String.valueOf(fila.getType(0)));
 
             monto=fila.getFloat(1);
             plazo_meses=fila.getInt(2);
@@ -94,17 +103,35 @@ public class PagoPrestamos  extends ActionBarActivity {
 
             Banco = fila.getString(4);
 
-
-
-
         }
-        pago_mensual=((monto*tasa_interes)+monto)/plazo_meses;
+
+        float pago_total =((monto*tasa_interes)+monto);
+
+        pago_mensual=pago_total/plazo_meses;
+
+        float interes_total= pago_total-monto;
+
+        float interes_mensual = interes_total/plazo_meses;
+
+
+        TextView tv1 =(TextView)findViewById(R.id.textViewTotalIntereses);
+        TextView tv2 =(TextView)findViewById(R.id.textViewInteresesporMes);
+        TextView tv3 =(TextView)findViewById(R.id.textViewTotalPrestamo);
+
+        tv1.setText(String.valueOf(interes_total));
+        tv2.setText(String.valueOf(interes_mensual));
+        tv3.setText(String.valueOf(pago_total));
+
         for(int i=0;i<plazo_meses;i++)
-            prestamos.add(new LoanItem(Integer.valueOf(IdPrestamo),fecha,pago_mensual));
+            prestamos.add(new LoanItem(String.valueOf(fecha),Banco,pago_mensual));
 
         bd.close();
 
-        return prestamos;
+        final ListView lv = (ListView)findViewById(R.id.listViewPlazos);
+        //lv.setAdapter(new ListViewLoanAdapter(getApplicationContext(), prestamos));
+
+    
+
     }
 
 
