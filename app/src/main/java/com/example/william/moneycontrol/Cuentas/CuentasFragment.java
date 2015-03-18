@@ -64,33 +64,33 @@ public class CuentasFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
 
-                TimeDialogFragment tFragment = new TimeDialogFragment();
+              /* TimeDialogFragment tFragment = new TimeDialogFragment();
 
-                /** Creating a bundle object to store the position of the selected country */
+                *//** Creating a bundle object to store the position of the selected country *//*
                 Bundle b = new Bundle();
 
-                /** Storing the position in the bundle object */
+                *//** Storing the position in the bundle object *//*
                 b.putInt("position", position);
                 b.putInt("NumCuenta", Integer.parseInt(cuentas.get(position).getNumeroCuenta()));
 
-                /** Setting the bundle object as an argument to the DialogFragment object */
+                *//** Setting the bundle object as an argument to the DialogFragment object *//*
                 tFragment.setArguments(b);
 
-                /** Getting FragmentManager object */
+                *//** Getting FragmentManager object *//*
                 FragmentManager fragmentManager = getFragmentManager();
 
-                /** Starting a FragmentTransaction */
+                *//** Starting a FragmentTransaction *//*
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-                /** Getting the previously created fragment object from the fragment manager */
+                *//** Getting the previously created fragment object from the fragment manager *//*
                 TimeDialogFragment tPrev =  ( TimeDialogFragment ) fragmentManager.findFragmentByTag("time_dialog");
 
-                /** If the previously created fragment object still exists, then that has to be removed */
+                *//** If the previously created fragment object still exists, then that has to be removed *//*
                 if(tPrev!=null)
                     fragmentTransaction.remove(tPrev);
 
-                /** Opening the fragment object */
-                tFragment.show(fragmentTransaction, "time_dialog");
+                *//** Opening the fragment object *//*
+                tFragment.show(fragmentTransaction, "time_dialog");*/
 
             }
 
