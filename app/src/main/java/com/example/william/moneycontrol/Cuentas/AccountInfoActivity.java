@@ -24,7 +24,6 @@ import com.example.william.moneycontrol.Transacciones.CreateTransferActivity;
  */
 public class AccountInfoActivity extends ActionBarActivity {
 
-
         ActionBar actionBar;
         String numeroCuenta;
 
@@ -76,15 +75,7 @@ public class AccountInfoActivity extends ActionBarActivity {
         }
 
     public void AgregarGasto(View v) {
-        Intent nextScreen = new Intent(getApplicationContext(),CreateGastoIngresoActivity.class);
 
-        nextScreen.putExtra("NumeroCuenta",numeroCuenta.toString());
-
-        startActivity(nextScreen);
-
-    }
-
-    public void AgregarIngreso(View v) {
         Intent nextScreen = new Intent(getApplicationContext(),CreateGastoIngresoActivity.class);
 
         nextScreen.putExtra("NumeroCuenta",numeroCuenta.toString());
@@ -112,12 +103,6 @@ public class AccountInfoActivity extends ActionBarActivity {
                 "select Banco,Moneda,SaldoInicial,TipoCuenta,Descripcion from Cuenta where NumeroCuenta=" + accountNumber, null);
 
             if (fila.moveToFirst()) {
-             /* Log.e("Primero ",fila.getString(0)+"\n");
-              Log.e("Segundo ",fila.getString(1)+"\n");
-              Log.e("Tercero ",fila.getString(2)+"\n");
-              Log.e("Cuarto ",fila.getString(3)+"\n");
-              Log.e("Quinta ",fila.getString(4)+"\n");*/
-
                 tv1.setText(fila.getString(0));
                 tv2.setText(fila.getString(1)+" "+fila.getString(2));
                 tv3.setText(fila.getString(3));

@@ -67,5 +67,11 @@
     <string name="categorias_title">Categorías</string>
     <string name="cuentas_title">Cuentas</string>
     <string name="prestamos_title">Préstamos</string>
+    <string name="welcome">welcome</string>
+    <string name="ok_text">ok</string>
+
+    <string name="hello">Hello World, MainActivity!</string>
+    <string name="str_empty">No Items Found</string>
+    <string name="str_tv_current_time">Current Time</string>
 
 </resources>

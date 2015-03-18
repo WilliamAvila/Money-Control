@@ -1,18 +1,26 @@
 package com.example.william.moneycontrol.Cuentas;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.app.ListActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
 import com.example.william.moneycontrol.R;
@@ -30,6 +38,7 @@ public class CuentasFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
         rootView = inflater.inflate(R.layout.fragment_cuentas, container, false);
 
 
@@ -45,27 +54,47 @@ public class CuentasFragment extends Fragment {
             }
         });
 
-        ArrayList<AccountItem> cuentas = GetlistAccounts();
+        final ArrayList<AccountItem> cuentas = GetlistAccounts();
         final ListView lv = (ListView)rootView.findViewById(R.id.listViewLpsAccounts);
 
         lv.setAdapter(new ListViewAccountAdapter(getActivity().getApplicationContext(), cuentas));
 
-        /*lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                Intent nextScreen = new Intent(getActivity().getApplicationContext(), AccountInfoActivity.class);
-                Log.e("hello", parent.getAdapter().getItem(position).toString());
 
-                registerForContextMenu(lv);
-                lv.showContextMenu();
+                TimeDialogFragment tFragment = new TimeDialogFragment();
 
-                TextView tv = (TextView) view.findViewById(R.id.txtViewNumeroCuenta);
-                nextScreen.putExtra("NumeroCuenta",tv.getText().toString());
-                startActivity(nextScreen);
+                /** Creating a bundle object to store the position of the selected country */
+                Bundle b = new Bundle();
+
+                /** Storing the position in the bundle object */
+                b.putInt("position", position);
+                b.putInt("NumCuenta", Integer.parseInt(cuentas.get(position).getNumeroCuenta()));
+
+                /** Setting the bundle object as an argument to the DialogFragment object */
+                tFragment.setArguments(b);
+
+                /** Getting FragmentManager object */
+                FragmentManager fragmentManager = getFragmentManager();
+
+                /** Starting a FragmentTransaction */
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                /** Getting the previously created fragment object from the fragment manager */
+                TimeDialogFragment tPrev =  ( TimeDialogFragment ) fragmentManager.findFragmentByTag("time_dialog");
+
+                /** If the previously created fragment object still exists, then that has to be removed */
+                if(tPrev!=null)
+                    fragmentTransaction.remove(tPrev);
+
+                /** Opening the fragment object */
+                tFragment.show(fragmentTransaction, "time_dialog");
+
             }
 
-        });*/
+        });
 
         return rootView;
 
@@ -90,7 +119,6 @@ public class CuentasFragment extends Fragment {
            cuentas.add(new AccountItem(numeroCuenta,Banco,Moneda,saldo));
 
        }
-
         bd.close();
 
         return cuentas;
