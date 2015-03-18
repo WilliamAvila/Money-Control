@@ -96,8 +96,6 @@ public class AccountInfoActivity extends ActionBarActivity {
     public void AgregarTransferencia(View v) {
         Intent nextScreen = new Intent(getApplicationContext(),CreateTransferActivity.class);
 
-       // nextScreen.putExtra("NumeroCuenta",numeroCuenta.toString());
-
         startActivity(nextScreen);
     }
 
@@ -113,8 +111,13 @@ public class AccountInfoActivity extends ActionBarActivity {
           Cursor fila = bd.rawQuery(
                 "select Banco,Moneda,SaldoInicial,TipoCuenta,Descripcion from Cuenta where NumeroCuenta=" + accountNumber, null);
 
+            if (fila.moveToFirst()) {
+             /* Log.e("Primero ",fila.getString(0)+"\n");
+              Log.e("Segundo ",fila.getString(1)+"\n");
+              Log.e("Tercero ",fila.getString(2)+"\n");
+              Log.e("Cuarto ",fila.getString(3)+"\n");
+              Log.e("Quinta ",fila.getString(4)+"\n");*/
 
-          if (fila.moveToFirst()) {
                 tv1.setText(fila.getString(0));
                 tv2.setText(fila.getString(1)+" "+fila.getString(2));
                 tv3.setText(fila.getString(3));
