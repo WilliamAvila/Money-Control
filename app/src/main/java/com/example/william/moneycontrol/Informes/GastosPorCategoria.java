@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
 import com.example.william.moneycontrol.Helpers.ShowWebChartActivity;
@@ -89,7 +90,16 @@ public class GastosPorCategoria extends ActionBarActivity implements View.OnClic
 
 
         String fecha1 = ettxtDate.getText().toString();
+        if (fecha1.matches("")) {
+            Toast.makeText(this, "Fecha inicio vacía", Toast.LENGTH_SHORT).show();
+            return;
+        }
         String fecha2 = ettxtDate2.getText().toString();
+
+        if (fecha2.matches("")) {
+            Toast.makeText(this, "Fecha final vacía", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         String Monto = "";
         String Categoria = "";

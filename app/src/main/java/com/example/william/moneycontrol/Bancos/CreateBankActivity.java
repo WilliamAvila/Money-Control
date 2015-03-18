@@ -70,6 +70,15 @@ public class CreateBankActivity extends ActionBarActivity {
         String nombre = etNombre.getText().toString();
         String descripcion = etDescripcion.getText().toString();
 
+        if (nombre.matches("")) {
+            Toast.makeText(this, "Nombre vacío", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (descripcion.matches("")) {
+            descripcion="";
+        }
+
         ContentValues registro = new ContentValues();
 
         registro.put("Nombre", nombre);
