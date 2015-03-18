@@ -23,7 +23,6 @@ import com.example.william.moneycontrol.Transacciones.CreateTransferActivity;
  */
 public class AccountInfoActivity extends ActionBarActivity {
 
-
         ActionBar actionBar;
         String numeroCuenta;
 
@@ -63,15 +62,7 @@ public class AccountInfoActivity extends ActionBarActivity {
 
 
     public void AgregarGasto(View v) {
-        Intent nextScreen = new Intent(getApplicationContext(),CreateGastoIngresoActivity.class);
 
-        nextScreen.putExtra("NumeroCuenta",numeroCuenta.toString());
-
-        startActivity(nextScreen);
-
-    }
-
-    public void AgregarIngreso(View v) {
         Intent nextScreen = new Intent(getApplicationContext(),CreateGastoIngresoActivity.class);
 
         nextScreen.putExtra("NumeroCuenta",numeroCuenta.toString());

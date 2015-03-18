@@ -75,8 +75,11 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
             @Override
             public void onClick(View v) {
                 finish();
+                cancelar();
             }
         });
+
+
         spinnerTipo.setAdapter(adapter);
         etDescripcion=(EditText)findViewById(R.id.descripcion_gasto);
         ettxtDate=(EditText)findViewById(R.id.txtDate);
@@ -94,6 +97,13 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
 
         Log.e("hello", numeroCuenta);
 
+    }
+
+    private void cancelar() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 
     @Override
@@ -243,9 +253,6 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
             else
                 Toast.makeText(this, "No existe NumeroCuenta",
                         Toast.LENGTH_SHORT).show();
-
-
-
 
     }
 
