@@ -76,12 +76,7 @@
         android:id="@+id/buttonGasto"
         android:layout_gravity="center_horizontal"
         android:onClick="AgregarGasto"
-        android:layout_marginBottom="30dp" /><![CDATA[/>
-
-    />
-
-    ]]>
-
+        android:layout_marginBottom="30dp" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

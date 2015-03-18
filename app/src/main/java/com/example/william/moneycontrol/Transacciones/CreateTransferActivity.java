@@ -69,6 +69,7 @@ public class CreateTransferActivity  extends ActionBarActivity implements View.O
             @Override
             public void onClick(View v) {
                 finish();
+                cancelar();
             }
         });
      //   spinnerOrigen.setAdapter(adapter);
@@ -83,6 +84,13 @@ public class CreateTransferActivity  extends ActionBarActivity implements View.O
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+    }
+
+    private void cancelar() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 
     @Override
