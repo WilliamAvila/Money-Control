@@ -26,6 +26,8 @@ public class CuentasFragment extends Fragment {
 
 
     private View rootView;
+    private final ArrayList<AccountItem> cuentas = new ArrayList<AccountItem>();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -33,68 +35,68 @@ public class CuentasFragment extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_cuentas, container, false);
 
 
-       ImageButton btnNextScreen = (ImageButton) rootView.findViewById((R.id.btnNextScreen));
+        ImageButton btnNextScreen = (ImageButton) rootView.findViewById((R.id.btnNextScreen));
 
-       btnNextScreen.setOnClickListener(new View.OnClickListener() {
+        btnNextScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent nextScreen = new Intent(getActivity().getApplicationContext(),CreateAccountActivity.class);
+                Intent nextScreen = new Intent(getActivity().getApplicationContext(), CreateAccountActivity.class);
 
                 startActivity(nextScreen);
 
             }
         });
 
-        ArrayList<AccountItem> cuentas = GetlistAccounts();
-        final ListView lv = (ListView)rootView.findViewById(R.id.listViewLpsAccounts);
 
+        final ArrayList<AccountItem> cuentas = GetlistAccounts();
+        final ListView lv = (ListView) rootView.findViewById(R.id.listViewLpsAccounts);
         lv.setAdapter(new ListViewAccountAdapter(getActivity().getApplicationContext(), cuentas));
 
-        /*lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                Intent nextScreen = new Intent(getActivity().getApplicationContext(), AccountInfoActivity.class);
-                Log.e("hello", parent.getAdapter().getItem(position).toString());
+                Intent nextScreen = new Intent(getActivity().getApplicationContext(), AccountDetailsActivity.class);
+                Log.e("Item at Position", parent.getAdapter().getItem(position).toString());
 
                 registerForContextMenu(lv);
                 lv.showContextMenu();
 
-                TextView tv = (TextView) view.findViewById(R.id.txtViewNumeroCuenta);
-                nextScreen.putExtra("NumeroCuenta",tv.getText().toString());
+                nextScreen.putExtra("NumeroCuenta", cuentas.get(position).getNumeroCuenta());
                 startActivity(nextScreen);
             }
 
-        });*/
+        });
+
 
         return rootView;
 
     }
-    private ArrayList<AccountItem> GetlistAccounts(){
-        ArrayList<AccountItem> cuentas = new ArrayList<AccountItem>();
 
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(rootView.getContext(),"MoneyControl", null, 1);
+    private ArrayList<AccountItem> GetlistAccounts() {
+
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(rootView.getContext(), "MoneyControl", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
-        String Banco="";
-        String Moneda="";
-        String numeroCuenta="";
-        double saldo;
+        String Banco = "";
+        String Moneda = "";
+        Double Saldo;
+        String NumeroCuenta = "";
+
         Cursor fila = bd.rawQuery(
-                "select Banco, Moneda,numeroCuenta,Saldo from Cuenta" , null);
+                "select Banco, Moneda,Saldo,NumeroCuenta from Cuenta", null);
 
-       while(fila.moveToNext()){
-           Banco=fila.getString(0);
-           Moneda=fila.getString(1);
-           numeroCuenta=fila.getString(2);
-           saldo=fila.getDouble(3);
-           cuentas.add(new AccountItem(numeroCuenta,Banco,Moneda,saldo));
-
-       }
+        while (fila.moveToNext()) {
+            Banco = fila.getString(0);
+            Moneda = fila.getString(1);
+            Saldo = fila.getDouble(2);
+            NumeroCuenta = fila.getString(3);
+            cuentas.add(new AccountItem(NumeroCuenta, Banco, Moneda, Saldo));
+        }
 
         bd.close();
 
         return cuentas;
     }
-
 
 }

@@ -21,6 +21,12 @@ public class LoanItem {
         this.plazo_meses=plazo_meses;
     }
 
+    public  LoanItem(int idPrestamo,String Banco,float monto){
+        this.idPrestamo=idPrestamo;
+        this.Banco=Banco;
+        this.monto=monto;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }

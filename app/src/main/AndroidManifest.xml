@@ -57,6 +57,7 @@
         <activity android:name=".Helpers.ShowWebChartActivity"></activity>
         <activity android:name=".Prestamos.PagoPrestamos"></activity>
         <activity android:name=".Helpers.ShowExchangeRatesActivity"></activity>
+        <activity android:name=".Cuentas.AccountDetailsActivity"></activity>
 
 
     </application>

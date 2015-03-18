@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
-import com.example.william.moneycontrol.MainActivity;
 import com.example.william.moneycontrol.R;
 import com.example.william.moneycontrol.Transacciones.CreateGastoIngresoActivity;
 import com.example.william.moneycontrol.Transacciones.CreateTransferActivity;
@@ -61,19 +60,7 @@ public class AccountInfoActivity extends ActionBarActivity {
         }
     }
 
-        public void DeleteAccount(View v) {
-            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
-                    "MoneyControl", null, 1);
-            SQLiteDatabase bd = admin.getWritableDatabase();
-            bd.delete("Cuenta", "NumeroCuenta=" + numeroCuenta, null);
-            bd.close();
 
-            Intent intent = new Intent(AccountInfoActivity.this, MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            finish();
-
-        }
 
     public void AgregarGasto(View v) {
         Intent nextScreen = new Intent(getApplicationContext(),CreateGastoIngresoActivity.class);
@@ -105,19 +92,13 @@ public class AccountInfoActivity extends ActionBarActivity {
           SQLiteDatabase bd = admin.getWritableDatabase();
 
           TextView tv1 =(TextView)findViewById(R.id.textViewBank);
-          TextView tv2 =(TextView)findViewById(R.id.textViewBalance);
+          TextView tv2 =(TextView)findViewById(R.id.textViewInitialBalance);
           TextView tv3 =(TextView)findViewById(R.id.textViewType);
 
           Cursor fila = bd.rawQuery(
                 "select Banco,Moneda,SaldoInicial,TipoCuenta,Descripcion from Cuenta where NumeroCuenta=" + accountNumber, null);
 
             if (fila.moveToFirst()) {
-             /* Log.e("Primero ",fila.getString(0)+"\n");
-              Log.e("Segundo ",fila.getString(1)+"\n");
-              Log.e("Tercero ",fila.getString(2)+"\n");
-              Log.e("Cuarto ",fila.getString(3)+"\n");
-              Log.e("Quinta ",fila.getString(4)+"\n");*/
-
                 tv1.setText(fila.getString(0));
                 tv2.setText(fila.getString(1)+" "+fila.getString(2));
                 tv3.setText(fila.getString(3));
