@@ -4,7 +4,7 @@ package com.example.william.moneycontrol.Prestamos;
  * Created by Jimmy Banegas on 18/02/2015.
  */
 public class LoanItem {
-    int idPrestamo;
+    String idPrestamo;
     String Banco;
     String descripcion;
     float monto;
@@ -12,7 +12,7 @@ public class LoanItem {
     float plazo_meses;
 
 
-    public  LoanItem(int idPrestamo,String Banco,String descripcion,float monto,float tasa_interes,float plazo_meses){
+    public  LoanItem(String idPrestamo,String Banco,String descripcion,float monto,float tasa_interes,float plazo_meses){
         this.idPrestamo=idPrestamo;
         this.Banco=Banco;
         this.descripcion=descripcion;
@@ -21,7 +21,7 @@ public class LoanItem {
         this.plazo_meses=plazo_meses;
     }
 
-    public  LoanItem(int idPrestamo,String Banco,float monto){
+    public  LoanItem(String idPrestamo,String Banco,float monto){
         this.idPrestamo=idPrestamo;
         this.Banco=Banco;
         this.monto=monto;
@@ -59,11 +59,11 @@ public class LoanItem {
         this.plazo_meses = plazo_meses;
     }
 
-      public int getIdPrestamo() {
+      public String getIdPrestamo() {
         return idPrestamo;
     }
 
-    public void setIdPrestamo(int idPrestamo) {
+    public void setIdPrestamo(String idPrestamo) {
         this.idPrestamo = idPrestamo;
     }
 

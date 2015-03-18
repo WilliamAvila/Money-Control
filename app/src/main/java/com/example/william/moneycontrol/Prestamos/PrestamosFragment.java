@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.william.moneycontrol.Cuentas.AccountInfoActivity;
+import com.example.william.moneycontrol.Cuentas.AccountItem;
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
 import com.example.william.moneycontrol.R;
 
@@ -23,6 +24,8 @@ import java.util.ArrayList;
 public class PrestamosFragment extends Fragment {
 
     private View rootView;
+    private final  ArrayList<LoanItem> prestamos=new ArrayList<LoanItem>();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,7 +45,7 @@ public class PrestamosFragment extends Fragment {
             }
         });
 
-        ArrayList<LoanItem> prestamos = GetlistPrestamos();
+        final ArrayList<LoanItem> prestamos = GetlistPrestamos();
         final ListView lv = (ListView)rootView.findViewById(R.id.listViewLoans);
 
         lv.setAdapter(new ListViewLoanAdapter(getActivity().getApplicationContext(), prestamos));
@@ -52,14 +55,15 @@ public class PrestamosFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
                 Intent nextScreen = new Intent(getActivity().getApplicationContext(), PagoPrestamos.class);
-                Log.e("hello", parent.getAdapter().getItem(position).toString());
 
                 registerForContextMenu(lv);
                 lv.showContextMenu();
 
-                TextView tv = (TextView) view.findViewById(R.id.txtViewBanco);
 
-                nextScreen.putExtra("NumeroPrestamo",tv.getText().toString());
+                nextScreen.putExtra("NumeroPrestamo",prestamos.get(position).getIdPrestamo());
+
+                Log.d("Num Prestamo On Click", String.valueOf(prestamos.get(position).getIdPrestamo()));
+
                 startActivity(nextScreen);
             }
 
@@ -69,7 +73,6 @@ public class PrestamosFragment extends Fragment {
 
     }
     private ArrayList<LoanItem> GetlistPrestamos(){
-        ArrayList<LoanItem> prestamos = new ArrayList<LoanItem>();
 
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(rootView.getContext(),"MoneyControl", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
@@ -90,7 +93,8 @@ public class PrestamosFragment extends Fragment {
             monto=fila.getFloat(3);
             plazo_meses=fila.getFloat(4);
             tasa_interes=fila.getFloat(5);
-            prestamos.add(new LoanItem(idPrestamo,idBanco,descripcion,monto,tasa_interes,plazo_meses));
+            Log.d("Valor idPrestamo",String.valueOf(idPrestamo));
+            prestamos.add(new LoanItem(String.valueOf(idPrestamo),idBanco,descripcion,monto,tasa_interes,plazo_meses));
         }
 
         bd.close();
