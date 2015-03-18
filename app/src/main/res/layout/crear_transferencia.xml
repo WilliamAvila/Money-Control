@@ -43,8 +43,8 @@
                 android:layout_below="@+id/textViewNewTransfer"
                 android:layout_alignLeft="@+id/descripcion_gasto"
                 android:layout_alignStart="@+id/descripcion_gasto"
-                android:layout_alignRight="@+id/spinnerDestino"
-                android:layout_alignEnd="@+id/spinnerDestino" />
+                android:layout_alignRight="@+id/buttonCreate"
+                android:layout_alignEnd="@+id/buttonCreate" />
 
 
             <TextView
@@ -114,8 +114,9 @@
                 android:layout_alignTop="@+id/textViewDestino"
                 android:layout_alignLeft="@+id/descripcion_gasto"
                 android:layout_alignStart="@+id/descripcion_gasto"
-                android:layout_toLeftOf="@+id/btnCalendar"
-                android:layout_toStartOf="@+id/btnCalendar" />
+                android:layout_toStartOf="@+id/btnCalendar"
+                android:layout_alignRight="@+id/spinnerOrigen"
+                android:layout_alignEnd="@+id/spinnerOrigen" />
 
 
 

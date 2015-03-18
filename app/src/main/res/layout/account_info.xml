@@ -75,18 +75,14 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nuevo Gasto"
+        android:text="Transaccion"
         android:id="@+id/buttonGasto"
         android:layout_gravity="center_horizontal"
-        android:onClick="AgregarGasto" />/>
+        android:onClick="AgregarGasto" /><![CDATA[/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nuevo Ingreso"
-        android:id="@+id/buttonIngreso"
-        android:layout_gravity="center_horizontal"
-        android:onClick="AgregarIngreso" />/>
+    />
+
+    ]]>
 
     <Button
         android:layout_width="wrap_content"
