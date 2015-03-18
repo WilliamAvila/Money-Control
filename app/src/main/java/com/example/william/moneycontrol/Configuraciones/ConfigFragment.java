@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import com.dropbox.sync.android.DbxAccountManager;
 import com.dropbox.sync.android.DbxDatastore;
 import com.dropbox.sync.android.DbxDatastoreManager;
 import com.dropbox.sync.android.DbxException;
+import com.example.william.moneycontrol.Cuentas.AccountInfoActivity;
+import com.example.william.moneycontrol.Helpers.ShowExchangeRatesActivity;
 import com.example.william.moneycontrol.R;
 
 
@@ -27,7 +30,7 @@ public class ConfigFragment extends Fragment {
 
     static final int REQUEST_LINK_TO_DBX = 0;  // This value is up to you
 
-    private Button mLinkButton;
+    private Button mLinkButton ,buttonExchange;
     private DbxDatastoreManager mDatastoreManager;
     private DbxAccountManager mAccountManager;
     private String APP_SECRET = "17o08311yppjfur";
@@ -40,6 +43,17 @@ public class ConfigFragment extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_config, container, false);
 
         mAccountManager = DbxAccountManager.getInstance(getActivity().getApplicationContext(), APP_KEY, APP_SECRET);
+
+        buttonExchange = (Button) rootView.findViewById(R.id.buttonExchange);
+        buttonExchange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent nextScreen = new Intent(getActivity().getApplicationContext(), ShowExchangeRatesActivity.class);
+                startActivity(nextScreen);
+            }
+        });
+
+
 
         // Button to link to Dropbox
         mLinkButton = (Button) rootView.findViewById(R.id.link_button);

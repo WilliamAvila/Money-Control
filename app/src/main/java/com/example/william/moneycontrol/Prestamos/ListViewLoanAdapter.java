@@ -46,23 +46,23 @@ public class ListViewLoanAdapter extends BaseAdapter {
         if(convertView == null){
             convertView = mInflater.inflate(R.layout.drawer_account_item, null);
             holder = new ViewHolder();
-            holder.txtNombre = (TextView) convertView.findViewById(R.id.txtViewBanco);
-            holder.txtTipo = (TextView) convertView.findViewById(R.id.txtViewTipo);
-            // holder.txtNumeroCuenta = (TextView) convertView.findViewById((R.id.txtViewNumeroCuenta));
+            holder.txtIdPrestamo = (TextView) convertView.findViewById(R.id.txtViewBanco);
+            holder.txtBanco = (TextView) convertView.findViewById(R.id.txtViewTipo);
+            holder.txtMonto = (TextView) convertView.findViewById((R.id.txtViewNumeroCuenta));
 
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.txtNombre.setText(String.valueOf(listPrestamos.get(position).getIdPrestamo()));
-        holder.txtTipo.setText(String.valueOf(listPrestamos.get(position).getMonto()));
-        //   holder.txtNumeroCuenta.setText(String.valueOf(listPrestamos.get(position)()));
+        holder.txtIdPrestamo.setText(String.valueOf(listPrestamos.get(position).getIdPrestamo()));
+        holder.txtBanco.setText(String.valueOf(listPrestamos.get(position).getMonto()));
+        holder.txtMonto.setText(String.valueOf(listPrestamos.get(position).getBanco()));
 
         return convertView;
     }
 
     static class ViewHolder{
-        TextView txtNombre, txtTipo;
+        TextView txtIdPrestamo, txtBanco,txtMonto;
     }
 }

@@ -136,13 +136,13 @@ public class GastosPorDia extends ActionBarActivity implements View.OnClickListe
         while(fila.moveToNext()){
             Nombre=fila.getString(0);
             Banco=fila.getString(1);
-            cuentas.add(Nombre+ " "+ Banco);
+            cuentas.add(Nombre+ "      "+ Banco);
         }
 
         bd.close();
 
         spinnerCuentas = (Spinner) findViewById(R.id.spinnerCuentas);
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, cuentas); //selected item will look like a spinner set from XML
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, R.layout.spinner_item, cuentas); //selected item will look like a spinner set from XML
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCuentas.setAdapter(spinnerArrayAdapter);
 

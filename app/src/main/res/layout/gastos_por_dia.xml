@@ -108,7 +108,9 @@
             android:id="@+id/spinnerCuentas"
             android:layout_alignBottom="@+id/buttonShowDias"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/buttonShowDias"
+            android:layout_toStartOf="@+id/buttonShowDias" />
 
         <Button
             style="?android:attr/buttonStyleSmall"

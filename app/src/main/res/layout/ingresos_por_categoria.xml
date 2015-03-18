@@ -99,8 +99,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/spinnerAccountsIngresos"
             android:layout_alignTop="@+id/imageView"
-            android:layout_alignLeft="@+id/textViewFecha"
-            android:layout_alignStart="@+id/textViewFecha"
+            android:layout_toRightOf="@+id/btnDesde"
             android:layout_alignRight="@+id/textViewFecha"
             android:layout_alignEnd="@+id/textViewFecha" />
 

@@ -5,16 +5,16 @@ package com.example.william.moneycontrol.Prestamos;
  */
 public class LoanItem {
     int idPrestamo;
-    String idBanco;
+    String Banco;
     String descripcion;
     float monto;
     float tasa_interes;
     float plazo_meses;
 
 
-    public  LoanItem(int idPrestamo,String idBanco,String descripcion,float monto,float tasa_interes,float plazo_meses){
+    public  LoanItem(int idPrestamo,String Banco,String descripcion,float monto,float tasa_interes,float plazo_meses){
         this.idPrestamo=idPrestamo;
-        this.idBanco=idBanco;
+        this.Banco=Banco;
         this.descripcion=descripcion;
         this.monto=monto;
         this.tasa_interes=tasa_interes;
@@ -61,11 +61,11 @@ public class LoanItem {
         this.idPrestamo = idPrestamo;
     }
 
-    public String getIdBanco() {
-        return idBanco;
+    public String getBanco() {
+        return Banco;
     }
 
     public void setIdBanco(String idBanco) {
-        this.idBanco = idBanco;
+        this.Banco = idBanco;
     }
 }
