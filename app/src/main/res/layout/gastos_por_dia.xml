@@ -17,7 +17,7 @@
         android:layout_height="fill_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" >
+        android:layout_alignParentStart="true">
 
         <TextView
             android:layout_width="wrap_content"
@@ -26,7 +26,8 @@
             android:text="Gastos diarios"
             android:id="@+id/textViewFecha"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:textSize="30dp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -109,18 +110,19 @@
             android:layout_alignBottom="@+id/buttonShowDias"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@+id/buttonShowDias"
-            android:layout_toStartOf="@+id/buttonShowDias" />
+            android:layout_marginLeft="20dp"
+            android:layout_toLeftOf="@+id/editText2"
+            android:layout_toStartOf="@+id/editText2" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Show"
+            android:text="Mostrar"
             android:id="@+id/buttonShowDias"
-            android:layout_below="@+id/imageView"
-            android:layout_toRightOf="@+id/btnHasta"
-            android:layout_toEndOf="@+id/btnHasta" />
+            android:layout_alignTop="@+id/imageView"
+            android:layout_toRightOf="@+id/spinnerCuentas"
+            android:layout_toEndOf="@+id/spinnerCuentas" />
 
     </RelativeLayout>
 

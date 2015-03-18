@@ -26,7 +26,8 @@
             android:text="Ingresos por categoría"
             android:id="@+id/textViewFecha"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:textSize="25dp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -89,9 +90,9 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Accept"
+            android:text="Acceptar"
             android:id="@+id/buttonShowChart"
-            android:layout_centerVertical="true"
+            android:layout_below="@+id/spinnerAccountsIngresos"
             android:layout_centerHorizontal="true" />
 
         <Spinner
@@ -99,9 +100,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/spinnerAccountsIngresos"
             android:layout_alignTop="@+id/imageView"
-            android:layout_toRightOf="@+id/btnDesde"
-            android:layout_alignRight="@+id/textViewFecha"
-            android:layout_alignEnd="@+id/textViewFecha" />
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center" />
 
     </RelativeLayout>
 
