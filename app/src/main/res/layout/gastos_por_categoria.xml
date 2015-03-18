@@ -28,7 +28,7 @@
             android:id="@+id/textViewFecha"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:textSize="32dp" />
+            android:textSize="25dp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -92,9 +92,9 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Accept"
+            android:text="Aceptar"
             android:id="@+id/buttonShow"
-            android:layout_centerVertical="true"
+            android:layout_below="@+id/spinnerAccounts"
             android:layout_centerHorizontal="true" />
 
         <Spinner
