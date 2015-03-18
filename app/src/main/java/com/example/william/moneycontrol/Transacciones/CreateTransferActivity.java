@@ -86,6 +86,11 @@ public class CreateTransferActivity  extends ActionBarActivity implements View.O
 
     }
 
+    @Override
+    public void onBackPressed() {
+        cancelar();
+    }
+
     private void cancelar() {
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
