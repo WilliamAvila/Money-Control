@@ -54,12 +54,12 @@
 
     <array name="nav_drawer_icons">
         <item>@drawable/ic_home</item>
-        <item>@drawable/ic_people</item>
-        <item>@drawable/ic_photos</item>
-        <item>@drawable/ic_communities</item>
-        <item>@drawable/ic_communities</item>
-        <item>@drawable/ic_pages</item>
-        <item>@drawable/ic_whats_hot</item>
+        <item>@drawable/ic_cuentas</item>
+        <item>@drawable/ic_catego</item>
+        <item>@drawable/ic_bancos</item>
+        <item>@drawable/ic_prestamos</item>
+        <item>@drawable/ic_informes</item>
+        <item>@drawable/ic_config</item>
     </array>
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
