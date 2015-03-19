@@ -14,15 +14,6 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Ver informes"
-        android:id="@+id/textViewFecha"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
             <ListView
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
@@ -39,20 +30,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="INFORME DE GASTOS"
+                android:text="INFORMES DE GASTOS"
                 android:id="@+id/textView2"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="37dp" />
+                android:layout_marginTop="37dp"
+                android:textStyle="bold|italic"
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="INFORME DE INGRESOS"
+                android:text="INFORMES DE INGRESOS"
                 android:id="@+id/textView3"
                 android:layout_alignRight="@+id/textView2"
-                android:layout_marginTop="278dp" />
+                android:layout_marginTop="278dp"
+                android:textStyle="bold|italic"
+                android:textSize="20dp" />
 
             <ListView
                 android:layout_width="wrap_content"

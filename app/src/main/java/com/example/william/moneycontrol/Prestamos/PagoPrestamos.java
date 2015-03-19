@@ -1,5 +1,7 @@
 package com.example.william.moneycontrol.Prestamos;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,13 +12,16 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.william.moneycontrol.Cuentas.TimeDialogFragment;
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
 import com.example.william.moneycontrol.R;
 import com.example.william.moneycontrol.Transacciones.CreateGastoIngresoActivity;
+import com.example.william.moneycontrol.Transacciones.CreateTransferActivity;
 
 import java.util.ArrayList;
 
@@ -41,9 +46,46 @@ public class PagoPrestamos  extends ActionBarActivity {
             numeroPrestamo = i.getStringExtra("NumeroPrestamo");
             Log.d("Numero Prestamo", numeroPrestamo);
 
+            Button btnPago = (Button) findViewById((R.id.btnPagoCuota));
+
+            btnPago.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    /*Intent nextScreen = new Intent(getApplicationContext(),CreateTransferActivity.class);
+                    startActivity(nextScreen);
+                           return;*/
+                    PagoCuotasFragment tFragment = new PagoCuotasFragment();
+
+                    /** Creating a bundle object to store the position of the selected country */
+                    Bundle b = new Bundle();
+
+                    /** Storing the position in the bundle object */
+                  /*  b.putInt("position", position);
+                    b.putInt("NumCuenta", Integer.parseInt(cuentas.get(position).getNumeroCuenta()));*/
+
+                    /** Setting the bundle object as an argument to the DialogFragment object */
+                    tFragment.setArguments(b);
+
+                    /** Getting FragmentManager object */
+                    FragmentManager fragmentManager = getFragmentManager();
+
+                    /** Starting a FragmentTransaction */
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                    /** Getting the previously created fragment object from the fragment manager */
+                    PagoCuotasFragment tPrev =  ( PagoCuotasFragment ) fragmentManager.findFragmentByTag("payment_dialog");
+
+                    /** If the previously created fragment object still exists, then that has to be removed */
+                    if(tPrev!=null)
+                        fragmentTransaction.remove(tPrev);
+
+                    /** Opening the fragment object */
+                    tFragment.show(fragmentTransaction, "payment_dialog");
+                }
+            });
+
 
             GetlistPlazos(numeroPrestamo);
-
 
             ActionBar actionBar = getSupportActionBar();
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -65,15 +107,8 @@ public class PagoPrestamos  extends ActionBarActivity {
     public void onBackPressed() {
         // TODO Auto-generated method stub
         super.onBackPressed();
-
-
-
         finish();
-
-
     }
-
-
 
 
     private void GetlistPlazos(String IdPrestamo){
@@ -130,12 +165,7 @@ public class PagoPrestamos  extends ActionBarActivity {
         final ListView lv = (ListView)findViewById(R.id.listViewPlazos);
         //lv.setAdapter(new ListViewLoanAdapter(getApplicationContext(), prestamos));
 
-    
-
     }
-
-
-
-    }
+}
 
 

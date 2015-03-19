@@ -115,6 +115,7 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                cancelar();
                 this.finish();
                 return true;
             default:
