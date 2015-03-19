@@ -1,8 +1,10 @@
 package com.example.william.moneycontrol;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -55,14 +57,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-              /*  Intent nextScreen = new Intent(getActivity().getApplicationContext(), AccountInfoActivity.class);
-                Log.e("Item at Position", parent.getAdapter().getItem(position).toString());
 
-                registerForContextMenu(lv);
-                lv.showContextMenu();
-
-                nextScreen.putExtra("NumeroCuenta",cuentas.get(position).getNumeroCuenta());
-                startActivity(nextScreen);*/
                 TimeDialogFragment tFragment = new TimeDialogFragment();
 
                 /** Creating a bundle object to store the position of the selected country */

@@ -102,6 +102,7 @@ public class CreateTransferActivity  extends ActionBarActivity implements View.O
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                cancelar();
                 this.finish();
                 return true;
             default:

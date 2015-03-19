@@ -1,7 +1,9 @@
 package com.example.william.moneycontrol;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
@@ -47,6 +49,8 @@ public class MainActivity extends ActionBarActivity {
 
     private ArrayList<NavDrawerItem> navDrawerItems;
     private NavDrawerListAdapter adapter;
+
+    int posf ;
 
     ActionBar actionBar;
 
@@ -148,6 +152,7 @@ public class MainActivity extends ActionBarActivity {
                                 long id) {
             // display view for selected nav drawer item
             displayView(position);
+            posf = position;
         }
     }
 
@@ -257,6 +262,22 @@ public class MainActivity extends ActionBarActivity {
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
+
+  /* @Override
+    public void onBackPressed() {
+        if(posf==0){
+            new AlertDialog.Builder(this)
+                    .setMessage("¿Desea salir?")
+                    .setCancelable(false)
+                    .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            finish();
+                        }
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+        }
+    }*/
 }
 
 

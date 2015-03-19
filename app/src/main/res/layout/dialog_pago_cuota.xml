@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancelar"
+        android:id="@+id/btnCancelar"
+        android:layout_gravity="right"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="75dp"
+        android:layout_alignTop="@+id/textView15"
+        android:layout_marginBottom="5dp"/>/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pagar"
+        android:id="@+id/btnPagar"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_alignTop="@+id/textView15"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="75dp"
+        android:layout_marginBottom="5dp"/>/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Cantidad:"
+        android:id="@+id/textView12"
+        android:layout_below="@+id/spinnerCuentas"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Descripción:"
+        android:id="@+id/textView15"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textView12"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="10dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/txtCantidad"
+        android:layout_alignBottom="@+id/textView12"
+        android:layout_toRightOf="@+id/textView15"
+        android:layout_toStartOf="@+id/btnPagar"
+        android:layout_alignRight="@+id/btnPagar"
+        android:layout_alignEnd="@+id/btnPagar"
+        android:layout_marginRight="12dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDescripcion"
+        android:layout_alignBottom="@+id/textView15"
+        android:layout_alignRight="@+id/txtCantidad"
+        android:layout_alignEnd="@+id/txtCantidad"
+        android:layout_toEndOf="@+id/btnCancelar"
+        android:layout_marginRight="4dp"
+        android:layout_alignLeft="@+id/txtCantidad"
+        android:layout_alignStart="@+id/txtCantidad" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Cuenta:"
+        android:id="@+id/textView22"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/textView12"
+        android:layout_alignEnd="@+id/textView12"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"/>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerCuentas"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/txtCantidad"
+        android:layout_alignEnd="@+id/txtCantidad"
+        android:layout_alignLeft="@+id/txtCantidad"
+        android:layout_alignStart="@+id/txtCantidad"
+        android:layout_marginRight="4dp"/>
+
+</RelativeLayout>
