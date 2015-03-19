@@ -29,10 +29,36 @@
 
         },"jsonp");
 
+    var x,y,ammount;
+
     function myFunction(){
-       var x = document.getElementById("MyCurrency").selectedIndex;
+       x = document.getElementById("MyCurrencySrc").selectedIndex;
        alert(document.getElementsByTagName("option")[x].value);
+       document.getElementById('Total').innerHTML=document.getElementsByTagName("option")[x].value;
     }
+
+    function myFunctionDst(){
+       y = document.getElementById("MyCurrencySrc").selectedIndex;
+
+    }
+
+       function ConvertAmmount(){
+
+       ammount =document.getElementById('ammount').value;
+
+
+       alert(ammount);
+
+       }
+
+         function validateForm() {
+            var x = document.forms["myForm"]["fname"].value;
+            if (x == null || x == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+        }
+
 
     </script>
 
@@ -40,7 +66,7 @@
 <body  style="width:300; height:300">
 <h1>Currency Converter</h1>
 
-<form action="demo_form.asp">
+
 
 <p>Source</p>
 <select name='currencies' id ="MyCurrencySrc" onchange="myFunction()">
@@ -368,8 +394,15 @@
     <option value='ZMK' title='Zambian Kwacha'>ZMK</option>
     <option value='ZWL' title='Zimbabwean Dollar'>ZWL</option>
 </select><br><br>
-Ammount: <input type="text" name="fname" id ="ammount"><br><br>
-<input type="submit" value="Submit">
+Ammount: <input type="text" name="fname" id ="ammount" required><br><br>
+<button onclick="myFunction()">Ok</button>
+
+
+<form name="myForm" action="demo_form.asp" onsubmit="return validateForm()" method="post">
+    Name: <input type="text" name="fname">
+    <input type="submit" value="Submit">
 </form>
+
+<p id="Total"></p>
 </body>
 </html>

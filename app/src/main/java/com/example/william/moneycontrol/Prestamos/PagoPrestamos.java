@@ -130,7 +130,7 @@ public class PagoPrestamos  extends ActionBarActivity {
         final ListView lv = (ListView)findViewById(R.id.listViewPlazos);
         //lv.setAdapter(new ListViewLoanAdapter(getApplicationContext(), prestamos));
 
-    
+
 
     }
 
