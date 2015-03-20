@@ -5,15 +5,16 @@
     <!--Load the AJAX API-->
     <script language="JavaScript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript">
+       /* var converted_amount;
+        var data;
         app_id="8c97a207eac54a9f84232612b5808561"; // your unique app id goes here
         uri=encodeURI("http://openexchangerates.org/latest.json?app_id="+app_id);
-
         $.get(uri,function(json) {
         // the returned data is available in the json object within the scope of this function
         // rates are available in json.rates as properties with their 3 letter international currency short-codes
         // Eg. get the value of 1 EUR to base currency (by default USD) :
         euro=json.rates.USD;
-
+        data=json.rates;
          // set your new base currency
         my_base="USD";
 
@@ -25,9 +26,39 @@
 
         converted_amount=(amount/json.rates[my_base])*json.rates[my_destination];
 
-         alert(converted_amount);
+
 
         },"jsonp");
+
+
+
+        $(document).ready(function(){
+        $("#go").on("click",function(){
+        amt=parseFloat($("#amt").val());
+        base=$("#base").val();
+        dest=$("#dest").val();
+        xchng=parseFloat($("#xchng").val());
+        answer=convert(amt,base,dest,data);
+        commision=rnd(((answer-xchng)/answer)*100);
+        if(amt!=='' && amt!==' ') {
+            result="<div id='cAns'>"+answer.formatMoney(2,".",",")+"</div>";
+        }else {result="";}
+
+        if(!isNaN(amt) && !isNaN(xchng)) {
+        result+="<br> Commision = <span class='val'>"+commision+"%</span>";
+        }
+        $("#result").html(result);
+
+
+        });
+
+        });
+
+
+Number.prototype.formatMoney = function(c, d, t){var n = this, c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "," : d, t = t == undefined ? "." : t, s = n < 0 ? "-" : "", i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
+   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+ };
+
 
     var x,y,ammount;
 
@@ -44,20 +75,438 @@
 
        function ConvertAmmount(){
 
-       ammount =document.getElementById('ammount').value;
 
-
-       alert(ammount);
-
+         document.getElementById('Total').innerHTML=result;
        }
 
-         function validateForm() {
-            var x = document.forms["myForm"]["fname"].value;
-            if (x == null || x == "") {
-                alert("Name must be filled out");
-                return false;
-            }
+
+        function convert(amount,base,to,data) {
+                if(data.error) {
+                    alert(data.description);
+                    return false;
+                } else {
+                    for(curr in data.rates) {
+                        if(curr==to) {
+                            result= (amount/data.rates[base])*data.rates[curr];
+                            return rnd(result);
+                        }// end if
+                    }// end for
+                }// end error check
         }
+
+        function rnd(n) {
+            return Math.round(n*1000)/1000;
+         }*/
+
+
+         data={
+  "disclaimer": "Exchange rates are provided for informational purposes only, and do not constitute financial advice of any kind. Although every attempt is made to ensure quality, NO guarantees are given whatsoever of accuracy, validity, availability, or fitness for any purpose - please use at your own risk. All usage is subject to your acceptance of the Terms and Conditions of Service, available at: https://openexchangerates.org/terms/",
+  "license": "Data sourced from various providers with public-facing APIs; copyright may apply; resale is prohibited; no warranties given of any kind. Bitcoin data provided by http://coindesk.com. All usage is subject to your acceptance of the License Agreement available at: https://openexchangerates.org/license/",
+  "timestamp": 1426770062,
+  "base": "USD",
+  "rates": {
+    "AED": 3.673102,
+    "AFN": 57.848675,
+    "ALL": 131.7627,
+    "AMD": 479.403998,
+    "ANG": 1.78954,
+    "AOA": 107.010626,
+    "ARS": 8.79104,
+    "AUD": 1.30674,
+    "AWG": 1.79,
+    "AZN": 1.0492,
+    "BAM": 1.831941,
+    "BBD": 2,
+    "BDT": 77.91882,
+    "BGN": 1.834052,
+    "BHD": 0.377096,
+    "BIF": 1562.714992,
+    "BMD": 1,
+    "BND": 1.386918,
+    "BOB": 6.913677,
+    "BRL": 3.254394,
+    "BSD": 1,
+    "BTC": 0.0038821699,
+    "BTN": 62.5518,
+    "BWP": 10.015398,
+    "BYR": 15018.783333,
+    "BZD": 1.998569,
+    "CAD": 1.271922,
+    "CDF": 927.73,
+    "CHF": 0.994174,
+    "CLF": 0.0246,
+    "CLP": 639.264196,
+    "CNY": 6.181712,
+    "COP": 2644.066631,
+    "CRC": 534.002799,
+    "CUC": 1,
+    "CUP": 1.001013,
+    "CVE": 103.196625,
+    "CZK": 25.70034,
+    "DJF": 177.546399,
+    "DKK": 6.989203,
+    "DOP": 44.74386,
+    "DZD": 97.057709,
+    "EEK": 14.718175,
+    "EGP": 7.625822,
+    "ERN": 15.155825,
+    "ETB": 20.42186,
+    "EUR": 0.937019,
+    "FJD": 2.045847,
+    "FKP": 0.673091,
+    "GBP": 0.673091,
+    "GEL": 1.7655,
+    "GGP": 0.673091,
+    "GHS": 3.725709,
+    "GIP": 0.673091,
+    "GMD": 43.10255,
+    "GNF": 7313.335,
+    "GTQ": 7.622959,
+    "GYD": 206.772627,
+    "HKD": 7.759289,
+    "HNL": 21.61279,
+    "HRK": 7.172781,
+    "HTG": 46.59965,
+    "HUF": 284.663198,
+    "IDR": 13086.883333,
+    "ILS": 4.007157,
+    "IMP": 0.673091,
+    "INR": 62.57986,
+    "IQD": 1179.699967,
+    "IRR": 27894.666667,
+    "ISK": 138.368,
+    "JEP": 0.673091,
+    "JMD": 115.1854,
+    "JOD": 0.70853,
+    "JPY": 120.865,
+    "KES": 91.976581,
+    "KGS": 62.128,
+    "KHR": 4025.435433,
+    "KMF": 460.401861,
+    "KPW": 900,
+    "KRW": 1122.088315,
+    "KWD": 0.300057,
+    "KYD": 0.824436,
+    "KZT": 185.873199,
+    "LAK": 8117.039967,
+    "LBP": 1507.655,
+    "LKR": 133.409,
+    "LRD": 84.722601,
+    "LSL": 12.2566,
+    "LTL": 2.933667,
+    "LVL": 0.659684,
+    "LYD": 1.366258,
+    "MAD": 10.02166,
+    "MDL": 18.37841,
+    "MGA": 2988.839984,
+    "MKD": 57.71421,
+    "MMK": 1046.629988,
+    "MNT": 1984.833333,
+    "MOP": 8.00174,
+    "MRO": 291.069996,
+    "MTL": 0.402204,
+    "MUR": 36.26197,
+    "MVR": 15.30633,
+    "MWK": 438.812503,
+    "MXN": 15.31162,
+    "MYR": 3.70403,
+    "MZN": 34.53015,
+    "NAD": 12.2566,
+    "NGN": 199.196601,
+    "NIO": 26.70559,
+    "NOK": 8.126463,
+    "NPR": 99.80181,
+    "NZD": 1.352091,
+    "OMR": 0.385024,
+    "PAB": 1,
+    "PEN": 3.097496,
+    "PGK": 2.654312,
+    "PHP": 44.82546,
+    "PKR": 102.053799,
+    "PLN": 3.878372,
+    "PYG": 4795.301719,
+    "QAR": 3.641562,
+    "RON": 4.148521,
+    "RSD": 112.4354,
+    "RUB": 60.29408,
+    "RWF": 693.50712,
+    "SAR": 3.750563,
+    "SBD": 7.750977,
+    "SCR": 13.512863,
+    "SDG": 5.836768,
+    "SEK": 8.694174,
+    "SGD": 1.386529,
+    "SHP": 0.673091,
+    "SLL": 4363.333333,
+    "SOS": 705.6466,
+    "SRD": 3.2825,
+    "STD": 22984.7,
+    "SVC": 8.702685,
+    "SYP": 211.295,
+    "SZL": 12.25652,
+    "THB": 32.78036,
+    "TJS": 5.61625,
+    "TMT": 3.5,
+    "TND": 1.960963,
+    "TOP": 2.01826,
+    "TRY": 2.604727,
+    "TTD": 6.347774,
+    "TWD": 31.48327,
+    "TZS": 1858.56,
+    "UAH": 23.23278,
+    "UGX": 2902.956667,
+    "USD": 1,
+    "UYU": 25.46312,
+    "UZS": 2472.319993,
+    "VEF": 6.30762,
+    "VND": 21488.466667,
+    "VUV": 107.075,
+    "WST": 2.496712,
+    "XAF": 615.588964,
+    "XAG": 0.06369869,
+    "XAU": 0.00085992,
+    "XCD": 2.70156,
+    "XDR": 0.727551,
+    "XOF": 615.465084,
+    "XPF": 111.875151,
+    "YER": 215.0038,
+    "ZAR": 12.27081,
+    "ZMK": 5252.024745,
+    "ZMW": 7.652133,
+    "ZWL": 322.355006
+  }
+}
+//leave a line blank for correct js suturing
+$(document).ready(function(){
+    $("#go").on("click",function(){
+        amt=parseFloat($("#amt").val());
+        base=$("#base").val();
+        dest=$("#dest").val();
+        xchng=parseFloat($("#xchng").val());
+        answer=convert(amt,base,dest,data);
+        commision=rnd(((answer-xchng)/answer)*100);
+        if(amt!=='' && amt!==' ') {
+            result="<div id='convertInfo'><div id='cAmt'>"+amt.formatMoney(2,".",",")+"</div><div id='cBase'><div id='baseCode'>"+base+"</div><div id='baseDesc'>"+currencies[base]+"</div></div><div id='equalSign'> = </div><div id='cAns'>"+answer.formatMoney(2,".",",")+"</div><div id='cDest'><div id='destCode'>"+dest+"</div><div id='destDesc'>"+currencies[dest]+"</div></div></div>";
+        }else {result="";}
+
+        if(!isNaN(amt) && !isNaN(xchng)) {
+        result+="<br> Commision = <span class='val'>"+commision+"%</span>";
+        }
+        $("#result").html(result);
+
+
+    });
+
+    i=0;
+    for(k in data.rates) {
+        if($("#currencyHelp tbody tr").eq(i).children().eq(0).html()===k) {
+            $("#currencyHelp tbody tr").eq(i).append("<td>"+rnd(data.rates[k])+"</td>");
+            i++;
+        }
+    } // bug fixed ! :)
+
+    stats=[];
+    for(var k in data.rates)
+        stats.push([k , data.rates[k]]);
+    stats.sort(function(a,b){return a[1]-b[1];});
+
+    var max=currencies[stats[0][0]]+" ("+stats[0][0]+") at "+stats[0][1]+" ";
+    var min=currencies[stats[stats.length-1][0]]+" ("+stats[stats.length-1][0]+") at "+stats[stats.length-1][1]+" ";
+
+    $("#stats").html("Maximum value : <strong>"+max+"</strong><br>Minimum value : <strong>"+min+"</strong>");
+
+    var d=new Date(data.timestamp*1000);
+    $("#lastUpdated").html(d.toLocaleString());
+});
+
+
+
+function convert(amount,base,to,data) {
+        if(data.error) {
+            alert(data.description);
+            return false;
+        } else {
+            for(curr in data.rates) {
+                if(curr==to) {
+                    result= (amount/data.rates[base])*data.rates[curr];
+                    return rnd(result);
+                }// end if
+            }// end for
+        }// end error check
+}
+
+function rnd(n) {
+    return Math.round(n*1000)/1000;
+}
+
+Number.prototype.formatMoney = function(c, d, t){var n = this, c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "," : d, t = t == undefined ? "." : t, s = n < 0 ? "-" : "", i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
+   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+ };
+
+
+// currencies description:
+currencies={
+	"AED": "United Arab Emirates Dirham",
+	"AFN": "Afghan Afghani",
+	"ALL": "Albanian Lek",
+	"AMD": "Armenian Dram",
+	"ANG": "Netherlands Antillean Guilder",
+	"AOA": "Angolan Kwanza",
+	"ARS": "Argentine Peso",
+	"AUD": "Australian Dollar",
+	"AWG": "Aruban Florin",
+	"AZN": "Azerbaijani Manat",
+	"BAM": "Bosnia-Herzegovina Convertible Mark",
+	"BBD": "Barbadian Dollar",
+	"BDT": "Bangladeshi Taka",
+	"BGN": "Bulgarian Lev",
+	"BHD": "Bahraini Dinar",
+	"BIF": "Burundian Franc",
+	"BMD": "Bermudan Dollar",
+	"BND": "Brunei Dollar",
+	"BOB": "Bolivian Boliviano",
+	"BRL": "Brazilian Real",
+	"BSD": "Bahamian Dollar",
+	"BTN": "Bhutanese Ngultrum",
+	"BWP": "Botswanan Pula",
+	"BYR": "Belarusian Ruble",
+	"BZD": "Belize Dollar",
+	"CAD": "Canadian Dollar",
+	"CDF": "Congolese Franc",
+	"CHF": "Swiss Franc",
+	"CLF": "Chilean Unit of Account (UF)",
+	"CLP": "Chilean Peso",
+	"CNY": "Chinese Yuan",
+	"COP": "Colombian Peso",
+	"CRC": "Costa Rican Colón",
+	"CUP": "Cuban Peso",
+	"CVE": "Cape Verdean Escudo",
+	"CZK": "Czech Republic Koruna",
+	"DJF": "Djiboutian Franc",
+	"DKK": "Danish Krone",
+	"DOP": "Dominican Peso",
+	"DZD": "Algerian Dinar",
+	"EGP": "Egyptian Pound",
+	"ETB": "Ethiopian Birr",
+	"EUR": "Euro",
+	"FJD": "Fijian Dollar",
+	"FKP": "Falkland Islands Pound",
+	"GBP": "British Pound Sterling",
+	"GEL": "Georgian Lari",
+	"GHS": "Ghanaian Cedi",
+	"GIP": "Gibraltar Pound",
+	"GMD": "Gambian Dalasi",
+	"GNF": "Guinean Franc",
+	"GTQ": "Guatemalan Quetzal",
+	"GYD": "Guyanaese Dollar",
+	"HKD": "Hong Kong Dollar",
+	"HNL": "Honduran Lempira",
+	"HRK": "Croatian Kuna",
+	"HTG": "Haitian Gourde",
+	"HUF": "Hungarian Forint",
+	"IDR": "Indonesian Rupiah",
+	"ILS": "Israeli New Sheqel",
+	"INR": "Indian Rupee",
+	"IQD": "Iraqi Dinar",
+	"IRR": "Iranian Rial",
+	"ISK": "Icelandic Króna",
+	"JEP": "Jersey Pound",
+	"JMD": "Jamaican Dollar",
+	"JOD": "Jordanian Dinar",
+	"JPY": "Japanese Yen",
+	"KES": "Kenyan Shilling",
+	"KGS": "Kyrgystani Som",
+	"KHR": "Cambodian Riel",
+	"KMF": "Comorian Franc",
+	"KPW": "North Korean Won",
+	"KRW": "South Korean Won",
+	"KWD": "Kuwaiti Dinar",
+	"KYD": "Cayman Islands Dollar",
+	"KZT": "Kazakhstani Tenge",
+	"LAK": "Laotian Kip",
+	"LBP": "Lebanese Pound",
+	"LKR": "Sri Lankan Rupee",
+	"LRD": "Liberian Dollar",
+	"LSL": "Lesotho Loti",
+	"LTL": "Lithuanian Litas",
+	"LVL": "Latvian Lats",
+	"LYD": "Libyan Dinar",
+	"MAD": "Moroccan Dirham",
+	"MDL": "Moldovan Leu",
+	"MGA": "Malagasy Ariary",
+	"MKD": "Macedonian Denar",
+	"MMK": "Myanma Kyat",
+	"MNT": "Mongolian Tugrik",
+	"MOP": "Macanese Pataca",
+	"MRO": "Mauritanian Ouguiya",
+	"MUR": "Mauritian Rupee",
+	"MVR": "Maldivian Rufiyaa",
+	"MWK": "Malawian Kwacha",
+	"MXN": "Mexican Peso",
+	"MYR": "Malaysian Ringgit",
+	"MZN": "Mozambican Metical",
+	"NAD": "Namibian Dollar",
+	"NGN": "Nigerian Naira",
+	"NIO": "Nicaraguan Córdoba",
+	"NOK": "Norwegian Krone",
+	"NPR": "Nepalese Rupee",
+	"NZD": "New Zealand Dollar",
+	"OMR": "Omani Rial",
+	"PAB": "Panamanian Balboa",
+	"PEN": "Peruvian Nuevo Sol",
+	"PGK": "Papua New Guinean Kina",
+	"PHP": "Philippine Peso",
+	"PKR": "Pakistani Rupee",
+	"PLN": "Polish Zloty",
+	"PYG": "Paraguayan Guarani",
+	"QAR": "Qatari Rial",
+	"RON": "Romanian Leu",
+	"RSD": "Serbian Dinar",
+	"RUB": "Russian Ruble",
+	"RWF": "Rwandan Franc",
+	"SAR": "Saudi Riyal",
+	"SBD": "Solomon Islands Dollar",
+	"SCR": "Seychellois Rupee",
+	"SDG": "Sudanese Pound",
+	"SEK": "Swedish Krona",
+	"SGD": "Singapore Dollar",
+	"SHP": "Saint Helena Pound",
+	"SLL": "Sierra Leonean Leone",
+	"SOS": "Somali Shilling",
+	"SRD": "Surinamese Dollar",
+	"STD": "São Tomé and Príncipe Dobra",
+	"SVC": "Salvadoran Colón",
+	"SYP": "Syrian Pound",
+	"SZL": "Swazi Lilangeni",
+	"THB": "Thai Baht",
+	"TJS": "Tajikistani Somoni",
+	"TMT": "Turkmenistani Manat",
+	"TND": "Tunisian Dinar",
+	"TOP": "Tongan Pa?anga",
+	"TRY": "Turkish Lira",
+	"TTD": "Trinidad and Tobago Dollar",
+	"TWD": "New Taiwan Dollar",
+	"TZS": "Tanzanian Shilling",
+	"UAH": "Ukrainian Hryvnia",
+	"UGX": "Ugandan Shilling",
+	"USD": "United States Dollar",
+	"UYU": "Uruguayan Peso",
+	"UZS": "Uzbekistan Som",
+	"VEF": "Venezuelan Bolívar",
+	"VND": "Vietnamese Dong",
+	"VUV": "Vanuatu Vatu",
+	"WST": "Samoan Tala",
+	"XAF": "CFA Franc BEAC",
+	"XCD": "East Caribbean Dollar",
+	"XDR": "Special Drawing Rights",
+	"XOF": "CFA Franc BCEAO",
+	"XPF": "CFP Franc",
+	"YER": "Yemeni Rial",
+	"ZAR": "South African Rand",
+	"ZMK": "Zambian Kwacha",
+	"ZWL": "Zimbabwean Dollar"
+}
+
 
 
     </script>
@@ -69,7 +518,7 @@
 
 
 <p>Source</p>
-<select name='currencies' id ="MyCurrencySrc" onchange="myFunction()">
+<select name='currencies' id ="base" onchange="myFunction()">
     <option value='AED' title='United Arab Emirates Dirham'>AED</option>
     <option value='AFN' title='Afghan Afghani'>AFN</option>
     <option value='ALL' title='Albanian Lek'>ALL</option>
@@ -233,7 +682,7 @@
 
 
 <p>Destination</p>
-<select name='currencies' id ="MyCurrencyDest" onchange="myFunction()">
+<select name='currencies' id ="dest" onchange="myFunction()">
     <option value='AED' title='United Arab Emirates Dirham'>AED</option>
     <option value='AFN' title='Afghan Afghani'>AFN</option>
     <option value='ALL' title='Albanian Lek'>ALL</option>
@@ -394,15 +843,11 @@
     <option value='ZMK' title='Zambian Kwacha'>ZMK</option>
     <option value='ZWL' title='Zimbabwean Dollar'>ZWL</option>
 </select><br><br>
-Ammount: <input type="text" name="fname" id ="ammount" required><br><br>
-<button onclick="myFunction()">Ok</button>
+Ammount: <input type="text" name="fname" id ="amt" required><br><br>
+<button id="go">Ok</button>
 
-
-<form name="myForm" action="demo_form.asp" onsubmit="return validateForm()" method="post">
-    Name: <input type="text" name="fname">
-    <input type="submit" value="Submit">
-</form>
 
 <p id="Total"></p>
+<div id ="result"></div>
 </body>
 </html>

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.william.moneycontrol.Cuentas.TimeDialogFragment;
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
+import com.example.william.moneycontrol.MainActivity;
 import com.example.william.moneycontrol.R;
 import com.example.william.moneycontrol.Transacciones.CreateGastoIngresoActivity;
 import com.example.william.moneycontrol.Transacciones.CreateTransferActivity;
@@ -58,6 +60,7 @@ public class PagoPrestamos  extends ActionBarActivity {
 
                     /** Creating a bundle object to store the position of the selected country */
                     Bundle b = new Bundle();
+                    b.putFloat("Cantidad", prestamos.get(0).getMonto());
 
                     /** Storing the position in the bundle object */
                   /*  b.putInt("position", position);
@@ -74,6 +77,7 @@ public class PagoPrestamos  extends ActionBarActivity {
 
                     /** Getting the previously created fragment object from the fragment manager */
                     PagoCuotasFragment tPrev =  ( PagoCuotasFragment ) fragmentManager.findFragmentByTag("payment_dialog");
+
 
                     /** If the previously created fragment object still exists, then that has to be removed */
                     if(tPrev!=null)
@@ -96,7 +100,11 @@ public class PagoPrestamos  extends ActionBarActivity {
         public boolean onOptionsItemSelected(MenuItem item) {
             switch (item.getItemId()) {
                 case android.R.id.home:
-                    this.finish();
+                    Intent intent = new Intent(this, MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.putExtra("Index", 4);
+                    startActivity(intent);
+                    finish();
                     return true;
                 default:
                     return super.onOptionsItemSelected(item);
@@ -107,8 +115,14 @@ public class PagoPrestamos  extends ActionBarActivity {
     public void onBackPressed() {
         // TODO Auto-generated method stub
         super.onBackPressed();
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("Index", 4);
+        startActivity(intent);
         finish();
     }
+
+
 
 
     private void GetlistPlazos(String IdPrestamo){
@@ -152,10 +166,12 @@ public class PagoPrestamos  extends ActionBarActivity {
         TextView tv1 =(TextView)findViewById(R.id.textViewTotalIntereses);
         TextView tv2 =(TextView)findViewById(R.id.textViewInteresesporMes);
         TextView tv3 =(TextView)findViewById(R.id.textViewTotalPrestamo);
+        TextView tv4 =(TextView)findViewById(R.id.textViewTasa);
 
         tv1.setText(String.valueOf(interes_total));
         tv2.setText(String.valueOf(interes_mensual));
         tv3.setText(String.valueOf(pago_total));
+        tv4.setText(String.valueOf(tasa_interes));
 
         for(int i=0;i<plazo_meses;i++)
             prestamos.add(new LoanItem(String.valueOf(fecha),Banco,pago_mensual));
@@ -163,7 +179,8 @@ public class PagoPrestamos  extends ActionBarActivity {
         bd.close();
 
         final ListView lv = (ListView)findViewById(R.id.listViewPlazos);
-        //lv.setAdapter(new ListViewLoanAdapter(getApplicationContext(), prestamos));
+        lv.setAdapter(new ListViewLoanAdapter(getApplicationContext(), prestamos));
+
 
     }
  }

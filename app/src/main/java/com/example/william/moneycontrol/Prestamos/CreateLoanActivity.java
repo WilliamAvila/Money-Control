@@ -82,7 +82,7 @@ public class CreateLoanActivity extends ActionBarActivity implements View.OnClic
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android
-                 .R.id.home:
+.R.id.home:
                 this.finish();
                 return true;
             default:

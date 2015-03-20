@@ -1,5 +1,6 @@
 package com.example.william.moneycontrol.Prestamos;
 
+import android.accounts.Account;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.database.Cursor;
@@ -13,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
 import com.example.william.moneycontrol.R;
@@ -25,7 +27,9 @@ import java.util.ArrayList;
  * Created by Affisa-Jimmy on 18/03/2015.
  */
 public class PagoCuotasFragment extends DialogFragment {
-    int numeroCuenta;
+    int saldoCuota;
+    String AccountNumber;
+    Float Cantidad;
     Spinner spinnerOrigen;
 
     @Override
@@ -38,12 +42,15 @@ public class PagoCuotasFragment extends DialogFragment {
         /** Getting the arguments passed to this fragment. Here we expects the selected item's position as argument */
         final Bundle b = getArguments();
         /** Setting the title for the dialog window */
-        numeroCuenta =  b.getInt("SaldoCuota");
-
+        saldoCuota =  b.getInt("SaldoCuota");
+        Cantidad =  b.getFloat("Cantidad");
         getDialog().setTitle("Pago de cuota");
 
         spinnerOrigen = (Spinner) v.findViewById(R.id.spinnerCuentas);
+        TextView tv1 =(TextView) v.findViewById(R.id.txtCantidad);
+        tv1.setText(String.valueOf(Cantidad));
 
+        //AccountNumber = spinnerOrigen.getSelectedItem().toString().split(" ")[0];
         AddAccounts();
 
         Button btnCancelar = (Button) v.findViewById((R.id.btnCancelar));
@@ -58,8 +65,10 @@ public class PagoCuotasFragment extends DialogFragment {
         Button btnGuardar = (Button) v.findViewById((R.id.btnPagar));
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+
 
             }
         });
