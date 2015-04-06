@@ -46,7 +46,7 @@ public class PagoPrestamos  extends ActionBarActivity {
             Intent i = getIntent();
             // Receiving the Data
             numeroPrestamo = i.getStringExtra("NumeroPrestamo");
-            Log.d("Numero Prestamo", numeroPrestamo);
+            Log.e("Numero Prestamo", numeroPrestamo);
 
             Button btnPago = (Button) findViewById((R.id.btnPagoCuota));
 
@@ -61,6 +61,7 @@ public class PagoPrestamos  extends ActionBarActivity {
                     /** Creating a bundle object to store the position of the selected country */
                     Bundle b = new Bundle();
                     b.putFloat("Cantidad", prestamos.get(0).getMonto());
+                    b.putString("IdPrestamo",numeroPrestamo);
 
                     /** Storing the position in the bundle object */
                   /*  b.putInt("position", position);

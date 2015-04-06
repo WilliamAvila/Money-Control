@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.william.moneycontrol.Helpers.AdminSQLiteOpenHelper;
+import com.example.william.moneycontrol.MainActivity;
 import com.example.william.moneycontrol.R;
 import com.example.william.moneycontrol.Transacciones.CreateGastoIngresoActivity;
 import com.example.william.moneycontrol.Transacciones.CreateTransferActivity;
@@ -35,6 +36,7 @@ public class PagoCuotasFragment extends DialogFragment {
     int saldoCuota;
     private EditText Descripcion;
     Float Cantidad;
+    String IdPrestamo;
     Spinner spinnerOrigen;
 
     @Override
@@ -49,6 +51,7 @@ public class PagoCuotasFragment extends DialogFragment {
         /** Setting the title for the dialog window */
         saldoCuota =  b.getInt("SaldoCuota");
         Cantidad =  b.getFloat("Cantidad");
+        IdPrestamo = b.getString("IdPrestamo");
         getDialog().setTitle("Pago de cuota");
 
         spinnerOrigen = (Spinner) v.findViewById(R.id.spinnerCuentas);
@@ -118,15 +121,16 @@ public class PagoCuotasFragment extends DialogFragment {
                 bd.close();
 
 
-                if(tipo.equals("Gasto"))
+                if(tipo.equals("Gasto")){
                     UpdateAccountData(numeroCuenta,monto);
+                    UpdatePlazos(IdPrestamo.toString(),"1");
+                }
                 else
                     AddAccountData(numeroCuenta,monto);
 
                 dismiss();
             }
         });
-
         /** Returns the View object */
         return v;
     }
@@ -176,15 +180,28 @@ public class PagoCuotasFragment extends DialogFragment {
         registro.put("Saldo", String.valueOf(saldo));
         int cant = bd.update("Cuenta", registro, "NumeroCuenta=" + numCuenta, null);
         bd.close();
+    }
 
-      /*  if (cant == 1)
-            Toast.makeText(this, "Se Actualizaron los datos", Toast.LENGTH_SHORT)
-                    .show();
-        else
-            Toast.makeText(this, "No existe NumeroCuenta",
-                    Toast.LENGTH_SHORT).show();
-        */
+    public void UpdatePlazos(String IdPrestamo,String meses){
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getActivity().getApplicationContext(),"MoneyControl", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
 
+        Cursor fila = bd.rawQuery(
+                "select Plazo from Prestamo where IdPrestamo="+IdPrestamo , null);
+
+        double plazo=0;
+        if(fila.moveToFirst())
+            plazo = fila.getDouble(0);
+
+        ContentValues registro = new ContentValues();
+
+        plazo -= Double.parseDouble(meses);
+
+        registro.put("Plazo", String.valueOf(plazo));
+        Log.e("BAJANDO PLAZO",registro.toString());
+        Log.e("NUMERO DE PRESTAMOS",IdPrestamo);
+        int cant = bd.update("Prestamo", registro, "IdPrestamo=" + IdPrestamo, null);
+        bd.close();
     }
 
 
@@ -207,14 +224,6 @@ public class PagoCuotasFragment extends DialogFragment {
         registro.put("Saldo", String.valueOf(saldo));
         int cant = bd.update("Cuenta", registro, "NumeroCuenta=" + numCuenta, null);
         bd.close();
-
-      /*  if (cant == 1)
-            Toast.makeText(this, "Se Actualizaron los datos", Toast.LENGTH_SHORT)
-                    .show();
-        else
-            Toast.makeText(this, "No existe NumeroCuenta",
-                    Toast.LENGTH_SHORT).show();*/
-
     }
 
 }

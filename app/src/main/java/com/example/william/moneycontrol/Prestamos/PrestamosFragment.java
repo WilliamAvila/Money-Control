@@ -84,7 +84,7 @@ public class PrestamosFragment extends Fragment {
         float plazo_meses;
 
         Cursor fila = bd.rawQuery(
-                "select IdPrestamo, Banco,Descripcion,Monto,Plazo,Tasa,Fecha from Prestamo" , null);
+                "select IdPrestamo, Banco,Descripcion,Monto,Plazo,Tasa,Fecha from Prestamo where Plazo >=1" , null);
 
         while(fila.moveToNext()){
             idPrestamo=fila.getInt(0);
