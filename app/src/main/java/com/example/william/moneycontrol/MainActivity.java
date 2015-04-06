@@ -286,21 +286,6 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-  /* @Override
-    public void onBackPressed() {
-        if(posf==0){
-            new AlertDialog.Builder(this)
-                    .setMessage("¿Desea salir?")
-                    .setCancelable(false)
-                    .setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            finish();
-                        }
-                    })
-                    .setNegativeButton("No", null)
-                    .show();
-        }
-    }*/
 }
 
 

@@ -184,6 +184,8 @@ public class CreateGastoIngresoActivity extends ActionBarActivity implements Vie
         registro.put("Fecha", fecha);
         registro.put("Comentario", descripcion);
 
+        Log.e("FECHA EN GASTO INGRESO",fecha);
+
         bd.insert("Transaccion", null, registro);
         bd.close();
 

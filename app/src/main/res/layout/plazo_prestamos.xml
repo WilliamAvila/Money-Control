@@ -120,9 +120,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/textViewTasa"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/textView24"
-        android:layout_toEndOf="@+id/textView24"
-        android:layout_marginLeft="20dp" />
+        android:layout_alignTop="@+id/textView24"
+        android:layout_alignLeft="@+id/textViewTotalIntereses"
+        android:layout_alignStart="@+id/textViewTotalIntereses" />
 
 </RelativeLayout>
